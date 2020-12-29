@@ -1,0 +1,49 @@
+PODS:
+  - Alamofire (5.2.2)
+  - Moya/Core (14.0.0):
+    - Alamofire (~> 5.0)
+  - Moya/RxSwift (14.0.0):
+    - Moya/Core
+    - RxSwift (~> 5.0)
+  - Presentr (1.9)
+  - RxCocoa (5.1.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.1.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.1)
+  - SwiftGen (6.3.0)
+  - UIWindowTransitions (0.2.0)
+
+DEPENDENCIES:
+  - Moya/RxSwift (= 14.0)
+  - Presentr
+  - RxCocoa
+  - RxSwift
+  - SwiftGen (~> 6.0)
+  - UIWindowTransitions
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Moya
+    - Presentr
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - SwiftGen
+    - UIWindowTransitions
+
+SPEC CHECKSUMS:
+  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
+  Presentr: 7078d7eb5d1661ebeaae60c9e42a1e534de1b993
+  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+  SwiftGen: 3d5024a47ea79e408cded20763d7a17d18a4548c
+  UIWindowTransitions: cb662e2ae9e2d1060fcdbe3eb3de9232bedb7612
+
+PODFILE CHECKSUM: 826f4b85a084e5d926ddfab81868cdb3120065e5
+
+COCOAPODS: 1.9.3

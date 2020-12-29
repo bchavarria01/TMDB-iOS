@@ -1,0 +1,25 @@
+input_dir: TMDB/Resources
+output_dir: TMDB/Resources
+
+strings:
+  inputs: Localizable.strings
+  outputs:
+    - templateName: structured-swift4
+      output: L10n.swift
+
+# fonts:
+#   inputs: Fonts
+#   outputs:
+#     templateName: swift4
+#     output: Fonts.swift
+
+xcassets:
+  inputs:
+      - Assets/Base.xcassets
+      - Assets/Colors.xcassets
+
+  outputs:
+    - templateName: swift4
+      output: R.swift
+      params:
+        enumName: R

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TvShowsCollectionViewCell" id="gTV-IL-0wX" customClass="TvShowsCollectionViewCell" customModule="TMDB" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="175" height="350"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="175" height="350"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ufz-B6-lF1">
+                        <rect key="frame" x="0.0" y="190" width="175" height="160"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5Op-18-ktN">
+                                <rect key="frame" x="8" y="62" width="159" height="90"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="iv0-oh-UhO">
+                                        <rect key="frame" x="0.0" y="0.0" width="159" height="34"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Interstellar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jHG-hl-epU">
+                                                <rect key="frame" x="0.0" y="0.0" width="159" height="10"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" name="Green"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="56" translatesAutoresizingMaskIntoConstraints="NO" id="4HJ-eh-hD0">
+                                                <rect key="frame" x="0.0" y="24" width="159" height="10"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aug 10, 2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5C-9f-rYT">
+                                                        <rect key="frame" x="0.0" y="0.0" width="69" height="10"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                        <color key="textColor" name="Green"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ttu-Jc-48G">
+                                                        <rect key="frame" x="125" y="0.0" width="34" height="10"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rb3-GP-J3s">
+                                                                <rect key="frame" x="0.0" y="0.0" width="10" height="10"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="10" id="SSb-uQ-RM2"/>
+                                                                    <constraint firstAttribute="width" constant="10" id="n7h-44-Q9T"/>
+                                                                </constraints>
+                                                                <state key="normal">
+                                                                    <color key="titleColor" name="Green"/>
+                                                                    <imageReference key="image" image="star.fill" catalog="system" renderingMode="template"/>
+                                                                </state>
+                                                            </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRB-Wp-Hjf">
+                                                                <rect key="frame" x="14" y="0.0" width="20" height="10"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                                <color key="textColor" name="Green"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A bullied teenager turns to beauty pageants as a way to exact her revenge, with the help of disgraced coach who so..." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dq6-nK-ZE3">
+                                        <rect key="frame" x="0.0" y="42" width="159" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" name="AlmostBlack"/>
+                        <constraints>
+                            <constraint firstItem="5Op-18-ktN" firstAttribute="leading" secondItem="Ufz-B6-lF1" secondAttribute="leading" constant="8" id="0oD-ts-Yqo"/>
+                            <constraint firstAttribute="bottom" secondItem="5Op-18-ktN" secondAttribute="bottom" constant="8" id="FDb-Fv-6gJ"/>
+                            <constraint firstAttribute="trailing" secondItem="5Op-18-ktN" secondAttribute="trailing" constant="8" id="X7q-Mp-bcS"/>
+                            <constraint firstAttribute="height" constant="160" id="acG-o5-4XW"/>
+                        </constraints>
+                    </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Interstellar" translatesAutoresizingMaskIntoConstraints="NO" id="9BP-Gl-22X">
+                        <rect key="frame" x="0.0" y="0.0" width="175" height="230"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="230" id="J3E-iA-xgH"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" name="AlmostBlack"/>
+            <constraints>
+                <constraint firstItem="Ufz-B6-lF1" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="9zI-zc-miv"/>
+                <constraint firstItem="9BP-Gl-22X" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Epd-vZ-dah"/>
+                <constraint firstAttribute="trailing" secondItem="Ufz-B6-lF1" secondAttribute="trailing" id="OXF-PC-iTo"/>
+                <constraint firstAttribute="bottom" secondItem="Ufz-B6-lF1" secondAttribute="bottom" id="OeI-Zv-R95"/>
+                <constraint firstAttribute="trailing" secondItem="9BP-Gl-22X" secondAttribute="trailing" id="ZRl-Nt-n80"/>
+                <constraint firstItem="9BP-Gl-22X" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="uWa-GH-3Py"/>
+            </constraints>
+            <connections>
+                <outlet property="tvShowDescription" destination="Dq6-nK-ZE3" id="nga-16-nKZ"/>
+                <outlet property="tvShowFavoriteButton" destination="rb3-GP-J3s" id="mHT-vs-chV"/>
+                <outlet property="tvShowImage" destination="9BP-Gl-22X" id="emH-r4-Kwb"/>
+                <outlet property="tvShowName" destination="jHG-hl-epU" id="vdP-eX-U6I"/>
+                <outlet property="tvShowRate" destination="oRB-Wp-Hjf" id="Rch-nd-sDl"/>
+                <outlet property="tvShowReleaseDate" destination="S5C-9f-rYT" id="VRn-vv-8Jg"/>
+            </connections>
+            <point key="canvasLocation" x="118.11594202898551" y="114.50892857142857"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Interstellar" width="756" height="1080"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
+        <namedColor name="AlmostBlack">
+            <color red="0.039215686274509803" green="0.082352941176470587" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Green">
+            <color red="0.12941176470588237" green="0.80392156862745101" blue="0.396078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

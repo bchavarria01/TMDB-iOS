@@ -1,0 +1,50 @@
+/* 
+  Localizable.strings
+  TMDB
+
+  Created by Byron Chavarría on 28/12/20.
+*/
+
+// MARK: - Login
+
+"loginAction" = "Log in";
+"usernamePlaceholder" = "Username";
+"passwordPlaceholder" = "Password";
+
+// MARK: - Home ViewController
+
+"homeTitle" = "TV Show";
+"popularOption" = "Popular";
+"topRatedOption" = "Top Rated";
+"onTvOption" = "On TV";
+"airingOption" = "Airing Today";
+
+// MARK: - Description ViewController
+
+"summary" = "Summary";
+"lastSeason" = "Last Season";
+"viewAllSeasonActiom" = "View All Seasons";
+"cast" = "Cast";
+"createdBy" = "Created by ";
+"exampleText" = "Rick is a mentally-unbalanced but scientifically-gifted old man who has recently reconnected with his family. He spends most of his time involving his young grandson Morty in dangerous, outlandish adventures throughout space and alternate universes. Compounded with Morty's already unstable family life, these events cause Morty much distress at home and school.";
+
+// MARK: - Menu options
+
+"optionsQustion" = "What do you want to do?";
+"viewProfile" = "View Profile";
+"logOut" = "Log Out";
+"cancelAction" = "Cancel";
+
+// MARK: - Profile
+
+"profileTitle" = "Profile";
+"favoriteShows" = "Favorite Shows";
+
+// MARK: - Network errors
+
+"defaultMoyaErrorMessage" = "Status code didn't fall withing the given range";
+"defaultErrorMessage" = "Ha ocurrido un error, por favor intente nuevamente más tarde";
+
+"notValidData" = "Estos no parecen ser datos válidos.";
+"sessionHasExpired" = "La sesión ha expirado.";
+"errorHasOcurred" = "Ha ocurrido un error inesperado intenta nuevamente.";
