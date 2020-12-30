@@ -11,31 +11,35 @@ final class FilterButtonsView: UIView {
     
     // MARK: - Components
     
-    lazy var popularButton: UIButton = {
-        let button = UIButton()
+    lazy var popularButton: ActionableButton = {
+        let button = ActionableButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(L10n.popularOption, for: .normal)
+        button.cornerRadius(with: [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner], cornerRadii: 5)
         return button
     }()
     
-    lazy var topRateButton: UIButton = {
-        let button = UIButton()
+    lazy var topRateButton: ActionableButton = {
+        let button = ActionableButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(L10n.topRatedOption, for: .normal)
+        button.cornerRadius(with: [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner], cornerRadii: 5)
         return button
     }()
     
-    lazy var onTvButton: UIButton = {
-        let button = UIButton()
+    lazy var onTvButton: ActionableButton = {
+        let button = ActionableButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(L10n.onTvOption, for: .normal)
+        button.cornerRadius(with: [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner], cornerRadii: 5)
         return button
     }()
     
-    lazy var airingTodayButton: UIButton = {
-        let button = UIButton()
+    lazy var airingTodayButton: ActionableButton = {
+        let button = ActionableButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(L10n.airingOption, for: .normal)
+        button.cornerRadius(with: [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner], cornerRadii: 5)
         return button
     }()
     
@@ -55,7 +59,7 @@ final class FilterButtonsView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = R.Colors.almostBlack.color
+        backgroundColor = R.Colors.filterButtonsBackColor.color
         setupStackView()
         setupLayout()
         

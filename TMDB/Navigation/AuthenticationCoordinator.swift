@@ -41,7 +41,7 @@ final class AuthenticationCoordinator: Coordinator {
 
 extension AuthenticationCoordinator: LoginViewControllerDelegate {
     func loginViewControllerDidLogInSuccessfully() {
-        let controller = HomeViewController()
-        presenter.pushViewController(controller, animated: true)
+        guard let parent = parentCoordinator as? ApplicationCoordinator else { return }
+        parent.setupHomeCoordinator()
     }
 }

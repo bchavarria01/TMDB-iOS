@@ -50,7 +50,7 @@ final class DetailViewController: UIViewController {
     lazy var mainBackVIew: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = R.Colors.dark.color
+        view.backgroundColor = R.Colors.gray.color
         return view
     }()
     
@@ -135,6 +135,7 @@ final class DetailViewController: UIViewController {
         button.setTitle(L10n.viewAllSeasonActiom, for: .normal)
         button.backgroundColor = R.Colors.green.color
         button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 10)
         return button
     }()
     
@@ -146,6 +147,35 @@ final class DetailViewController: UIViewController {
         return label
     }()
     
+    lazy var collectionView: UICollectionView = {
+        let collectionLayout = UICollectionViewFlowLayout()
+        collectionLayout.scrollDirection = .horizontal
+        let collectionView = UICollectionView(
+            frame: .zero,
+            collectionViewLayout: collectionLayout
+        )
+        collectionView.backgroundColor = .clear
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        return collectionView
+    }()
+    
+    // MARK: - DataSource
+    
+    lazy var collectionDataSource: DetailViewControllerCollectionDataSource = {
+        let collectionDataSource = DetailViewControllerCollectionDataSource()
+        collectionDataSource.delegate = self
+        return collectionDataSource
+    }()
+    
+    // MARK: - Delegate
+    
+    lazy var collectionDelegate: DetailViewControllerCollectionDelegate = {
+        let collectionDelegate = DetailViewControllerCollectionDelegate()
+        collectionDelegate.delegate = self
+        return collectionDelegate
+    }()
+    
     // MARK: - Attributes
     
     // MARK: - LifeCycle
@@ -153,12 +183,22 @@ final class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = R.Colors.almostBlack.color
+        self.navigationController?.navigationBar.isHidden = true
         
         self.view.setNeedsLayout()
         self.view.layoutIfNeeded()
         
         setupMainBackView()
         setupLayout()
+        
+        mainBackVIew.cornerRadius(with: [.layerMaxXMinYCorner, .layerMinXMinYCorner], cornerRadii: 10)
+        setupCollectionView()
+    }
+    
+    func setupCollectionView() {
+        collectionView.dataSource = collectionDataSource
+        collectionView.delegate = collectionDelegate
+        collectionView.register(CastCollectionCell.self, forCellWithReuseIdentifier: "castCollectionCell")
     }
     
     // MARK: - Methods
@@ -180,6 +220,7 @@ final class DetailViewController: UIViewController {
         mainBackVIew.addSubview(lastSeasonReleaseDate)
         mainBackVIew.addSubview(viewAllSeasonButton)
         mainBackVIew.addSubview(castTitle)
+        mainBackVIew.addSubview(collectionView)
     }
     
     private func setupLayout() {
@@ -207,7 +248,7 @@ final class DetailViewController: UIViewController {
             tvShowImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             tvShowImage.heightAnchor.constraint(equalToConstant: 211),
             
-            mainBackVIew.topAnchor.constraint(equalTo: tvShowImage.bottomAnchor, constant: -56),
+            mainBackVIew.topAnchor.constraint(equalTo: tvShowImage.bottomAnchor, constant: -32),
             mainBackVIew.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
             mainBackVIew.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
             mainBackVIew.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
@@ -265,7 +306,7 @@ final class DetailViewController: UIViewController {
             
             lastSeasonName.topAnchor.constraint(equalTo: tvShowCreatedBy.bottomAnchor, constant: 115),
             lastSeasonName.leadingAnchor.constraint(equalTo: lastSeasonImage.trailingAnchor, constant: 32),
-            lastSeasonName.trailingAnchor.constraint(equalTo: mainBackVIew.trailingAnchor, constant: 20),
+            lastSeasonName.trailingAnchor.constraint(equalTo: mainBackVIew.trailingAnchor, constant: -20),
             
             //lastSeasonReleaseDate
             
@@ -284,7 +325,13 @@ final class DetailViewController: UIViewController {
             
             castTitle.topAnchor.constraint(equalTo: lastSeasonImage.bottomAnchor, constant: 40),
             castTitle.leadingAnchor.constraint(equalTo: mainBackVIew.leadingAnchor, constant: 20),
-            castTitle.trailingAnchor.constraint(equalTo: mainBackVIew.trailingAnchor, constant: -20)
+            castTitle.trailingAnchor.constraint(equalTo: mainBackVIew.trailingAnchor, constant: -20),
+            
+            collectionView.topAnchor.constraint(equalTo: castTitle.bottomAnchor, constant: 8),
+            collectionView.leadingAnchor.constraint(equalTo: mainBackVIew.leadingAnchor, constant: 8),
+            collectionView.trailingAnchor.constraint(equalTo: mainBackVIew.trailingAnchor, constant: -8),
+            collectionView.bottomAnchor.constraint(equalTo: mainBackVIew.bottomAnchor, constant: -16),
+            collectionView.heightAnchor.constraint(equalToConstant: 150)
         ])
         
         let contentViewHeightConstraint = contentView.heightAnchor.constraint(

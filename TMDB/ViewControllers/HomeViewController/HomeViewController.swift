@@ -65,12 +65,46 @@ final class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = R.Colors.dark.color
+        view.backgroundColor = R.Colors.almostBlack.color
         setupLayout()
         setupCollectionView()
+        setupActions()
+        self.navigationItem.title = L10n.homeTitle
+        self.navigationController?.navigationBar.barTintColor = R.Colors.navigationBarColor.color
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        let item = UIBarButtonItem(image: UIImage(systemName: "list.bullet"), style: .done, target: self, action: #selector(self.handleMenuSelection))
+        item.tintColor = R.Colors.selectedButtonGray.color
+        self.navigationItem.rightBarButtonItem = item
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.view.setNeedsLayout()
+        self.view.layoutIfNeeded()
+        self.navigationController?.navigationBar.isHidden = false
+        setupLayout()
     }
     
     // MARK: - Methods
+    
+    @objc private func handleMenuSelection() {
+        self.showAlert(title: "example", message: "message")
+    }
+    
+    private func setupActions() {
+        filterButtonsView.popularButton.addTarget(self, action: #selector(self.handlePopularSelection(_:)), for: .touchUpInside)
+        filterButtonsView.topRateButton.addTarget(self, action: #selector(self.handlePopularSelection(_:)), for: .touchUpInside)
+        filterButtonsView.onTvButton.addTarget(self, action: #selector(self.handlePopularSelection(_:)), for: .touchUpInside)
+        filterButtonsView.airingTodayButton.addTarget(self, action: #selector(self.handlePopularSelection(_:)), for: .touchUpInside)
+    }
+    
+    @objc private func handlePopularSelection(_ sender: UIButton) {
+        if sender.backgroundColor == nil || sender.backgroundColor == .clear {
+            sender.backgroundColor = R.Colors.selectedButtonGray.color
+        } else {
+            sender.backgroundColor = .clear
+        }
+    }
     
     override func didSelectTvShow() {
         let controller = DetailViewController()

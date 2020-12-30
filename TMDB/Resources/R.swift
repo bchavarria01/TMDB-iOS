@@ -29,7 +29,11 @@ internal enum R {
   internal enum Colors {
     internal static let almostBlack = ColorAsset(name: "AlmostBlack")
     internal static let dark = ColorAsset(name: "Dark")
+    internal static let filterButtonsBackColor = ColorAsset(name: "FilterButtonsBackColor")
+    internal static let gray = ColorAsset(name: "Gray")
     internal static let green = ColorAsset(name: "Green")
+    internal static let navigationBarColor = ColorAsset(name: "NavigationBarColor")
+    internal static let selectedButtonGray = ColorAsset(name: "SelectedButtonGray")
   }
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name

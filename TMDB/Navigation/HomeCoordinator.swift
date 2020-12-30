@@ -26,8 +26,8 @@ final class HomeCoordinator: Coordinator {
     }
     
     func start() {
-        let controller = LoginViewController()
-        presenter.navigationBar.isHidden = true
+        let controller = HomeViewController()
+        presenter.navigationBar.isHidden = false
         presenter.pushViewController(controller, animated: true)
     }
     
