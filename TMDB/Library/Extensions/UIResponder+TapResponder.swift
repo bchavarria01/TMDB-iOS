@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIResponder {
-    @objc func didSelectTvShow() {
-        next?.didSelectTvShow()
+    @objc func didSelectTvShow(with tvId: Int) {
+        next?.didSelectTvShow(with: tvId)
     }
 }

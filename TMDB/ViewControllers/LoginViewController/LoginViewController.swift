@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import Moya
 
 final class LoginViewController: UIViewController {
     
@@ -62,19 +64,41 @@ final class LoginViewController: UIViewController {
     // MARK: - Attributes
     
     weak var delegate: LoginViewControllerDelegate?
+    var viewModel: LoginViewModel!
+    let disposeBag = DisposeBag()
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+          return .lightContent
+    }
     
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = R.Colors.almostBlack.color
+        getToken()
         setupLayout()
         setupActions()
+        bindViewModel()
         hideKeyboardGesture()
         setupKeyboardHandling()
     }
     
     // MARK: - Methods
+    
+    func bindViewModel() {
+        usernameTextField
+            .rx
+            .value
+            .bind(to: viewModel.username)
+            .disposed(by: disposeBag)
+        
+        passwordField
+            .rx
+            .value
+            .bind(to: viewModel.password)
+            .disposed(by: disposeBag)
+    }
     
     private func setupActions() {
         logInButton.addTarget(
@@ -84,8 +108,35 @@ final class LoginViewController: UIViewController {
         )
     }
     
+    func getToken() {
+        viewModel.getToken()
+            .subscribe(onSuccess: { [weak self] response in
+                guard let self = self else { return }
+                _ = self
+                DefaultPreferences.current.requestToken = response.requestToken
+            }, onError: { [weak self] error in
+                guard let self = self else { return }
+                let moyaError: MoyaError? = error as? MoyaError
+                self.handleNetworkError(with: moyaError, completitionHandler: nil)
+            }
+        ).disposed(by: disposeBag)
+    }
+    
     @objc func handleLogInSelection(_ sender: UIButton) {
-        delegate?.loginViewControllerDidLogInSuccessfully()
+        sender.isEnabled = false
+        viewModel.authenticateWithCredentials()
+            .subscribe(
+                onSuccess: { [weak self] response in
+                    guard let self = self else { return }
+                    sender.isEnabled = true
+                    self.delegate?.loginViewControllerDidLogInSuccessfully()
+                }, onError: { [weak self] error in
+                    guard let self = self else { return }
+                    sender.isEnabled = true
+                    let moyaError: MoyaError? = error as? MoyaError
+                    self.handleNetworkError(with: moyaError, completitionHandler: nil)
+                }
+            ).disposed(by: disposeBag)
     }
     
     private func setupKeyboardHandling() {
@@ -95,7 +146,8 @@ final class LoginViewController: UIViewController {
         )
     }
     
-    @objc private func keyboardWillChange(_ notification: Notification) {
+    @objc func keyboardWillChange(_ notification: Notification) {
+        
         guard let frame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect
             else { return }
         

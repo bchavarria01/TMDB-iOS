@@ -2,8 +2,7 @@
 //  SourceValidations.swift
 //  TMDB
 //
-//  Created by Byron Chavarría on 28/12/20.
-//   
+//  Created by Byron Chavarría on 30/12/20.
 //
 
 import Foundation
@@ -16,24 +15,6 @@ enum SourceValidations {
 
         let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailPredicate.evaluate(with: source)
-    }
-    
-    static func isValidPhone(_ source: String?) -> Bool {
-        guard let source = source else { return false }
-        
-        let phoneRegEx = "\\A[0-9]{8}\\z"
-        
-        let phonePredicate = NSPredicate(format: "SELF MATCHES %@", phoneRegEx)
-        
-        return phonePredicate.evaluate(with: source)
-    }
-    
-    static func isGratherThanZero(_ value: String?) -> Bool {
-        guard let value = value,
-            let numberValue = Double(value)
-            else { return false }
-        
-        return numberValue > 0
     }
     
     static func onlyNumbers(_ source: String?) -> Bool {
@@ -77,3 +58,4 @@ enum SourceValidations {
         return false
     }
 }
+

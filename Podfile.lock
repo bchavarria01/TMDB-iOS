@@ -5,6 +5,7 @@ PODS:
   - Moya/RxSwift (14.0.0):
     - Moya/Core
     - RxSwift (~> 5.0)
+  - Nuke (9.1.1)
   - Presentr (1.9)
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
@@ -17,6 +18,7 @@ PODS:
 
 DEPENDENCIES:
   - Moya/RxSwift (= 14.0)
+  - Nuke (~> 9.0)
   - Presentr
   - RxCocoa
   - RxSwift
@@ -27,6 +29,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - Moya
+    - Nuke
     - Presentr
     - RxCocoa
     - RxRelay
@@ -37,6 +40,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
+  Nuke: af4301b154d3afd8a3b045a5194a9a773a00b7a8
   Presentr: 7078d7eb5d1661ebeaae60c9e42a1e534de1b993
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
@@ -44,6 +48,6 @@ SPEC CHECKSUMS:
   SwiftGen: 3d5024a47ea79e408cded20763d7a17d18a4548c
   UIWindowTransitions: cb662e2ae9e2d1060fcdbe3eb3de9232bedb7612
 
-PODFILE CHECKSUM: 826f4b85a084e5d926ddfab81868cdb3120065e5
+PODFILE CHECKSUM: 34bf9d8c62b66aebc510b7398a9dd7dc2eb87560
 
 COCOAPODS: 1.9.3

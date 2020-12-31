@@ -23,8 +23,6 @@ class TvShowsCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.backgroundColor = R.Colors.dark.color
-        self.tvShowFavoriteButton.tintColor = R.Colors.green.color
         self.cornerRadius(
             with: [
                 .layerMaxXMinYCorner,

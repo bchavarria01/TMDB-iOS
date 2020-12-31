@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -71,6 +70,9 @@
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A bullied teenager turns to beauty pageants as a way to exact her revenge, with the help of disgraced coach who so..." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dq6-nK-ZE3">
                                         <rect key="frame" x="0.0" y="42" width="159" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="e0x-7O-pTY"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -78,7 +80,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" name="AlmostBlack"/>
+                        <color key="backgroundColor" name="Dark"/>
                         <constraints>
                             <constraint firstItem="5Op-18-ktN" firstAttribute="leading" secondItem="Ufz-B6-lF1" secondAttribute="leading" constant="8" id="0oD-ts-Yqo"/>
                             <constraint firstAttribute="bottom" secondItem="5Op-18-ktN" secondAttribute="bottom" constant="8" id="FDb-Fv-6gJ"/>
@@ -120,6 +122,9 @@
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <namedColor name="AlmostBlack">
             <color red="0.039215686274509803" green="0.082352941176470587" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Dark">
+            <color red="0.10196078431372549" green="0.15686274509803921" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Green">
             <color red="0.12941176470588237" green="0.80392156862745101" blue="0.396078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

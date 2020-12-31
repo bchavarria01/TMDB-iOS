@@ -11,35 +11,39 @@ final class FilterButtonsView: UIView {
     
     // MARK: - Components
     
-    lazy var popularButton: ActionableButton = {
-        let button = ActionableButton()
+    lazy var popularButton: UIButton = {
+        let button = UIButton(type: .system) as UIButton
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(L10n.popularOption, for: .normal)
         button.cornerRadius(with: [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner], cornerRadii: 5)
+        button.tag = 0
         return button
     }()
     
-    lazy var topRateButton: ActionableButton = {
-        let button = ActionableButton()
+    lazy var topRateButton: UIButton = {
+        let button = UIButton(type: .system) as UIButton
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(L10n.topRatedOption, for: .normal)
         button.cornerRadius(with: [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner], cornerRadii: 5)
+        button.tag = 1
         return button
     }()
     
-    lazy var onTvButton: ActionableButton = {
-        let button = ActionableButton()
+    lazy var onTvButton: UIButton = {
+        let button = UIButton(type: .system) as UIButton
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(L10n.onTvOption, for: .normal)
         button.cornerRadius(with: [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner], cornerRadii: 5)
+        button.tag = 2
         return button
     }()
     
-    lazy var airingTodayButton: ActionableButton = {
-        let button = ActionableButton()
+    lazy var airingTodayButton: UIButton = {
+        let button = UIButton(type: .system) as UIButton
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(L10n.airingOption, for: .normal)
         button.cornerRadius(with: [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner], cornerRadii: 5)
+        button.tag = 3
         return button
     }()
     

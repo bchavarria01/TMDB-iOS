@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import Moya
 
 final class HomeViewController: UIViewController {
     
@@ -15,11 +17,18 @@ final class HomeViewController: UIViewController {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.showsVerticalScrollIndicator = false
+        scrollView.backgroundColor = R.Colors.almostBlack.color
         return scrollView
     }()
     
     lazy var contentView: UIView = {
         let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    lazy var navigationView: NavigationView = {
+        let view = NavigationView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -61,53 +70,82 @@ final class HomeViewController: UIViewController {
     
     // MARK: - Attributes
     
+    var viewModel: HomeViewModel!
+    let disposeBag = DisposeBag()
+    var radioButtonController: CustomRadioButtonController?
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+          return .lightContent
+    }
+    
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = R.Colors.almostBlack.color
+        view.backgroundColor = R.Colors.dark.color
         setupLayout()
         setupCollectionView()
         setupActions()
-        self.navigationItem.title = L10n.homeTitle
-        self.navigationController?.navigationBar.barTintColor = R.Colors.navigationBarColor.color
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-        let item = UIBarButtonItem(image: UIImage(systemName: "list.bullet"), style: .done, target: self, action: #selector(self.handleMenuSelection))
-        item.tintColor = R.Colors.selectedButtonGray.color
-        self.navigationItem.rightBarButtonItem = item
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.view.setNeedsLayout()
-        self.view.layoutIfNeeded()
-        self.navigationController?.navigationBar.isHidden = false
-        setupLayout()
+        bindViewModel()
+        
+        radioButtonController = CustomRadioButtonController(
+            buttons:
+                filterButtonsView.popularButton,
+                filterButtonsView.airingTodayButton,
+                filterButtonsView.onTvButton,
+                filterButtonsView.topRateButton
+        )
+        radioButtonController!.delegate = self
+        radioButtonController!.shouldLetDeSelect = true
     }
     
     // MARK: - Methods
     
-    @objc private func handleMenuSelection() {
+    func bindViewModel() {
+        // OUTPUTS
+        viewModel.tvShowList
+            .do(onNext: { [weak self] elements in
+                guard let self = self else { return }
+                DispatchQueue.main.async {
+                    if elements.results?.count == 0 {
+                        self.collectionView.setEmptyMessage("Test message")
+                    } else {
+                        self.collectionView.restore()
+                    }
+                }
+            })
+            .subscribe(
+                onNext: { [weak self] items in
+                    guard let self = self else { return }
+                    self.collectionDataSource.items = items.results ?? []
+                    self.collectionDelegate.items = items.results ?? []
+                    self.collectionView.reloadData()
+                }, onError: { [weak self] error in
+                    guard let self = self else { return }
+                    let moyaError: MoyaError = error as! MoyaError
+                    self.handleNetworkError(with: moyaError, completitionHandler: nil)
+                    self.collectionView.setEmptyMessage("Test message")
+                }
+            ).disposed(by: disposeBag)
+    }
+    
+    @objc func handleMenuSelection() {
         self.showAlert(title: "example", message: "message")
     }
     
     private func setupActions() {
-        filterButtonsView.popularButton.addTarget(self, action: #selector(self.handlePopularSelection(_:)), for: .touchUpInside)
-        filterButtonsView.topRateButton.addTarget(self, action: #selector(self.handlePopularSelection(_:)), for: .touchUpInside)
-        filterButtonsView.onTvButton.addTarget(self, action: #selector(self.handlePopularSelection(_:)), for: .touchUpInside)
-        filterButtonsView.airingTodayButton.addTarget(self, action: #selector(self.handlePopularSelection(_:)), for: .touchUpInside)
+        navigationView.menuButton.addTarget(
+            self,
+            action: #selector(self.handleMenuSelection),
+            for: .touchUpInside
+        )
     }
     
-    @objc private func handlePopularSelection(_ sender: UIButton) {
-        if sender.backgroundColor == nil || sender.backgroundColor == .clear {
-            sender.backgroundColor = R.Colors.selectedButtonGray.color
-        } else {
-            sender.backgroundColor = .clear
-        }
-    }
-    
-    override func didSelectTvShow() {
+    override func didSelectTvShow(with tvId: Int) {
         let controller = DetailViewController()
+        controller.tvId = tvId
+        let viewModel = DetailViewModel(tvShowService: TvShowsService())
+        controller.viewModel = viewModel
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
@@ -119,6 +157,7 @@ final class HomeViewController: UIViewController {
     }
     
     private func setupLayout() {
+        view.addSubview(navigationView)
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         
@@ -127,7 +166,12 @@ final class HomeViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             
-            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            navigationView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            navigationView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            navigationView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            navigationView.heightAnchor.constraint(equalToConstant: K.Components.navigationBarHeight),
+            
+            scrollView.topAnchor.constraint(equalTo: navigationView.bottomAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -157,5 +201,12 @@ final class HomeViewController: UIViewController {
         contentViewHeightConstraint.isActive = true
     }
     
+}
+
+extension HomeViewController: CustomRadioButtonControllerDelegate {
+    func didSelectButton(sender: UIButton?) {
+        let tvShowType = TvShowsFilterType(rawValue: sender?.tag ?? 0) ?? .popular
+        viewModel.type.onNext(tvShowType)
+    }
 }
 

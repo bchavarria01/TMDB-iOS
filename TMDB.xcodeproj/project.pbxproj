@@ -14,11 +14,9 @@
 		0D1E6F32259A73430063A1B1 /* UIViewController+showAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6EE5259A73430063A1B1 /* UIViewController+showAlert.swift */; };
 		0D1E6F33259A73430063A1B1 /* UIViewController+confirmationAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6EE6259A73430063A1B1 /* UIViewController+confirmationAlert.swift */; };
 		0D1E6F35259A73430063A1B1 /* NSMutableAttributedString+helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6EE8259A73430063A1B1 /* NSMutableAttributedString+helpers.swift */; };
-		0D1E6F3B259A73430063A1B1 /* passwordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6EEE259A73430063A1B1 /* passwordValidator.swift */; };
 		0D1E6F3D259A73440063A1B1 /* UIViewController+keyboardHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6EF0259A73430063A1B1 /* UIViewController+keyboardHandling.swift */; };
 		0D1E6F3F259A73440063A1B1 /* Presentr+default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6EF2259A73430063A1B1 /* Presentr+default.swift */; };
 		0D1E6F43259A73440063A1B1 /* UIResponder+TapResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6EF6259A73430063A1B1 /* UIResponder+TapResponder.swift */; };
-		0D1E6F49259A73440063A1B1 /* SourceValidations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6EFD259A73430063A1B1 /* SourceValidations.swift */; };
 		0D1E6F4F259A73440063A1B1 /* AppStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6F04259A73430063A1B1 /* AppStep.swift */; };
 		0D1E6F50259A73440063A1B1 /* LogEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6F05259A73430063A1B1 /* LogEvent.swift */; };
 		0D1E6F53259A73440063A1B1 /* HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6F08259A73430063A1B1 /* HTTPStatusCode.swift */; };
@@ -45,17 +43,101 @@
 		0D1E701D259ACF7E0063A1B1 /* FilterButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E701C259ACF7D0063A1B1 /* FilterButtonsView.swift */; };
 		0D1E7026259AE1DA0063A1B1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E7025259AE1DA0063A1B1 /* DetailViewController.swift */; };
 		0D2D9FC4259A63E100382ED0 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D2D9FC3259A63E100382ED0 /* Colors.xcassets */; };
-		0D62D2C1259C21C000FAE079 /* ActionableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62D2C0259C21C000FAE079 /* ActionableButton.swift */; };
 		0D72FB1F259BCDC400D2580F /* CastCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D72FB1E259BCDC400D2580F /* CastCollectionCell.swift */; };
 		0D72FB45259BD09400D2580F /* DetailViewControllerCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D72FB44259BD09400D2580F /* DetailViewControllerCollectionDataSource.swift */; };
 		0D72FB4A259BD0A100D2580F /* DetailViewControllerCollectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D72FB49259BD0A100D2580F /* DetailViewControllerCollectionDelegate.swift */; };
+		0D7D8919259D43DA0078020C /* CustomRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7D8918259D43DA0078020C /* CustomRadioButton.swift */; };
+		0D7D891E259D448F0078020C /* CustomRadioButtonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7D891D259D448F0078020C /* CustomRadioButtonController.swift */; };
+		0D7D8923259D70120078020C /* DetailsTvShowResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7D8922259D70120078020C /* DetailsTvShowResponseModel.swift */; };
+		0D7D8928259D71C00078020C /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7D8927259D71C00078020C /* DetailViewModel.swift */; };
+		0D7D8930259D7E0E0078020C /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0D7D892F259D7E0E0078020C /* loading.gif */; };
+		0D7D8935259D7F090078020C /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7D8934259D7F090078020C /* UIImage+Gif.swift */; };
+		0D7D893A259D8CD20078020C /* CastResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7D8939259D8CD20078020C /* CastResponseModel.swift */; };
+		0D7D8941259D92130078020C /* CustomRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7D8918259D43DA0078020C /* CustomRadioButton.swift */; };
+		0D7D8942259D92130078020C /* CustomRadioButtonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7D891D259D448F0078020C /* CustomRadioButtonController.swift */; };
+		0D7D8943259D92130078020C /* TvShowsFilterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D928848259D1F0700D91D35 /* TvShowsFilterType.swift */; };
+		0D7D8944259D92130078020C /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7D8934259D7F090078020C /* UIImage+Gif.swift */; };
+		0D7D8945259D92130078020C /* ValidationException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6F0E259A73430063A1B1 /* ValidationException.swift */; };
+		0D7D8946259D92130078020C /* LocalizableErrorBased.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6F0F259A73430063A1B1 /* LocalizableErrorBased.swift */; };
+		0D7D8947259D92130078020C /* ValidatableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6F11259A73430063A1B1 /* ValidatableModel.swift */; };
+		0D7D8948259D92130078020C /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6F12259A73430063A1B1 /* ViewModel.swift */; };
+		0D7D8949259D92130078020C /* DefaultPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6F2C259A73430063A1B1 /* DefaultPreferences.swift */; };
+		0D7D894A259D92130078020C /* LoginRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFCC962259D16A8000326A2 /* LoginRequestModel.swift */; };
+		0D7D894B259D92130078020C /* DetailsTvShowResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7D8922259D70120078020C /* DetailsTvShowResponseModel.swift */; };
+		0D7D894C259D92130078020C /* CastResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7D8939259D8CD20078020C /* CastResponseModel.swift */; };
+		0D7D894D259D92130078020C /* TvShowsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D928843259D1E8500D91D35 /* TvShowsService.swift */; };
+		0D7D894E259D92130078020C /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7D8927259D71C00078020C /* DetailViewModel.swift */; };
+		0D7D8953259D94AC0078020C /* ApplicationCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7D8952259D94AC0078020C /* ApplicationCoordinatorTest.swift */; };
+		0D7D8968259D97400078020C /* TvShowsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E7007259AA11D0063A1B1 /* TvShowsCollectionViewCell.swift */; };
+		0D7D897C259D9BDF0078020C /* UIElementsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7D897B259D9BDF0078020C /* UIElementsTest.swift */; };
+		0D928844259D1E8500D91D35 /* TvShowsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D928843259D1E8500D91D35 /* TvShowsService.swift */; };
+		0D928849259D1F0700D91D35 /* TvShowsFilterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D928848259D1F0700D91D35 /* TvShowsFilterType.swift */; };
+		0D92884E259D21F300D91D35 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D92884D259D21F300D91D35 /* LoginViewModel.swift */; };
+		0D92884F259D21F300D91D35 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D92884D259D21F300D91D35 /* LoginViewModel.swift */; };
+		0D928854259D242B00D91D35 /* LoginRequestException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D928853259D242B00D91D35 /* LoginRequestException.swift */; };
+		0D928855259D242B00D91D35 /* LoginRequestException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D928853259D242B00D91D35 /* LoginRequestException.swift */; };
+		0D92885D259D322E00D91D35 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D92885C259D322E00D91D35 /* HomeViewModel.swift */; };
+		0D92885E259D322E00D91D35 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D92885C259D322E00D91D35 /* HomeViewModel.swift */; };
 		0DE0E930259A5E2500F9AEA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE0E92F259A5E2500F9AEA8 /* AppDelegate.swift */; };
-		0DE0E934259A5E2500F9AEA8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE0E933259A5E2500F9AEA8 /* ViewController.swift */; };
 		0DE0E93A259A5E2500F9AEA8 /* TMDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0DE0E938259A5E2500F9AEA8 /* TMDB.xcdatamodeld */; };
 		0DE0E93C259A5E2600F9AEA8 /* Base.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DE0E93B259A5E2600F9AEA8 /* Base.xcassets */; };
 		0DE0E93F259A5E2600F9AEA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DE0E93D259A5E2600F9AEA8 /* LaunchScreen.storyboard */; };
 		0DE0E94A259A5E2600F9AEA8 /* TMDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE0E949259A5E2600F9AEA8 /* TMDBTests.swift */; };
 		0DE0E955259A5E2600F9AEA8 /* TMDBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE0E954259A5E2600F9AEA8 /* TMDBUITests.swift */; };
+		0DE783F2259CE5AA009002BB /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE783F1259CE5AA009002BB /* NavigationView.swift */; };
+		0DE7840E259CED8A009002BB /* SourceValidations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE7840D259CED8A009002BB /* SourceValidations.swift */; };
+		0DE7840F259CED8A009002BB /* SourceValidations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE7840D259CED8A009002BB /* SourceValidations.swift */; };
+		0DE78417259CEDB7009002BB /* SourceValidationsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE78416259CEDB7009002BB /* SourceValidationsTest.swift */; };
+		0DFCC886259CF170000326A2 /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6FBA259A79CC0063A1B1 /* K.swift */; };
+		0DFCC88B259CF183000326A2 /* KTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFCC88A259CF183000326A2 /* KTest.swift */; };
+		0DFCC88F259CF6B1000326A2 /* SecureRequestPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6F1B259A73430063A1B1 /* SecureRequestPlugin.swift */; };
+		0DFCC893259CF767000326A2 /* DiviceLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6F2A259A73430063A1B1 /* DiviceLogger.swift */; };
+		0DFCC897259CF78B000326A2 /* LogEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6F05259A73430063A1B1 /* LogEvent.swift */; };
+		0DFCC89B259CF8A1000326A2 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6FCF259A7DFC0063A1B1 /* ApplicationCoordinator.swift */; };
+		0DFCC89C259CF8A1000326A2 /* AuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6FD7259A7E260063A1B1 /* AuthenticationCoordinator.swift */; };
+		0DFCC89D259CF8A1000326A2 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6FDC259A821E0063A1B1 /* HomeCoordinator.swift */; };
+		0DFCC8A1259CF8BD000326A2 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6F17259A73430063A1B1 /* Coordinator.swift */; };
+		0DFCC8A5259CF8CF000326A2 /* AppStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6F04259A73430063A1B1 /* AppStep.swift */; };
+		0DFCC8AA259CF906000326A2 /* FilterButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E701C259ACF7D0063A1B1 /* FilterButtonsView.swift */; };
+		0DFCC8AB259CF906000326A2 /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE783F1259CE5AA009002BB /* NavigationView.swift */; };
+		0DFCC8AC259CF906000326A2 /* CastCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D72FB1E259BCDC400D2580F /* CastCollectionCell.swift */; };
+		0DFCC8AF259CF906000326A2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E7025259AE1DA0063A1B1 /* DetailViewController.swift */; };
+		0DFCC8B0259CF906000326A2 /* DetailViewControllerCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D72FB44259BD09400D2580F /* DetailViewControllerCollectionDataSource.swift */; };
+		0DFCC8B1259CF906000326A2 /* DetailViewControllerCollectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D72FB49259BD0A100D2580F /* DetailViewControllerCollectionDelegate.swift */; };
+		0DFCC8B2259CF906000326A2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6FF6259A9B290063A1B1 /* HomeViewController.swift */; };
+		0DFCC8B3259CF906000326A2 /* HomeViewControllerCollectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E7011259AAFDA0063A1B1 /* HomeViewControllerCollectionDelegate.swift */; };
+		0DFCC8B4259CF906000326A2 /* HomeViewControllerCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E7016259AAFE90063A1B1 /* HomeViewControllerCollectionDataSource.swift */; };
+		0DFCC8B5259CF906000326A2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6FC6259A7D5A0063A1B1 /* LoginViewController.swift */; };
+		0DFCC8B6259CF906000326A2 /* LoginViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6FFE259A9B870063A1B1 /* LoginViewControllerDelegate.swift */; };
+		0DFCC8BA259CF92D000326A2 /* UIViewController+showAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6EE5259A73430063A1B1 /* UIViewController+showAlert.swift */; };
+		0DFCC8BB259CF92D000326A2 /* UIViewController+confirmationAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6EE6259A73430063A1B1 /* UIViewController+confirmationAlert.swift */; };
+		0DFCC8BC259CF92D000326A2 /* NSMutableAttributedString+helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6EE8259A73430063A1B1 /* NSMutableAttributedString+helpers.swift */; };
+		0DFCC8BE259CF92D000326A2 /* UIViewController+keyboardHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6EF0259A73430063A1B1 /* UIViewController+keyboardHandling.swift */; };
+		0DFCC8BF259CF92D000326A2 /* Presentr+default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6EF2259A73430063A1B1 /* Presentr+default.swift */; };
+		0DFCC8C0259CF92D000326A2 /* UIResponder+TapResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6EF6259A73430063A1B1 /* UIResponder+TapResponder.swift */; };
+		0DFCC8C4259CF949000326A2 /* Base.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = 0DE0E93B259A5E2600F9AEA8 /* Base.xcassets */; };
+		0DFCC8C5259CF949000326A2 /* Colors.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = 0D2D9FC3259A63E100382ED0 /* Colors.xcassets */; };
+		0DFCC8C6259CF949000326A2 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6ED7259A715C0063A1B1 /* L10n.swift */; };
+		0DFCC8C7259CF949000326A2 /* R.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6ED8259A715C0063A1B1 /* R.swift */; };
+		0DFCC8C8259CF949000326A2 /* Localizable.strings in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6ECA259A6D6C0063A1B1 /* Localizable.strings */; };
+		0DFCC8C9259CF949000326A2 /* LaunchScreen.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = 0DE0E93D259A5E2600F9AEA8 /* LaunchScreen.storyboard */; };
+		0DFCC8CD259CF970000326A2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6F2B259A73430063A1B1 /* Extensions.swift */; };
+		0DFCC8D1259CF985000326A2 /* HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6F08259A73430063A1B1 /* HTTPStatusCode.swift */; };
+		0DFCC8D6259CFA0F000326A2 /* HomeCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFCC8D5259CFA0F000326A2 /* HomeCoordinatorTest.swift */; };
+		0DFCC8DB259CFCD8000326A2 /* LoginViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFCC8DA259CFCD8000326A2 /* LoginViewControllerTest.swift */; };
+		0DFCC8E0259CFF73000326A2 /* HomeViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFCC8DF259CFF73000326A2 /* HomeViewControllerTest.swift */; };
+		0DFCC8E5259D0241000326A2 /* DetailViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFCC8E4259D0241000326A2 /* DetailViewControllerTest.swift */; };
+		0DFCC958259D1295000326A2 /* AuthenticationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFCC957259D1295000326A2 /* AuthenticationProvider.swift */; };
+		0DFCC963259D16A8000326A2 /* LoginRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFCC962259D16A8000326A2 /* LoginRequestModel.swift */; };
+		0DFCC97D259D17B3000326A2 /* DefaultResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFCC97C259D17B3000326A2 /* DefaultResponseModel.swift */; };
+		0DFCC97E259D17B3000326A2 /* DefaultResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFCC97C259D17B3000326A2 /* DefaultResponseModel.swift */; };
+		0DFCC983259D17E9000326A2 /* DefaultListResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFCC982259D17E9000326A2 /* DefaultListResponseModel.swift */; };
+		0DFCC984259D17E9000326A2 /* DefaultListResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFCC982259D17E9000326A2 /* DefaultListResponseModel.swift */; };
+		0DFCC989259D18E9000326A2 /* TvShowsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFCC988259D18E9000326A2 /* TvShowsProvider.swift */; };
+		0DFCC98A259D18E9000326A2 /* TvShowsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFCC988259D18E9000326A2 /* TvShowsProvider.swift */; };
+		0DFCC9A8259D1D60000326A2 /* AuthenticationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFCC957259D1295000326A2 /* AuthenticationProvider.swift */; };
+		0DFCC9B0259D1D6B000326A2 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFCC9AF259D1D6B000326A2 /* AuthService.swift */; };
+		0DFCC9B1259D1D6B000326A2 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFCC9AF259D1D6B000326A2 /* AuthService.swift */; };
 		242B753B2209D6650A792991 /* Pods_TMDBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E7F99823EF16A1B66EAF12 /* Pods_TMDBTests.framework */; };
 		B6AE1BA5E119503ED2C38BE4 /* Pods_TMDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7B70275B967131B790C7985 /* Pods_TMDB.framework */; };
 		E6749808B8D0C9F997C9BFD5 /* Pods_TMDB_TMDBUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF86AF29E998CAE3107CD35B /* Pods_TMDB_TMDBUITests.framework */; };
@@ -87,11 +169,9 @@
 		0D1E6EE5259A73430063A1B1 /* UIViewController+showAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+showAlert.swift"; sourceTree = "<group>"; };
 		0D1E6EE6259A73430063A1B1 /* UIViewController+confirmationAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+confirmationAlert.swift"; sourceTree = "<group>"; };
 		0D1E6EE8259A73430063A1B1 /* NSMutableAttributedString+helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+helpers.swift"; sourceTree = "<group>"; };
-		0D1E6EEE259A73430063A1B1 /* passwordValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = passwordValidator.swift; sourceTree = "<group>"; };
 		0D1E6EF0259A73430063A1B1 /* UIViewController+keyboardHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+keyboardHandling.swift"; sourceTree = "<group>"; };
 		0D1E6EF2259A73430063A1B1 /* Presentr+default.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Presentr+default.swift"; sourceTree = "<group>"; };
 		0D1E6EF6259A73430063A1B1 /* UIResponder+TapResponder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIResponder+TapResponder.swift"; sourceTree = "<group>"; };
-		0D1E6EFD259A73430063A1B1 /* SourceValidations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceValidations.swift; sourceTree = "<group>"; };
 		0D1E6F04259A73430063A1B1 /* AppStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStep.swift; sourceTree = "<group>"; };
 		0D1E6F05259A73430063A1B1 /* LogEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogEvent.swift; sourceTree = "<group>"; };
 		0D1E6F08259A73430063A1B1 /* HTTPStatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPStatusCode.swift; sourceTree = "<group>"; };
@@ -118,13 +198,25 @@
 		0D1E701C259ACF7D0063A1B1 /* FilterButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButtonsView.swift; sourceTree = "<group>"; };
 		0D1E7025259AE1DA0063A1B1 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		0D2D9FC3259A63E100382ED0 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
-		0D62D2C0259C21C000FAE079 /* ActionableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionableButton.swift; sourceTree = "<group>"; };
 		0D72FB1E259BCDC400D2580F /* CastCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCollectionCell.swift; sourceTree = "<group>"; };
 		0D72FB44259BD09400D2580F /* DetailViewControllerCollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewControllerCollectionDataSource.swift; sourceTree = "<group>"; };
 		0D72FB49259BD0A100D2580F /* DetailViewControllerCollectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewControllerCollectionDelegate.swift; sourceTree = "<group>"; };
+		0D7D8918259D43DA0078020C /* CustomRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRadioButton.swift; sourceTree = "<group>"; };
+		0D7D891D259D448F0078020C /* CustomRadioButtonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRadioButtonController.swift; sourceTree = "<group>"; };
+		0D7D8922259D70120078020C /* DetailsTvShowResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTvShowResponseModel.swift; sourceTree = "<group>"; };
+		0D7D8927259D71C00078020C /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		0D7D892F259D7E0E0078020C /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
+		0D7D8934259D7F090078020C /* UIImage+Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
+		0D7D8939259D8CD20078020C /* CastResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastResponseModel.swift; sourceTree = "<group>"; };
+		0D7D8952259D94AC0078020C /* ApplicationCoordinatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinatorTest.swift; sourceTree = "<group>"; };
+		0D7D897B259D9BDF0078020C /* UIElementsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIElementsTest.swift; sourceTree = "<group>"; };
+		0D928843259D1E8500D91D35 /* TvShowsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowsService.swift; sourceTree = "<group>"; };
+		0D928848259D1F0700D91D35 /* TvShowsFilterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowsFilterType.swift; sourceTree = "<group>"; };
+		0D92884D259D21F300D91D35 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		0D928853259D242B00D91D35 /* LoginRequestException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequestException.swift; sourceTree = "<group>"; };
+		0D92885C259D322E00D91D35 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		0DE0E92C259A5E2500F9AEA8 /* TMDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DE0E92F259A5E2500F9AEA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0DE0E933259A5E2500F9AEA8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0DE0E939259A5E2500F9AEA8 /* TMDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TMDB.xcdatamodel; sourceTree = "<group>"; };
 		0DE0E93B259A5E2600F9AEA8 /* Base.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Base.xcassets; sourceTree = "<group>"; };
 		0DE0E93E259A5E2600F9AEA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -135,6 +227,20 @@
 		0DE0E950259A5E2600F9AEA8 /* TMDBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMDBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DE0E954259A5E2600F9AEA8 /* TMDBUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBUITests.swift; sourceTree = "<group>"; };
 		0DE0E956259A5E2600F9AEA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0DE783F1259CE5AA009002BB /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
+		0DE7840D259CED8A009002BB /* SourceValidations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceValidations.swift; sourceTree = "<group>"; };
+		0DE78416259CEDB7009002BB /* SourceValidationsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceValidationsTest.swift; sourceTree = "<group>"; };
+		0DFCC88A259CF183000326A2 /* KTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KTest.swift; sourceTree = "<group>"; };
+		0DFCC8D5259CFA0F000326A2 /* HomeCoordinatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinatorTest.swift; sourceTree = "<group>"; };
+		0DFCC8DA259CFCD8000326A2 /* LoginViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerTest.swift; sourceTree = "<group>"; };
+		0DFCC8DF259CFF73000326A2 /* HomeViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTest.swift; sourceTree = "<group>"; };
+		0DFCC8E4259D0241000326A2 /* DetailViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewControllerTest.swift; sourceTree = "<group>"; };
+		0DFCC957259D1295000326A2 /* AuthenticationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationProvider.swift; sourceTree = "<group>"; };
+		0DFCC962259D16A8000326A2 /* LoginRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequestModel.swift; sourceTree = "<group>"; };
+		0DFCC97C259D17B3000326A2 /* DefaultResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultResponseModel.swift; sourceTree = "<group>"; };
+		0DFCC982259D17E9000326A2 /* DefaultListResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultListResponseModel.swift; sourceTree = "<group>"; };
+		0DFCC988259D18E9000326A2 /* TvShowsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowsProvider.swift; sourceTree = "<group>"; };
+		0DFCC9AF259D1D6B000326A2 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		10D6ACBD0B74F8495D9D4985 /* Pods-TMDB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMDB.debug.xcconfig"; path = "Target Support Files/Pods-TMDB/Pods-TMDB.debug.xcconfig"; sourceTree = "<group>"; };
 		1B06D976347535D057FBC0F3 /* Pods-TMDBTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMDBTests.debug.xcconfig"; path = "Target Support Files/Pods-TMDBTests/Pods-TMDBTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2AF262859DBE41D0DAE6DB9F /* Pods-TMDB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMDB.release.xcconfig"; path = "Target Support Files/Pods-TMDB/Pods-TMDB.release.xcconfig"; sourceTree = "<group>"; };
@@ -186,6 +292,7 @@
 		0D1E6EE2259A72C90063A1B1 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				0D7D890C259D43B80078020C /* Controls */,
 				0D1E6EF8259A73430063A1B1 /* Enums */,
 				0D1E6EE3259A73430063A1B1 /* Extensions */,
 				0D1E6F0B259A73430063A1B1 /* Protocols */,
@@ -200,10 +307,10 @@
 				0D1E6EE5259A73430063A1B1 /* UIViewController+showAlert.swift */,
 				0D1E6EE6259A73430063A1B1 /* UIViewController+confirmationAlert.swift */,
 				0D1E6EE8259A73430063A1B1 /* NSMutableAttributedString+helpers.swift */,
-				0D1E6EEE259A73430063A1B1 /* passwordValidator.swift */,
 				0D1E6EF0259A73430063A1B1 /* UIViewController+keyboardHandling.swift */,
 				0D1E6EF2259A73430063A1B1 /* Presentr+default.swift */,
 				0D1E6EF6259A73430063A1B1 /* UIResponder+TapResponder.swift */,
+				0D7D8934259D7F090078020C /* UIImage+Gif.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -211,11 +318,12 @@
 		0D1E6EF8259A73430063A1B1 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				0D1E6EFD259A73430063A1B1 /* SourceValidations.swift */,
 				0D1E6F00259A73430063A1B1 /* Exceptions */,
 				0D1E6F04259A73430063A1B1 /* AppStep.swift */,
 				0D1E6F05259A73430063A1B1 /* LogEvent.swift */,
 				0D1E6F08259A73430063A1B1 /* HTTPStatusCode.swift */,
+				0DE7840D259CED8A009002BB /* SourceValidations.swift */,
+				0D928848259D1F0700D91D35 /* TvShowsFilterType.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -223,6 +331,7 @@
 		0D1E6F00259A73430063A1B1 /* Exceptions */ = {
 			isa = PBXGroup;
 			children = (
+				0D928853259D242B00D91D35 /* LoginRequestException.swift */,
 			);
 			path = Exceptions;
 			sourceTree = "<group>";
@@ -261,6 +370,7 @@
 		0D1E6FC5259A7D4E0063A1B1 /* LoginViewController */ = {
 			isa = PBXGroup;
 			children = (
+				0D92884D259D21F300D91D35 /* LoginViewModel.swift */,
 				0D1E6FC6259A7D5A0063A1B1 /* LoginViewController.swift */,
 				0D1E6FFE259A9B870063A1B1 /* LoginViewControllerDelegate.swift */,
 			);
@@ -280,6 +390,7 @@
 		0D1E6FF5259A9B170063A1B1 /* HomeViewController */ = {
 			isa = PBXGroup;
 			children = (
+				0D92885C259D322E00D91D35 /* HomeViewModel.swift */,
 				0D1E6FF6259A9B290063A1B1 /* HomeViewController.swift */,
 				0D1E7011259AAFDA0063A1B1 /* HomeViewControllerCollectionDelegate.swift */,
 				0D1E7016259AAFE90063A1B1 /* HomeViewControllerCollectionDataSource.swift */,
@@ -310,6 +421,7 @@
 		0D1E7005259A9F570063A1B1 /* Header */ = {
 			isa = PBXGroup;
 			children = (
+				0DE783F0259CE59B009002BB /* NavigationView */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -334,6 +446,7 @@
 		0D1E7024259AE1C80063A1B1 /* DetailViewController */ = {
 			isa = PBXGroup;
 			children = (
+				0D7D8927259D71C00078020C /* DetailViewModel.swift */,
 				0D1E7025259AE1DA0063A1B1 /* DetailViewController.swift */,
 				0D72FB44259BD09400D2580F /* DetailViewControllerCollectionDataSource.swift */,
 				0D72FB49259BD0A100D2580F /* DetailViewControllerCollectionDelegate.swift */,
@@ -365,7 +478,6 @@
 		0D62D2BF259C21AC00FAE079 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
-				0D62D2C0259C21C000FAE079 /* ActionableButton.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -376,6 +488,15 @@
 				0D72FB1E259BCDC400D2580F /* CastCollectionCell.swift */,
 			);
 			path = CastCollectionCell;
+			sourceTree = "<group>";
+		};
+		0D7D890C259D43B80078020C /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				0D7D8918259D43DA0078020C /* CustomRadioButton.swift */,
+				0D7D891D259D448F0078020C /* CustomRadioButtonController.swift */,
+			);
+			path = Controls;
 			sourceTree = "<group>";
 		};
 		0DE0E923259A5E2500F9AEA8 = {
@@ -406,11 +527,13 @@
 			children = (
 				0D1E6FBA259A79CC0063A1B1 /* K.swift */,
 				0DE0E92F259A5E2500F9AEA8 /* AppDelegate.swift */,
-				0DE0E933259A5E2500F9AEA8 /* ViewController.swift */,
 				0DE0E940259A5E2600F9AEA8 /* Info.plist */,
 				0DE0E938259A5E2500F9AEA8 /* TMDB.xcdatamodeld */,
+				0D7D892F259D7E0E0078020C /* loading.gif */,
 				0D1E6EE2259A72C90063A1B1 /* Library */,
+				0DFCC954259D1267000326A2 /* Models */,
 				0D1E6FCE259A7DDD0063A1B1 /* Navigation */,
+				0DFCC953259D1243000326A2 /* Networking */,
 				0D2D9FBB259A63A200382ED0 /* Resources */,
 				0D1E7003259A9F130063A1B1 /* Views */,
 				0D1E6EE1259A72930063A1B1 /* ViewControllers */,
@@ -423,6 +546,14 @@
 			children = (
 				0DE0E949259A5E2600F9AEA8 /* TMDBTests.swift */,
 				0DE0E94B259A5E2600F9AEA8 /* Info.plist */,
+				0DE78416259CEDB7009002BB /* SourceValidationsTest.swift */,
+				0DFCC88A259CF183000326A2 /* KTest.swift */,
+				0DFCC8D5259CFA0F000326A2 /* HomeCoordinatorTest.swift */,
+				0DFCC8DA259CFCD8000326A2 /* LoginViewControllerTest.swift */,
+				0DFCC8DF259CFF73000326A2 /* HomeViewControllerTest.swift */,
+				0DFCC8E4259D0241000326A2 /* DetailViewControllerTest.swift */,
+				0D7D8952259D94AC0078020C /* ApplicationCoordinatorTest.swift */,
+				0D7D897B259D9BDF0078020C /* UIElementsTest.swift */,
 			);
 			path = TMDBTests;
 			sourceTree = "<group>";
@@ -434,6 +565,69 @@
 				0DE0E956259A5E2600F9AEA8 /* Info.plist */,
 			);
 			path = TMDBUITests;
+			sourceTree = "<group>";
+		};
+		0DE783F0259CE59B009002BB /* NavigationView */ = {
+			isa = PBXGroup;
+			children = (
+				0DE783F1259CE5AA009002BB /* NavigationView.swift */,
+			);
+			path = NavigationView;
+			sourceTree = "<group>";
+		};
+		0DFCC953259D1243000326A2 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				0DFCC956259D127B000326A2 /* Providers */,
+				0DFCC955259D1273000326A2 /* Services */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		0DFCC954259D1267000326A2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0DFCC960259D1688000326A2 /* Request */,
+				0DFCC961259D1697000326A2 /* Response */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0DFCC955259D1273000326A2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0DFCC9AF259D1D6B000326A2 /* AuthService.swift */,
+				0D928843259D1E8500D91D35 /* TvShowsService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		0DFCC956259D127B000326A2 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				0DFCC988259D18E9000326A2 /* TvShowsProvider.swift */,
+				0DFCC957259D1295000326A2 /* AuthenticationProvider.swift */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
+		0DFCC960259D1688000326A2 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				0DFCC962259D16A8000326A2 /* LoginRequestModel.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		0DFCC961259D1697000326A2 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				0DFCC97C259D17B3000326A2 /* DefaultResponseModel.swift */,
+				0DFCC982259D17E9000326A2 /* DefaultListResponseModel.swift */,
+				0D7D8922259D70120078020C /* DetailsTvShowResponseModel.swift */,
+				0D7D8939259D8CD20078020C /* CastResponseModel.swift */,
+			);
+			path = Response;
 			sourceTree = "<group>";
 		};
 		64FAEAEDF6B955BA098FF5B0 /* Pods */ = {
@@ -571,6 +765,7 @@
 				0DE0E93F259A5E2600F9AEA8 /* LaunchScreen.storyboard in Resources */,
 				0D2D9FC4259A63E100382ED0 /* Colors.xcassets in Resources */,
 				0D1E700A259AA11D0063A1B1 /* TvShowsCollectionViewCell.xib in Resources */,
+				0D7D8930259D7E0E0078020C /* loading.gif in Resources */,
 				0DE0E93C259A5E2600F9AEA8 /* Base.xcassets in Resources */,
 				0D1E6ED0259A70D00063A1B1 /* swiftgen.yml in Resources */,
 			);
@@ -703,31 +898,48 @@
 				0D1E6F32259A73430063A1B1 /* UIViewController+showAlert.swift in Sources */,
 				0D1E6F4F259A73440063A1B1 /* AppStep.swift in Sources */,
 				0D72FB1F259BCDC400D2580F /* CastCollectionCell.swift in Sources */,
+				0D7D8935259D7F090078020C /* UIImage+Gif.swift in Sources */,
+				0D92885D259D322E00D91D35 /* HomeViewModel.swift in Sources */,
 				0D1E7009259AA11D0063A1B1 /* TvShowsCollectionViewCell.swift in Sources */,
 				0D72FB4A259BD0A100D2580F /* DetailViewControllerCollectionDelegate.swift in Sources */,
 				0D1E6F5B259A73440063A1B1 /* ValidatableModel.swift in Sources */,
 				0D1E6F60259A73440063A1B1 /* Coordinator.swift in Sources */,
 				0D1E6EDA259A715C0063A1B1 /* R.swift in Sources */,
 				0D1E6F43259A73440063A1B1 /* UIResponder+TapResponder.swift in Sources */,
+				0D7D891E259D448F0078020C /* CustomRadioButtonController.swift in Sources */,
 				0D1E6F35259A73430063A1B1 /* NSMutableAttributedString+helpers.swift in Sources */,
 				0D1E7012259AAFDA0063A1B1 /* HomeViewControllerCollectionDelegate.swift in Sources */,
 				0D1E6FFF259A9B870063A1B1 /* LoginViewControllerDelegate.swift in Sources */,
+				0DFCC9B0259D1D6B000326A2 /* AuthService.swift in Sources */,
+				0D7D8923259D70120078020C /* DetailsTvShowResponseModel.swift in Sources */,
 				0D1E6FDD259A821E0063A1B1 /* HomeCoordinator.swift in Sources */,
 				0DE0E93A259A5E2500F9AEA8 /* TMDB.xcdatamodeld in Sources */,
+				0D928854259D242B00D91D35 /* LoginRequestException.swift in Sources */,
 				0D1E6F33259A73430063A1B1 /* UIViewController+confirmationAlert.swift in Sources */,
 				0D1E7026259AE1DA0063A1B1 /* DetailViewController.swift in Sources */,
+				0DFCC983259D17E9000326A2 /* DefaultListResponseModel.swift in Sources */,
+				0DFCC989259D18E9000326A2 /* TvShowsProvider.swift in Sources */,
 				0D1E6F6E259A73440063A1B1 /* Extensions.swift in Sources */,
+				0D92884E259D21F300D91D35 /* LoginViewModel.swift in Sources */,
+				0D928849259D1F0700D91D35 /* TvShowsFilterType.swift in Sources */,
 				0D1E6F53259A73440063A1B1 /* HTTPStatusCode.swift in Sources */,
 				0D1E6F3F259A73440063A1B1 /* Presentr+default.swift in Sources */,
+				0D7D893A259D8CD20078020C /* CastResponseModel.swift in Sources */,
 				0D1E6FBB259A79CC0063A1B1 /* K.swift in Sources */,
+				0DFCC97D259D17B3000326A2 /* DefaultResponseModel.swift in Sources */,
+				0D928844259D1E8500D91D35 /* TvShowsService.swift in Sources */,
+				0D7D8928259D71C00078020C /* DetailViewModel.swift in Sources */,
 				0D1E6F58259A73440063A1B1 /* ValidationException.swift in Sources */,
+				0D7D8919259D43DA0078020C /* CustomRadioButton.swift in Sources */,
 				0D1E6F3D259A73440063A1B1 /* UIViewController+keyboardHandling.swift in Sources */,
 				0D1E6FC7259A7D5A0063A1B1 /* LoginViewController.swift in Sources */,
+				0DFCC963259D16A8000326A2 /* LoginRequestModel.swift in Sources */,
 				0D1E6FD0259A7DFC0063A1B1 /* ApplicationCoordinator.swift in Sources */,
-				0DE0E934259A5E2500F9AEA8 /* ViewController.swift in Sources */,
 				0DE0E930259A5E2500F9AEA8 /* AppDelegate.swift in Sources */,
 				0D1E6FD8259A7E260063A1B1 /* AuthenticationCoordinator.swift in Sources */,
 				0D1E6F6D259A73440063A1B1 /* DiviceLogger.swift in Sources */,
+				0DE783F2259CE5AA009002BB /* NavigationView.swift in Sources */,
+				0DE7840E259CED8A009002BB /* SourceValidations.swift in Sources */,
 				0D1E701D259ACF7E0063A1B1 /* FilterButtonsView.swift in Sources */,
 				0D72FB45259BD09400D2580F /* DetailViewControllerCollectionDataSource.swift in Sources */,
 				0D1E6F5C259A73440063A1B1 /* ViewModel.swift in Sources */,
@@ -736,11 +948,9 @@
 				0D1E6F50259A73440063A1B1 /* LogEvent.swift in Sources */,
 				0D1E6F62259A73440063A1B1 /* SecureRequestPlugin.swift in Sources */,
 				0D1E6FF7259A9B290063A1B1 /* HomeViewController.swift in Sources */,
-				0D1E6F3B259A73430063A1B1 /* passwordValidator.swift in Sources */,
 				0D1E7017259AAFE90063A1B1 /* HomeViewControllerCollectionDataSource.swift in Sources */,
-				0D1E6F49259A73440063A1B1 /* SourceValidations.swift in Sources */,
 				0D1E6ED9259A715C0063A1B1 /* L10n.swift in Sources */,
-				0D62D2C1259C21C000FAE079 /* ActionableButton.swift in Sources */,
+				0DFCC958259D1295000326A2 /* AuthenticationProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -748,7 +958,73 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D7D8968259D97400078020C /* TvShowsCollectionViewCell.swift in Sources */,
+				0D7D8941259D92130078020C /* CustomRadioButton.swift in Sources */,
+				0D7D897C259D9BDF0078020C /* UIElementsTest.swift in Sources */,
+				0D7D8942259D92130078020C /* CustomRadioButtonController.swift in Sources */,
+				0D7D8943259D92130078020C /* TvShowsFilterType.swift in Sources */,
+				0D7D8944259D92130078020C /* UIImage+Gif.swift in Sources */,
+				0D7D8945259D92130078020C /* ValidationException.swift in Sources */,
+				0D7D8946259D92130078020C /* LocalizableErrorBased.swift in Sources */,
+				0D7D8947259D92130078020C /* ValidatableModel.swift in Sources */,
+				0D7D8948259D92130078020C /* ViewModel.swift in Sources */,
+				0D7D8949259D92130078020C /* DefaultPreferences.swift in Sources */,
+				0D7D894A259D92130078020C /* LoginRequestModel.swift in Sources */,
+				0D7D894B259D92130078020C /* DetailsTvShowResponseModel.swift in Sources */,
+				0D7D894C259D92130078020C /* CastResponseModel.swift in Sources */,
+				0D7D894D259D92130078020C /* TvShowsService.swift in Sources */,
+				0D7D894E259D92130078020C /* DetailViewModel.swift in Sources */,
+				0DFCC8D1259CF985000326A2 /* HTTPStatusCode.swift in Sources */,
+				0DFCC98A259D18E9000326A2 /* TvShowsProvider.swift in Sources */,
+				0DFCC8CD259CF970000326A2 /* Extensions.swift in Sources */,
+				0DFCC97E259D17B3000326A2 /* DefaultResponseModel.swift in Sources */,
+				0DFCC8C4259CF949000326A2 /* Base.xcassets in Sources */,
+				0DFCC8C5259CF949000326A2 /* Colors.xcassets in Sources */,
+				0DFCC8C6259CF949000326A2 /* L10n.swift in Sources */,
+				0DFCC8C7259CF949000326A2 /* R.swift in Sources */,
+				0DFCC8C8259CF949000326A2 /* Localizable.strings in Sources */,
+				0DFCC8C9259CF949000326A2 /* LaunchScreen.storyboard in Sources */,
+				0DFCC8BA259CF92D000326A2 /* UIViewController+showAlert.swift in Sources */,
+				0DFCC984259D17E9000326A2 /* DefaultListResponseModel.swift in Sources */,
+				0DFCC8BB259CF92D000326A2 /* UIViewController+confirmationAlert.swift in Sources */,
+				0DFCC8BC259CF92D000326A2 /* NSMutableAttributedString+helpers.swift in Sources */,
+				0DFCC8DB259CFCD8000326A2 /* LoginViewControllerTest.swift in Sources */,
+				0DFCC8BE259CF92D000326A2 /* UIViewController+keyboardHandling.swift in Sources */,
+				0DFCC8BF259CF92D000326A2 /* Presentr+default.swift in Sources */,
+				0DFCC8C0259CF92D000326A2 /* UIResponder+TapResponder.swift in Sources */,
+				0DFCC8AA259CF906000326A2 /* FilterButtonsView.swift in Sources */,
+				0DFCC8AB259CF906000326A2 /* NavigationView.swift in Sources */,
+				0DFCC8E5259D0241000326A2 /* DetailViewControllerTest.swift in Sources */,
+				0DFCC8AC259CF906000326A2 /* CastCollectionCell.swift in Sources */,
+				0DFCC8AF259CF906000326A2 /* DetailViewController.swift in Sources */,
+				0DFCC8B0259CF906000326A2 /* DetailViewControllerCollectionDataSource.swift in Sources */,
+				0DFCC8B1259CF906000326A2 /* DetailViewControllerCollectionDelegate.swift in Sources */,
+				0DFCC8B2259CF906000326A2 /* HomeViewController.swift in Sources */,
+				0DFCC8B3259CF906000326A2 /* HomeViewControllerCollectionDelegate.swift in Sources */,
+				0DFCC8B4259CF906000326A2 /* HomeViewControllerCollectionDataSource.swift in Sources */,
+				0DFCC8B5259CF906000326A2 /* LoginViewController.swift in Sources */,
+				0DFCC8B6259CF906000326A2 /* LoginViewControllerDelegate.swift in Sources */,
+				0DFCC8A5259CF8CF000326A2 /* AppStep.swift in Sources */,
+				0DFCC8E0259CFF73000326A2 /* HomeViewControllerTest.swift in Sources */,
+				0DFCC9A8259D1D60000326A2 /* AuthenticationProvider.swift in Sources */,
+				0DFCC8A1259CF8BD000326A2 /* Coordinator.swift in Sources */,
+				0DFCC89B259CF8A1000326A2 /* ApplicationCoordinator.swift in Sources */,
+				0DFCC89C259CF8A1000326A2 /* AuthenticationCoordinator.swift in Sources */,
+				0D92884F259D21F300D91D35 /* LoginViewModel.swift in Sources */,
+				0DFCC89D259CF8A1000326A2 /* HomeCoordinator.swift in Sources */,
+				0DFCC897259CF78B000326A2 /* LogEvent.swift in Sources */,
+				0DFCC893259CF767000326A2 /* DiviceLogger.swift in Sources */,
+				0DFCC8D6259CFA0F000326A2 /* HomeCoordinatorTest.swift in Sources */,
+				0D928855259D242B00D91D35 /* LoginRequestException.swift in Sources */,
+				0DFCC88F259CF6B1000326A2 /* SecureRequestPlugin.swift in Sources */,
+				0DFCC886259CF170000326A2 /* K.swift in Sources */,
+				0D7D8953259D94AC0078020C /* ApplicationCoordinatorTest.swift in Sources */,
 				0DE0E94A259A5E2600F9AEA8 /* TMDBTests.swift in Sources */,
+				0D92885E259D322E00D91D35 /* HomeViewModel.swift in Sources */,
+				0DFCC88B259CF183000326A2 /* KTest.swift in Sources */,
+				0DE78417259CEDB7009002BB /* SourceValidationsTest.swift in Sources */,
+				0DE7840F259CED8A009002BB /* SourceValidations.swift in Sources */,
+				0DFCC9B1259D1D6B000326A2 /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

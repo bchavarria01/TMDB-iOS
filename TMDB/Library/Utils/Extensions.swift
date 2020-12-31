@@ -34,12 +34,32 @@ extension UIImageView {
     }
 }
 
+extension UICollectionView {
+
+    func setEmptyMessage(_ message: String) {
+        let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height))
+        messageLabel.text = message
+        messageLabel.textColor = .black
+        messageLabel.numberOfLines = 0;
+        messageLabel.textAlignment = .center;
+        messageLabel.font = .systemFont(ofSize: 24)
+        messageLabel.sizeToFit()
+
+        self.backgroundView = messageLabel;
+    }
+
+    func restore() {
+        self.backgroundView = nil
+    }
+}
+
 extension UIViewController {
     func handleNetworkError(with error: MoyaError?, completitionHandler: (() -> Void)?) {
         let response: Response? = error?.response
         let statusCode: HTTPStatusCode? = response?.status
         let responseType: HTTPStatusCode.ResponseType? = response?.responseType
         var errorMessage: String?
+        print(errorMessage ?? "")
         switch responseType {
         case .success:
             if statusCode == .noContent {
@@ -60,6 +80,7 @@ extension UIViewController {
         }
         
         let screenSize: CGRect = UIScreen.main.bounds
+        _ = screenSize
 //        let controller = DefaultModalViewController()
 //        controller.descriptionLabel.text = errorMessage
 //        controller.completitionHandler = completitionHandler

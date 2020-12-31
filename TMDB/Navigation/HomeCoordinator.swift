@@ -20,14 +20,16 @@ final class HomeCoordinator: Coordinator {
     // MARK: - LifeCycle
     
     init(presenter: UINavigationController,
-         parentCoordinator: Coordinator) {
+         parentCoordinator: Coordinator?) {
         self.presenter = presenter
         self.parentCoordinator = parentCoordinator
     }
     
     func start() {
         let controller = HomeViewController()
-        presenter.navigationBar.isHidden = false
+        let viewModel = HomeViewModel(tvShowService: TvShowsService())
+        controller.viewModel = viewModel
+        presenter.navigationBar.isHidden = true
         presenter.pushViewController(controller, animated: true)
     }
     

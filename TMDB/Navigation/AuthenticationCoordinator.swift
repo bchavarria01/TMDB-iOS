@@ -35,6 +35,8 @@ final class AuthenticationCoordinator: Coordinator {
     func presentLoginViewController() {
         let loginViewController = LoginViewController()
         loginViewController.delegate = self
+        let viewModel = LoginViewModel(authService: AuthService())
+        loginViewController.viewModel = viewModel
         presenter.pushViewController(loginViewController, animated: true)
     }
 }
@@ -45,3 +47,4 @@ extension AuthenticationCoordinator: LoginViewControllerDelegate {
         parent.setupHomeCoordinator()
     }
 }
+

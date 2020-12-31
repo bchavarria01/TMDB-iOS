@@ -8,7 +8,6 @@
 import UIKit
 
 final class DetailViewControllerCollectionDelegate: NSObject {
-    var delegate: UIResponder?
 }
 
 // MARK: - UICollectionViewDelegate
@@ -19,6 +18,5 @@ extension DetailViewControllerCollectionDelegate: UICollectionViewDelegateFlowLa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.didSelectTvShow()
     }
 }

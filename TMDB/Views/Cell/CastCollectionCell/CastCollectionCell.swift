@@ -14,7 +14,7 @@ class CastCollectionCell: UICollectionViewCell {
     lazy var actorImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = R.Base.logo.image
+        imageView.image = R.Base.placeholder.image
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()

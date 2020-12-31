@@ -13,6 +13,7 @@ target 'TMDB' do
   pod 'Moya/RxSwift', '14.0'
   pod 'RxSwift'
   pod 'UIWindowTransitions'
+  pod 'Nuke', '~> 9.0'
 
   target 'TMDBTests' do
     inherit! :search_paths

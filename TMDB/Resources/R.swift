@@ -25,6 +25,7 @@ internal enum R {
     internal static let interstellar = ImageAsset(name: "Interstellar")
     internal static let logo = ImageAsset(name: "Logo")
     internal static let banner = ImageAsset(name: "banner")
+    internal static let placeholder = ImageAsset(name: "placeholder")
   }
   internal enum Colors {
     internal static let almostBlack = ColorAsset(name: "AlmostBlack")

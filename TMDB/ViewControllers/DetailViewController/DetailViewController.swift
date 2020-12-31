@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import Nuke
+import RxSwift
+import Moya
 
 final class DetailViewController: UIViewController {
     
@@ -27,7 +30,7 @@ final class DetailViewController: UIViewController {
     lazy var tvShowImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = R.Base.banner.image
+        imageView.image = R.Base.placeholder.image
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
@@ -108,7 +111,8 @@ final class DetailViewController: UIViewController {
     lazy var lastSeasonImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = R.Base.interstellar.image
+        imageView.image = R.Base.placeholder.image
+        imageView.contentMode = .redraw
         return imageView
     }()
     
@@ -172,11 +176,18 @@ final class DetailViewController: UIViewController {
     
     lazy var collectionDelegate: DetailViewControllerCollectionDelegate = {
         let collectionDelegate = DetailViewControllerCollectionDelegate()
-        collectionDelegate.delegate = self
         return collectionDelegate
     }()
     
     // MARK: - Attributes
+    
+    var viewModel: DetailViewModel!
+    var tvId: Int?
+    let disposeBag = DisposeBag()
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+          return .lightContent
+    }
     
     // MARK: - LifeCycle
     
@@ -193,6 +204,7 @@ final class DetailViewController: UIViewController {
         
         mainBackVIew.cornerRadius(with: [.layerMaxXMinYCorner, .layerMinXMinYCorner], cornerRadii: 10)
         setupCollectionView()
+        bindViewModel()
     }
     
     func setupCollectionView() {
@@ -202,6 +214,55 @@ final class DetailViewController: UIViewController {
     }
     
     // MARK: - Methods
+    
+    func bindViewModel() {
+        viewModel.getTvShowDetail(with: self.tvId ?? 0)
+            .subscribe(
+                onSuccess: { [weak self] response in
+                    guard let self = self else { return }
+                    self.setupTvShowContent(with: response)
+                }, onError: { [weak self] error in
+                    guard let self = self else { return }
+                    let moyaError = error as! MoyaError
+                    self.handleNetworkError(with: moyaError, completitionHandler: nil)
+                }
+            ).disposed(by: disposeBag)
+        
+        viewModel.getCast(with: self.tvId ?? 0)
+            .subscribe(
+                onSuccess: { [weak self] response in
+                    guard let self = self else { return }
+                    self.collectionDataSource.items = response.cast ?? []
+                    self.collectionView.reloadData()
+                }, onError: { [weak self] error in
+                    guard let self = self else { return }
+                    let moyaError = error as! MoyaError
+                    self.handleNetworkError(with: moyaError, completitionHandler: nil)
+                }
+            ).disposed(by: disposeBag)
+    }
+    
+    func setupTvShowContent(with tvShowInfo: DetailsTvShowResponseModel) {
+        let options = K.NukeDefault.options
+        let url = URL(string: "\(DefaultPreferences.current.loadImageBaseString ?? "")\(tvShowInfo.posterPath ?? "")")!
+        Nuke.loadImage(with: url, options: options, into: tvShowImage)
+        tvShowName.text = tvShowInfo.name
+        tvShowDescription.text = tvShowInfo.overview
+        var creators: [String] = []
+        tvShowInfo.createdBy?.forEach({ created in
+            creators.append(created.name ?? "")
+        })
+        let creatorsString = creators.joined(separator: ", ")
+        tvShowCreatedBy.text = "\(L10n.createdBy)\(creatorsString)"
+        
+        rateLabel.text = String(tvShowInfo.voteAverage ?? 0)
+        
+        let url2 = URL(string: "\(DefaultPreferences.current.loadImageBaseString ?? "")\(tvShowInfo.seasons?.last?.posterPath ?? "")")!
+        Nuke.loadImage(with: url2, options: options, into: lastSeasonImage)
+        
+        lastSeasonName.text = tvShowInfo.seasons?.last?.name ?? ""
+        lastSeasonReleaseDate.text = tvShowInfo.seasons?.last?.airDate ?? ""
+    }
     
     private func setupMainBackView() {
         rateView.addSubview(rateLabel)
@@ -232,7 +293,7 @@ final class DetailViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             
-            scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: -32),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -299,7 +360,7 @@ final class DetailViewController: UIViewController {
             
             lastSeasonImage.topAnchor.constraint(equalTo: lastSeasonTitle.bottomAnchor, constant: 20),
             lastSeasonImage.leadingAnchor.constraint(equalTo: mainBackVIew.leadingAnchor, constant: 20),
-            lastSeasonImage.widthAnchor.constraint(equalTo: mainBackVIew.widthAnchor, multiplier: 0.4030769231),
+            lastSeasonImage.widthAnchor.constraint(equalToConstant: 130),
             lastSeasonImage.heightAnchor.constraint(equalToConstant: 183),
             
             //lastSeasonName
