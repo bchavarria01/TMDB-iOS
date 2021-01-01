@@ -14,6 +14,7 @@ enum TvShowsProvider {
     case getAiring(page: Int)
     case getDetail(tvId: Int)
     case getCredits(tvId: Int)
+    case getSeasonInfo(tvId: Int, seasonId: Int)
 }
 
 // MARK: - TargetType
@@ -38,6 +39,9 @@ extension TvShowsProvider: TargetType {
             
         case let .getCredits(tvId):
             return URL(string: "\(K.baseURL)/tv/\(tvId)/credits")!
+        
+        case let .getSeasonInfo(tvId, seasonId):
+            return URL(string: "\(K.baseURL)/tv/\(tvId)/season/\(seasonId)")!
         }
     }
     
@@ -50,7 +54,8 @@ extension TvShowsProvider: TargetType {
     
     var method: Moya.Method {
         switch self {
-        case .getAiring, .getPopular, .getOnTv, .getTopRated, .getDetail, .getCredits: return .get
+        default:
+            return .get
         }
     }
     
@@ -59,8 +64,6 @@ extension TvShowsProvider: TargetType {
     }
     
     var task: Task {
-//        var parameters: [String: Any] = [:]
-//        var encoding: URLEncoding?
         switch self {
         default:
             return .requestPlain

@@ -48,9 +48,9 @@ enum K {
     
     enum NukeDefault {
         static let options = ImageLoadingOptions(
-            placeholder: UIImage.gif(url: "loading"),
+            placeholder: R.Base.placeholder.image,
             transition: .fadeIn(duration: 0.33),
-            failureImage: UIImage(named: "placeholder")
+            failureImage: R.Base.noImageAvailable.image
         )
     }
 }

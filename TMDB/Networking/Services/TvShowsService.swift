@@ -57,4 +57,11 @@ final class TvShowsService {
             .asObservable()
             .asSingle()
     }
+    
+    func getSeasonInfo(with tvId: Int, and seasonId: Int) -> Observable<SeasonInfoResponseModel> {
+        return provider.rx.request(.getSeasonInfo(tvId: tvId, seasonId: seasonId))
+            .filterSuccessfulStatusCodes()
+            .map(SeasonInfoResponseModel.self)
+            .asObservable()
+    }
 }

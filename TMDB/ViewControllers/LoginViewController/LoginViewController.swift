@@ -109,32 +109,41 @@ final class LoginViewController: UIViewController {
     }
     
     func getToken() {
+        showLoading()
         viewModel.getToken()
             .subscribe(onSuccess: { [weak self] response in
                 guard let self = self else { return }
-                _ = self
-                DefaultPreferences.current.requestToken = response.requestToken
+                self.dismiss(animated: true, completion: {
+                    DefaultPreferences.current.requestToken = response.requestToken
+                })
             }, onError: { [weak self] error in
                 guard let self = self else { return }
-                let moyaError: MoyaError? = error as? MoyaError
-                self.handleNetworkError(with: moyaError, completitionHandler: nil)
+                self.dismiss(animated: true, completion: {
+                    let moyaError: MoyaError? = error as? MoyaError
+                    self.handleNetworkError(with: moyaError, completitionHandler: nil)
+                })
             }
         ).disposed(by: disposeBag)
     }
     
     @objc func handleLogInSelection(_ sender: UIButton) {
         sender.isEnabled = false
+        showLoading()
         viewModel.authenticateWithCredentials()
             .subscribe(
                 onSuccess: { [weak self] response in
                     guard let self = self else { return }
-                    sender.isEnabled = true
-                    self.delegate?.loginViewControllerDidLogInSuccessfully()
+                    self.dismiss(animated: true, completion: {
+                        sender.isEnabled = true
+                        self.delegate?.loginViewControllerDidLogInSuccessfully()
+                    })
                 }, onError: { [weak self] error in
                     guard let self = self else { return }
-                    sender.isEnabled = true
-                    let moyaError: MoyaError? = error as? MoyaError
-                    self.handleNetworkError(with: moyaError, completitionHandler: nil)
+                    self.dismiss(animated: true, completion: {
+                        sender.isEnabled = true
+                        let moyaError: MoyaError? = error as? MoyaError
+                        self.handleNetworkError(with: moyaError, completitionHandler: nil)
+                    })
                 }
             ).disposed(by: disposeBag)
     }

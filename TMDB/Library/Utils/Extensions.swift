@@ -54,6 +54,18 @@ extension UICollectionView {
 }
 
 extension UIViewController {
+    func showLoading() {
+        let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
+
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = .medium
+        loadingIndicator.startAnimating();
+
+        alert.view.addSubview(loadingIndicator)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func handleNetworkError(with error: MoyaError?, completitionHandler: (() -> Void)?) {
         let response: Response? = error?.response
         let statusCode: HTTPStatusCode? = response?.status

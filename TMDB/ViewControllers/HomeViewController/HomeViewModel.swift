@@ -34,6 +34,5 @@ final class HomeViewModel {
         ).flatMapLatest{ type, page -> Observable<DefaultListResponseModel> in
             return tvShowService.getTvShows(with: page ?? 1, and: type)
         }
-            
     }
 }

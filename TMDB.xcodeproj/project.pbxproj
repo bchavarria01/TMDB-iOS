@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D00B036259E6073006021D0 /* SeasonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D00B035259E6073006021D0 /* SeasonsViewController.swift */; };
 		0D1E6ECB259A6D6C0063A1B1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0D1E6ECA259A6D6C0063A1B1 /* Localizable.strings */; };
 		0D1E6ED0259A70D00063A1B1 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 0D1E6ECF259A70D00063A1B1 /* swiftgen.yml */; };
 		0D1E6ED9259A715C0063A1B1 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6ED7259A715C0063A1B1 /* L10n.swift */; };
@@ -42,6 +43,13 @@
 		0D1E7017259AAFE90063A1B1 /* HomeViewControllerCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E7016259AAFE90063A1B1 /* HomeViewControllerCollectionDataSource.swift */; };
 		0D1E701D259ACF7E0063A1B1 /* FilterButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E701C259ACF7D0063A1B1 /* FilterButtonsView.swift */; };
 		0D1E7026259AE1DA0063A1B1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E7025259AE1DA0063A1B1 /* DetailViewController.swift */; };
+		0D2682FA259E680600DBCAA4 /* SeasonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2682F8259E680600DBCAA4 /* SeasonCollectionViewCell.swift */; };
+		0D2682FB259E680600DBCAA4 /* SeasonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D2682F9259E680600DBCAA4 /* SeasonCollectionViewCell.xib */; };
+		0D268303259E6A1E00DBCAA4 /* SeasonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D268302259E6A1E00DBCAA4 /* SeasonTableViewCell.swift */; };
+		0D268309259E6B2800DBCAA4 /* SeasonTableViewCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D268308259E6B2800DBCAA4 /* SeasonTableViewCollectionDataSource.swift */; };
+		0D268311259E6BC500DBCAA4 /* SeasonTableViewCollectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D268310259E6BC500DBCAA4 /* SeasonTableViewCollectionDelegate.swift */; };
+		0D268316259E6E7000DBCAA4 /* SeasonTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D268315259E6E7000DBCAA4 /* SeasonTableViewDataSource.swift */; };
+		0D26831B259E6FA700DBCAA4 /* SeasonTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D26831A259E6FA700DBCAA4 /* SeasonTableViewDelegate.swift */; };
 		0D2D9FC4259A63E100382ED0 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D2D9FC3259A63E100382ED0 /* Colors.xcassets */; };
 		0D72FB1F259BCDC400D2580F /* CastCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D72FB1E259BCDC400D2580F /* CastCollectionCell.swift */; };
 		0D72FB45259BD09400D2580F /* DetailViewControllerCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D72FB44259BD09400D2580F /* DetailViewControllerCollectionDataSource.swift */; };
@@ -78,6 +86,9 @@
 		0D928855259D242B00D91D35 /* LoginRequestException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D928853259D242B00D91D35 /* LoginRequestException.swift */; };
 		0D92885D259D322E00D91D35 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D92885C259D322E00D91D35 /* HomeViewModel.swift */; };
 		0D92885E259D322E00D91D35 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D92885C259D322E00D91D35 /* HomeViewModel.swift */; };
+		0DB5215C259ECAE80033F9FC /* SeasonInfoResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB5215B259ECAE80033F9FC /* SeasonInfoResponseModel.swift */; };
+		0DB52161259ECE970033F9FC /* SeasonsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB52160259ECE970033F9FC /* SeasonsViewModel.swift */; };
+		0DB52169259ED5380033F9FC /* EpisodesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB52168259ED5380033F9FC /* EpisodesModel.swift */; };
 		0DE0E930259A5E2500F9AEA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE0E92F259A5E2500F9AEA8 /* AppDelegate.swift */; };
 		0DE0E93A259A5E2500F9AEA8 /* TMDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0DE0E938259A5E2500F9AEA8 /* TMDB.xcdatamodeld */; };
 		0DE0E93C259A5E2600F9AEA8 /* Base.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DE0E93B259A5E2600F9AEA8 /* Base.xcassets */; };
@@ -162,6 +173,7 @@
 
 /* Begin PBXFileReference section */
 		0814EE674447445181A5EFF1 /* Pods-TMDB-TMDBUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMDB-TMDBUITests.debug.xcconfig"; path = "Target Support Files/Pods-TMDB-TMDBUITests/Pods-TMDB-TMDBUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		0D00B035259E6073006021D0 /* SeasonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonsViewController.swift; sourceTree = "<group>"; };
 		0D1E6ECA259A6D6C0063A1B1 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		0D1E6ECF259A70D00063A1B1 /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
 		0D1E6ED7259A715C0063A1B1 /* L10n.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
@@ -197,6 +209,13 @@
 		0D1E7016259AAFE90063A1B1 /* HomeViewControllerCollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerCollectionDataSource.swift; sourceTree = "<group>"; };
 		0D1E701C259ACF7D0063A1B1 /* FilterButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButtonsView.swift; sourceTree = "<group>"; };
 		0D1E7025259AE1DA0063A1B1 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		0D2682F8259E680600DBCAA4 /* SeasonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonCollectionViewCell.swift; sourceTree = "<group>"; };
+		0D2682F9259E680600DBCAA4 /* SeasonCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeasonCollectionViewCell.xib; sourceTree = "<group>"; };
+		0D268302259E6A1E00DBCAA4 /* SeasonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonTableViewCell.swift; sourceTree = "<group>"; };
+		0D268308259E6B2800DBCAA4 /* SeasonTableViewCollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonTableViewCollectionDataSource.swift; sourceTree = "<group>"; };
+		0D268310259E6BC500DBCAA4 /* SeasonTableViewCollectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonTableViewCollectionDelegate.swift; sourceTree = "<group>"; };
+		0D268315259E6E7000DBCAA4 /* SeasonTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonTableViewDataSource.swift; sourceTree = "<group>"; };
+		0D26831A259E6FA700DBCAA4 /* SeasonTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonTableViewDelegate.swift; sourceTree = "<group>"; };
 		0D2D9FC3259A63E100382ED0 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		0D72FB1E259BCDC400D2580F /* CastCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCollectionCell.swift; sourceTree = "<group>"; };
 		0D72FB44259BD09400D2580F /* DetailViewControllerCollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewControllerCollectionDataSource.swift; sourceTree = "<group>"; };
@@ -215,6 +234,9 @@
 		0D92884D259D21F300D91D35 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		0D928853259D242B00D91D35 /* LoginRequestException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequestException.swift; sourceTree = "<group>"; };
 		0D92885C259D322E00D91D35 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		0DB5215B259ECAE80033F9FC /* SeasonInfoResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonInfoResponseModel.swift; sourceTree = "<group>"; };
+		0DB52160259ECE970033F9FC /* SeasonsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonsViewModel.swift; sourceTree = "<group>"; };
+		0DB52168259ED5380033F9FC /* EpisodesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesModel.swift; sourceTree = "<group>"; };
 		0DE0E92C259A5E2500F9AEA8 /* TMDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DE0E92F259A5E2500F9AEA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DE0E939259A5E2500F9AEA8 /* TMDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TMDB.xcdatamodel; sourceTree = "<group>"; };
@@ -279,9 +301,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D00B03A259E607B006021D0 /* SeasonsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0DB52160259ECE970033F9FC /* SeasonsViewModel.swift */,
+				0D00B035259E6073006021D0 /* SeasonsViewController.swift */,
+				0D268315259E6E7000DBCAA4 /* SeasonTableViewDataSource.swift */,
+				0D26831A259E6FA700DBCAA4 /* SeasonTableViewDelegate.swift */,
+			);
+			path = SeasonsViewController;
+			sourceTree = "<group>";
+		};
 		0D1E6EE1259A72930063A1B1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				0D00B03A259E607B006021D0 /* SeasonsViewController */,
 				0D1E7024259AE1C80063A1B1 /* DetailViewController */,
 				0D1E6FF5259A9B170063A1B1 /* HomeViewController */,
 				0D1E6FC5259A7D4E0063A1B1 /* LoginViewController */,
@@ -412,6 +446,8 @@
 		0D1E7004259A9F200063A1B1 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				0D2682F7259E67BE00DBCAA4 /* SeasonCollectionViewCell */,
+				0D2682F6259E67AB00DBCAA4 /* SeasonTableViewCell */,
 				0D72FB1D259BCD0F00D2580F /* CastCollectionCell */,
 				0D1E7006259AA0D50063A1B1 /* TvShowsCollectionCell */,
 			);
@@ -452,6 +488,33 @@
 				0D72FB49259BD0A100D2580F /* DetailViewControllerCollectionDelegate.swift */,
 			);
 			path = DetailViewController;
+			sourceTree = "<group>";
+		};
+		0D2682F6259E67AB00DBCAA4 /* SeasonTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				0D268307259E6AE900DBCAA4 /* SeasonCollectionView */,
+				0D268302259E6A1E00DBCAA4 /* SeasonTableViewCell.swift */,
+			);
+			path = SeasonTableViewCell;
+			sourceTree = "<group>";
+		};
+		0D2682F7259E67BE00DBCAA4 /* SeasonCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				0D2682F8259E680600DBCAA4 /* SeasonCollectionViewCell.swift */,
+				0D2682F9259E680600DBCAA4 /* SeasonCollectionViewCell.xib */,
+			);
+			path = SeasonCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		0D268307259E6AE900DBCAA4 /* SeasonCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				0D268308259E6B2800DBCAA4 /* SeasonTableViewCollectionDataSource.swift */,
+				0D268310259E6BC500DBCAA4 /* SeasonTableViewCollectionDelegate.swift */,
+			);
+			path = SeasonCollectionView;
 			sourceTree = "<group>";
 		};
 		0D2D9FBB259A63A200382ED0 /* Resources */ = {
@@ -589,6 +652,7 @@
 			children = (
 				0DFCC960259D1688000326A2 /* Request */,
 				0DFCC961259D1697000326A2 /* Response */,
+				0DB52168259ED5380033F9FC /* EpisodesModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -626,6 +690,7 @@
 				0DFCC982259D17E9000326A2 /* DefaultListResponseModel.swift */,
 				0D7D8922259D70120078020C /* DetailsTvShowResponseModel.swift */,
 				0D7D8939259D8CD20078020C /* CastResponseModel.swift */,
+				0DB5215B259ECAE80033F9FC /* SeasonInfoResponseModel.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -766,6 +831,7 @@
 				0D2D9FC4259A63E100382ED0 /* Colors.xcassets in Resources */,
 				0D1E700A259AA11D0063A1B1 /* TvShowsCollectionViewCell.xib in Resources */,
 				0D7D8930259D7E0E0078020C /* loading.gif in Resources */,
+				0D2682FB259E680600DBCAA4 /* SeasonCollectionViewCell.xib in Resources */,
 				0DE0E93C259A5E2600F9AEA8 /* Base.xcassets in Resources */,
 				0D1E6ED0259A70D00063A1B1 /* swiftgen.yml in Resources */,
 			);
@@ -902,6 +968,7 @@
 				0D92885D259D322E00D91D35 /* HomeViewModel.swift in Sources */,
 				0D1E7009259AA11D0063A1B1 /* TvShowsCollectionViewCell.swift in Sources */,
 				0D72FB4A259BD0A100D2580F /* DetailViewControllerCollectionDelegate.swift in Sources */,
+				0D268316259E6E7000DBCAA4 /* SeasonTableViewDataSource.swift in Sources */,
 				0D1E6F5B259A73440063A1B1 /* ValidatableModel.swift in Sources */,
 				0D1E6F60259A73440063A1B1 /* Coordinator.swift in Sources */,
 				0D1E6EDA259A715C0063A1B1 /* R.swift in Sources */,
@@ -911,6 +978,7 @@
 				0D1E7012259AAFDA0063A1B1 /* HomeViewControllerCollectionDelegate.swift in Sources */,
 				0D1E6FFF259A9B870063A1B1 /* LoginViewControllerDelegate.swift in Sources */,
 				0DFCC9B0259D1D6B000326A2 /* AuthService.swift in Sources */,
+				0D268311259E6BC500DBCAA4 /* SeasonTableViewCollectionDelegate.swift in Sources */,
 				0D7D8923259D70120078020C /* DetailsTvShowResponseModel.swift in Sources */,
 				0D1E6FDD259A821E0063A1B1 /* HomeCoordinator.swift in Sources */,
 				0DE0E93A259A5E2500F9AEA8 /* TMDB.xcdatamodeld in Sources */,
@@ -929,23 +997,31 @@
 				0DFCC97D259D17B3000326A2 /* DefaultResponseModel.swift in Sources */,
 				0D928844259D1E8500D91D35 /* TvShowsService.swift in Sources */,
 				0D7D8928259D71C00078020C /* DetailViewModel.swift in Sources */,
+				0DB52161259ECE970033F9FC /* SeasonsViewModel.swift in Sources */,
 				0D1E6F58259A73440063A1B1 /* ValidationException.swift in Sources */,
+				0D268309259E6B2800DBCAA4 /* SeasonTableViewCollectionDataSource.swift in Sources */,
 				0D7D8919259D43DA0078020C /* CustomRadioButton.swift in Sources */,
 				0D1E6F3D259A73440063A1B1 /* UIViewController+keyboardHandling.swift in Sources */,
 				0D1E6FC7259A7D5A0063A1B1 /* LoginViewController.swift in Sources */,
 				0DFCC963259D16A8000326A2 /* LoginRequestModel.swift in Sources */,
 				0D1E6FD0259A7DFC0063A1B1 /* ApplicationCoordinator.swift in Sources */,
 				0DE0E930259A5E2500F9AEA8 /* AppDelegate.swift in Sources */,
+				0D00B036259E6073006021D0 /* SeasonsViewController.swift in Sources */,
+				0DB5215C259ECAE80033F9FC /* SeasonInfoResponseModel.swift in Sources */,
 				0D1E6FD8259A7E260063A1B1 /* AuthenticationCoordinator.swift in Sources */,
+				0D268303259E6A1E00DBCAA4 /* SeasonTableViewCell.swift in Sources */,
 				0D1E6F6D259A73440063A1B1 /* DiviceLogger.swift in Sources */,
 				0DE783F2259CE5AA009002BB /* NavigationView.swift in Sources */,
+				0D2682FA259E680600DBCAA4 /* SeasonCollectionViewCell.swift in Sources */,
 				0DE7840E259CED8A009002BB /* SourceValidations.swift in Sources */,
 				0D1E701D259ACF7E0063A1B1 /* FilterButtonsView.swift in Sources */,
 				0D72FB45259BD09400D2580F /* DetailViewControllerCollectionDataSource.swift in Sources */,
 				0D1E6F5C259A73440063A1B1 /* ViewModel.swift in Sources */,
 				0D1E6F59259A73440063A1B1 /* LocalizableErrorBased.swift in Sources */,
+				0DB52169259ED5380033F9FC /* EpisodesModel.swift in Sources */,
 				0D1E6F6F259A73440063A1B1 /* DefaultPreferences.swift in Sources */,
 				0D1E6F50259A73440063A1B1 /* LogEvent.swift in Sources */,
+				0D26831B259E6FA700DBCAA4 /* SeasonTableViewDelegate.swift in Sources */,
 				0D1E6F62259A73440063A1B1 /* SecureRequestPlugin.swift in Sources */,
 				0D1E6FF7259A9B290063A1B1 /* HomeViewController.swift in Sources */,
 				0D1E7017259AAFE90063A1B1 /* HomeViewControllerCollectionDataSource.swift in Sources */,

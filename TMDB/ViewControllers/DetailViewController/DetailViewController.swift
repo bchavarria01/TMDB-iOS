@@ -183,6 +183,7 @@ final class DetailViewController: UIViewController {
     
     var viewModel: DetailViewModel!
     var tvId: Int?
+    var numberOfSeasons: Int?
     let disposeBag = DisposeBag()
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -201,6 +202,7 @@ final class DetailViewController: UIViewController {
         
         setupMainBackView()
         setupLayout()
+        setupActions()
         
         mainBackVIew.cornerRadius(with: [.layerMaxXMinYCorner, .layerMinXMinYCorner], cornerRadii: 10)
         setupCollectionView()
@@ -215,29 +217,58 @@ final class DetailViewController: UIViewController {
     
     // MARK: - Methods
     
+    func setupActions() {
+        viewAllSeasonButton.addTarget(
+            self,
+            action: #selector(self.handleViewAllSeasonsSelection(_:)),
+            for: .touchUpInside
+        )
+    }
+    
+    @objc private func handleViewAllSeasonsSelection(_ sender: UIButton) {
+        let controller = SeasonsViewController()
+        controller.viewModel = SeasonsViewModel(tvShowService: TvShowsService())
+        controller.tvId = self.tvId
+        controller.numberOfSeasons = self.numberOfSeasons
+        controller.modalPresentationStyle = .popover
+        self.navigationController?.present(controller, animated: true, completion: nil)
+    }
+    
     func bindViewModel() {
+        showLoading()
         viewModel.getTvShowDetail(with: self.tvId ?? 0)
             .subscribe(
                 onSuccess: { [weak self] response in
                     guard let self = self else { return }
+                    self.numberOfSeasons = response.numberOfSeasons
                     self.setupTvShowContent(with: response)
+                    
+                    self.dismiss(animated: true, completion: {
+                        self.showLoading()
+                        self.viewModel.getCast(with: self.tvId ?? 0)
+                            .subscribe(
+                                onSuccess: { [weak self] response in
+                                    guard let self = self else { return }
+                                    self.dismiss(animated: true, completion: {
+                                        self.collectionDataSource.items = response.cast ?? []
+                                        self.collectionView.reloadData()
+                                    })
+                                }, onError: { [weak self] error in
+                                    guard let self = self else { return }
+                                    self.dismiss(animated: true, completion: {
+                                        let moyaError = error as! MoyaError
+                                        self.handleNetworkError(with: moyaError, completitionHandler: nil)
+                                    })
+                                }
+                            ).disposed(by: self.disposeBag)
+                    })
+                    
                 }, onError: { [weak self] error in
                     guard let self = self else { return }
-                    let moyaError = error as! MoyaError
-                    self.handleNetworkError(with: moyaError, completitionHandler: nil)
-                }
-            ).disposed(by: disposeBag)
-        
-        viewModel.getCast(with: self.tvId ?? 0)
-            .subscribe(
-                onSuccess: { [weak self] response in
-                    guard let self = self else { return }
-                    self.collectionDataSource.items = response.cast ?? []
-                    self.collectionView.reloadData()
-                }, onError: { [weak self] error in
-                    guard let self = self else { return }
-                    let moyaError = error as! MoyaError
-                    self.handleNetworkError(with: moyaError, completitionHandler: nil)
+                    self.dismiss(animated: true, completion: {
+                        let moyaError = error as! MoyaError
+                        self.handleNetworkError(with: moyaError, completitionHandler: nil)
+                    })
                 }
             ).disposed(by: disposeBag)
     }
@@ -249,8 +280,8 @@ final class DetailViewController: UIViewController {
         tvShowName.text = tvShowInfo.name
         tvShowDescription.text = tvShowInfo.overview
         var creators: [String] = []
-        tvShowInfo.createdBy?.forEach({ created in
-            creators.append(created.name ?? "")
+        tvShowInfo.createdBy?.forEach({ creator in
+            creators.append(creator.name ?? "")
         })
         let creatorsString = creators.joined(separator: ", ")
         tvShowCreatedBy.text = "\(L10n.createdBy)\(creatorsString)"

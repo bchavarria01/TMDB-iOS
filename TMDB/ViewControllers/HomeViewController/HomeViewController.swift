@@ -106,25 +106,34 @@ final class HomeViewController: UIViewController {
         viewModel.tvShowList
             .do(onNext: { [weak self] elements in
                 guard let self = self else { return }
+                self.showLoading()
                 DispatchQueue.main.async {
                     if elements.results?.count == 0 {
-                        self.collectionView.setEmptyMessage("Test message")
+                        self.dismiss(animated: true, completion: {
+                            self.collectionView.setEmptyMessage("Test message")
+                        })
                     } else {
-                        self.collectionView.restore()
+                        self.dismiss(animated: true, completion: {
+                            self.collectionView.restore()
+                        })
                     }
                 }
             })
             .subscribe(
                 onNext: { [weak self] items in
                     guard let self = self else { return }
-                    self.collectionDataSource.items = items.results ?? []
-                    self.collectionDelegate.items = items.results ?? []
-                    self.collectionView.reloadData()
+                    self.dismiss(animated: true, completion: {
+                        self.collectionDataSource.items = items.results ?? []
+                        self.collectionDelegate.items = items.results ?? []
+                        self.collectionView.reloadData()
+                    })
                 }, onError: { [weak self] error in
                     guard let self = self else { return }
-                    let moyaError: MoyaError = error as! MoyaError
-                    self.handleNetworkError(with: moyaError, completitionHandler: nil)
-                    self.collectionView.setEmptyMessage("Test message")
+                    self.dismiss(animated: true, completion: {
+                        let moyaError: MoyaError = error as! MoyaError
+                        self.handleNetworkError(with: moyaError, completitionHandler: nil)
+                        self.collectionView.setEmptyMessage("Test message")
+                    })
                 }
             ).disposed(by: disposeBag)
     }

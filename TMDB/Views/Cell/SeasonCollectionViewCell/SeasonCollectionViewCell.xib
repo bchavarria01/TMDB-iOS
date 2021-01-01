@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SeasonCollectionViewCell" id="gTV-IL-0wX" customClass="SeasonCollectionViewCell" customModule="TMDB" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="215" height="130"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="215" height="130"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner" translatesAutoresizingMaskIntoConstraints="NO" id="2cb-Em-Pyj">
+                        <rect key="frame" x="0.0" y="0.0" width="215" height="130"/>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vby-NH-BJo">
+                        <rect key="frame" x="0.0" y="80" width="215" height="50"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Episode Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75P-Hz-cVZ">
+                                <rect key="frame" x="8" y="17.5" width="82" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="Dark"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="K9z-Aj-Gtd"/>
+                            <constraint firstItem="75P-Hz-cVZ" firstAttribute="leading" secondItem="Vby-NH-BJo" secondAttribute="leading" constant="8" id="TmX-Jz-9Io"/>
+                            <constraint firstItem="75P-Hz-cVZ" firstAttribute="centerY" secondItem="Vby-NH-BJo" secondAttribute="centerY" id="m1d-3G-75K"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="Vby-NH-BJo" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="6Fm-eS-Fdn"/>
+                <constraint firstAttribute="bottom" secondItem="2cb-Em-Pyj" secondAttribute="bottom" id="H2V-pn-mcu"/>
+                <constraint firstAttribute="bottom" secondItem="Vby-NH-BJo" secondAttribute="bottom" id="RX9-Du-bDE"/>
+                <constraint firstItem="2cb-Em-Pyj" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="XzC-IH-cTj"/>
+                <constraint firstAttribute="trailing" secondItem="2cb-Em-Pyj" secondAttribute="trailing" id="jsc-YO-Nkk"/>
+                <constraint firstAttribute="trailing" secondItem="Vby-NH-BJo" secondAttribute="trailing" id="lrO-4N-i4F"/>
+                <constraint firstItem="2cb-Em-Pyj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="xeH-65-eIZ"/>
+            </constraints>
+            <connections>
+                <outlet property="episodeImage" destination="2cb-Em-Pyj" id="Goo-CO-YRe"/>
+                <outlet property="episodeName" destination="75P-Hz-cVZ" id="e4P-yV-zE8"/>
+            </connections>
+            <point key="canvasLocation" x="138.40579710144928" y="114.50892857142857"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="banner" width="640" height="360"/>
+        <namedColor name="Dark">
+            <color red="0.10196078431372549" green="0.15686274509803921" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
