@@ -89,6 +89,15 @@
 		0DB5215C259ECAE80033F9FC /* SeasonInfoResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB5215B259ECAE80033F9FC /* SeasonInfoResponseModel.swift */; };
 		0DB52161259ECE970033F9FC /* SeasonsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB52160259ECE970033F9FC /* SeasonsViewModel.swift */; };
 		0DB52169259ED5380033F9FC /* EpisodesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB52168259ED5380033F9FC /* EpisodesModel.swift */; };
+		0DB521BD259FD1ED0033F9FC /* TvShowsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB521BC259FD1ED0033F9FC /* TvShowsModel.swift */; };
+		0DB521F1259FD9A50033F9FC /* TvShowsEpisodesPerSeason+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB521E9259FD9A40033F9FC /* TvShowsEpisodesPerSeason+CoreDataClass.swift */; };
+		0DB521F2259FD9A50033F9FC /* TvShowsEpisodesPerSeason+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB521EA259FD9A40033F9FC /* TvShowsEpisodesPerSeason+CoreDataProperties.swift */; };
+		0DB521F3259FD9A50033F9FC /* TvShowDetail+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB521EB259FD9A40033F9FC /* TvShowDetail+CoreDataClass.swift */; };
+		0DB521F4259FD9A50033F9FC /* TvShowDetail+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB521EC259FD9A40033F9FC /* TvShowDetail+CoreDataProperties.swift */; };
+		0DB521F5259FD9A50033F9FC /* TvShows+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB521ED259FD9A40033F9FC /* TvShows+CoreDataClass.swift */; };
+		0DB521F6259FD9A50033F9FC /* TvShows+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB521EE259FD9A40033F9FC /* TvShows+CoreDataProperties.swift */; };
+		0DB521F7259FD9A50033F9FC /* TvShowCast+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB521EF259FD9A50033F9FC /* TvShowCast+CoreDataClass.swift */; };
+		0DB521F8259FD9A50033F9FC /* TvShowCast+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB521F0259FD9A50033F9FC /* TvShowCast+CoreDataProperties.swift */; };
 		0DE0E930259A5E2500F9AEA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE0E92F259A5E2500F9AEA8 /* AppDelegate.swift */; };
 		0DE0E93A259A5E2500F9AEA8 /* TMDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0DE0E938259A5E2500F9AEA8 /* TMDB.xcdatamodeld */; };
 		0DE0E93C259A5E2600F9AEA8 /* Base.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DE0E93B259A5E2600F9AEA8 /* Base.xcassets */; };
@@ -237,6 +246,15 @@
 		0DB5215B259ECAE80033F9FC /* SeasonInfoResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonInfoResponseModel.swift; sourceTree = "<group>"; };
 		0DB52160259ECE970033F9FC /* SeasonsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonsViewModel.swift; sourceTree = "<group>"; };
 		0DB52168259ED5380033F9FC /* EpisodesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesModel.swift; sourceTree = "<group>"; };
+		0DB521BC259FD1ED0033F9FC /* TvShowsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowsModel.swift; sourceTree = "<group>"; };
+		0DB521E9259FD9A40033F9FC /* TvShowsEpisodesPerSeason+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TvShowsEpisodesPerSeason+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		0DB521EA259FD9A40033F9FC /* TvShowsEpisodesPerSeason+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TvShowsEpisodesPerSeason+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		0DB521EB259FD9A40033F9FC /* TvShowDetail+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TvShowDetail+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		0DB521EC259FD9A40033F9FC /* TvShowDetail+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TvShowDetail+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		0DB521ED259FD9A40033F9FC /* TvShows+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TvShows+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		0DB521EE259FD9A40033F9FC /* TvShows+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TvShows+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		0DB521EF259FD9A50033F9FC /* TvShowCast+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TvShowCast+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		0DB521F0259FD9A50033F9FC /* TvShowCast+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TvShowCast+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		0DE0E92C259A5E2500F9AEA8 /* TMDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DE0E92F259A5E2500F9AEA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DE0E939259A5E2500F9AEA8 /* TMDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TMDB.xcdatamodel; sourceTree = "<group>"; };
@@ -562,6 +580,21 @@
 			path = Controls;
 			sourceTree = "<group>";
 		};
+		0DB5216D259FB1FD0033F9FC /* CoreDataModels */ = {
+			isa = PBXGroup;
+			children = (
+				0DB521E9259FD9A40033F9FC /* TvShowsEpisodesPerSeason+CoreDataClass.swift */,
+				0DB521EA259FD9A40033F9FC /* TvShowsEpisodesPerSeason+CoreDataProperties.swift */,
+				0DB521EB259FD9A40033F9FC /* TvShowDetail+CoreDataClass.swift */,
+				0DB521EC259FD9A40033F9FC /* TvShowDetail+CoreDataProperties.swift */,
+				0DB521ED259FD9A40033F9FC /* TvShows+CoreDataClass.swift */,
+				0DB521EE259FD9A40033F9FC /* TvShows+CoreDataProperties.swift */,
+				0DB521EF259FD9A50033F9FC /* TvShowCast+CoreDataClass.swift */,
+				0DB521F0259FD9A50033F9FC /* TvShowCast+CoreDataProperties.swift */,
+			);
+			path = CoreDataModels;
+			sourceTree = "<group>";
+		};
 		0DE0E923259A5E2500F9AEA8 = {
 			isa = PBXGroup;
 			children = (
@@ -593,6 +626,7 @@
 				0DE0E940259A5E2600F9AEA8 /* Info.plist */,
 				0DE0E938259A5E2500F9AEA8 /* TMDB.xcdatamodeld */,
 				0D7D892F259D7E0E0078020C /* loading.gif */,
+				0DB5216D259FB1FD0033F9FC /* CoreDataModels */,
 				0D1E6EE2259A72C90063A1B1 /* Library */,
 				0DFCC954259D1267000326A2 /* Models */,
 				0D1E6FCE259A7DDD0063A1B1 /* Navigation */,
@@ -653,6 +687,7 @@
 				0DFCC960259D1688000326A2 /* Request */,
 				0DFCC961259D1697000326A2 /* Response */,
 				0DB52168259ED5380033F9FC /* EpisodesModel.swift */,
+				0DB521BC259FD1ED0033F9FC /* TvShowsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -983,6 +1018,7 @@
 				0D1E6FDD259A821E0063A1B1 /* HomeCoordinator.swift in Sources */,
 				0DE0E93A259A5E2500F9AEA8 /* TMDB.xcdatamodeld in Sources */,
 				0D928854259D242B00D91D35 /* LoginRequestException.swift in Sources */,
+				0DB521F6259FD9A50033F9FC /* TvShows+CoreDataProperties.swift in Sources */,
 				0D1E6F33259A73430063A1B1 /* UIViewController+confirmationAlert.swift in Sources */,
 				0D1E7026259AE1DA0063A1B1 /* DetailViewController.swift in Sources */,
 				0DFCC983259D17E9000326A2 /* DefaultListResponseModel.swift in Sources */,
@@ -990,28 +1026,35 @@
 				0D1E6F6E259A73440063A1B1 /* Extensions.swift in Sources */,
 				0D92884E259D21F300D91D35 /* LoginViewModel.swift in Sources */,
 				0D928849259D1F0700D91D35 /* TvShowsFilterType.swift in Sources */,
+				0DB521F1259FD9A50033F9FC /* TvShowsEpisodesPerSeason+CoreDataClass.swift in Sources */,
 				0D1E6F53259A73440063A1B1 /* HTTPStatusCode.swift in Sources */,
 				0D1E6F3F259A73440063A1B1 /* Presentr+default.swift in Sources */,
+				0DB521F5259FD9A50033F9FC /* TvShows+CoreDataClass.swift in Sources */,
 				0D7D893A259D8CD20078020C /* CastResponseModel.swift in Sources */,
 				0D1E6FBB259A79CC0063A1B1 /* K.swift in Sources */,
 				0DFCC97D259D17B3000326A2 /* DefaultResponseModel.swift in Sources */,
 				0D928844259D1E8500D91D35 /* TvShowsService.swift in Sources */,
 				0D7D8928259D71C00078020C /* DetailViewModel.swift in Sources */,
+				0DB521F4259FD9A50033F9FC /* TvShowDetail+CoreDataProperties.swift in Sources */,
 				0DB52161259ECE970033F9FC /* SeasonsViewModel.swift in Sources */,
 				0D1E6F58259A73440063A1B1 /* ValidationException.swift in Sources */,
 				0D268309259E6B2800DBCAA4 /* SeasonTableViewCollectionDataSource.swift in Sources */,
 				0D7D8919259D43DA0078020C /* CustomRadioButton.swift in Sources */,
 				0D1E6F3D259A73440063A1B1 /* UIViewController+keyboardHandling.swift in Sources */,
 				0D1E6FC7259A7D5A0063A1B1 /* LoginViewController.swift in Sources */,
+				0DB521F8259FD9A50033F9FC /* TvShowCast+CoreDataProperties.swift in Sources */,
 				0DFCC963259D16A8000326A2 /* LoginRequestModel.swift in Sources */,
 				0D1E6FD0259A7DFC0063A1B1 /* ApplicationCoordinator.swift in Sources */,
 				0DE0E930259A5E2500F9AEA8 /* AppDelegate.swift in Sources */,
+				0DB521F2259FD9A50033F9FC /* TvShowsEpisodesPerSeason+CoreDataProperties.swift in Sources */,
 				0D00B036259E6073006021D0 /* SeasonsViewController.swift in Sources */,
 				0DB5215C259ECAE80033F9FC /* SeasonInfoResponseModel.swift in Sources */,
 				0D1E6FD8259A7E260063A1B1 /* AuthenticationCoordinator.swift in Sources */,
+				0DB521BD259FD1ED0033F9FC /* TvShowsModel.swift in Sources */,
 				0D268303259E6A1E00DBCAA4 /* SeasonTableViewCell.swift in Sources */,
 				0D1E6F6D259A73440063A1B1 /* DiviceLogger.swift in Sources */,
 				0DE783F2259CE5AA009002BB /* NavigationView.swift in Sources */,
+				0DB521F7259FD9A50033F9FC /* TvShowCast+CoreDataClass.swift in Sources */,
 				0D2682FA259E680600DBCAA4 /* SeasonCollectionViewCell.swift in Sources */,
 				0DE7840E259CED8A009002BB /* SourceValidations.swift in Sources */,
 				0D1E701D259ACF7E0063A1B1 /* FilterButtonsView.swift in Sources */,
@@ -1020,6 +1063,7 @@
 				0D1E6F59259A73440063A1B1 /* LocalizableErrorBased.swift in Sources */,
 				0DB52169259ED5380033F9FC /* EpisodesModel.swift in Sources */,
 				0D1E6F6F259A73440063A1B1 /* DefaultPreferences.swift in Sources */,
+				0DB521F3259FD9A50033F9FC /* TvShowDetail+CoreDataClass.swift in Sources */,
 				0D1E6F50259A73440063A1B1 /* LogEvent.swift in Sources */,
 				0D26831B259E6FA700DBCAA4 /* SeasonTableViewDelegate.swift in Sources */,
 				0D1E6F62259A73440063A1B1 /* SecureRequestPlugin.swift in Sources */,

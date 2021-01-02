@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import CoreData
 
 final class HomeCoordinator: Coordinator {
     
@@ -27,7 +28,8 @@ final class HomeCoordinator: Coordinator {
     
     func start() {
         let controller = HomeViewController()
-        let viewModel = HomeViewModel(tvShowService: TvShowsService())
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let viewModel = HomeViewModel(tvShowService: TvShowsService(), context: context)
         controller.viewModel = viewModel
         presenter.navigationBar.isHidden = true
         presenter.pushViewController(controller, animated: true)

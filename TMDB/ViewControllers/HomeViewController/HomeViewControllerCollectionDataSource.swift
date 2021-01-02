@@ -10,7 +10,7 @@ import Nuke
 
 final class HomeViewControllerCollectionDataSource: NSObject {
     var delegate: UIResponder?
-    var items: [ResultResponse] = []
+    var items: [TvShowsModel] = []
 }
 
 extension HomeViewControllerCollectionDataSource: UICollectionViewDataSource {
@@ -26,9 +26,14 @@ extension HomeViewControllerCollectionDataSource: UICollectionViewDataSource {
         cell.tvShowName.text = tvShowInfo.name
         let options = K.NukeDefault.options
         let url = URL(string: "\(DefaultPreferences.current.loadImageBaseString ?? "")\(tvShowInfo.posterPath ?? "")")!
-        Nuke.loadImage(with: url, options: options, into: cell.tvShowImage)
+        if tvShowInfo.posterPath != "" {
+            Nuke.loadImage(with: url, options: options, into: cell.tvShowImage)
+        } else {
+            cell.tvShowImage.image = UIImage(data: tvShowInfo.imageData ?? Data())
+        }
         cell.tvShowReleaseDate.text = tvShowInfo.firstAirDate ?? ""
-        cell.tvShowRate.text = String(tvShowInfo.voteAverage ?? 0)
+        let rateValue = String(format: "%.1f", tvShowInfo.voteAverage ?? 0)
+        cell.tvShowRate.text = rateValue
         return cell
     }
 }

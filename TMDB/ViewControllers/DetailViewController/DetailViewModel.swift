@@ -6,6 +6,7 @@
 //
 
 import RxSwift
+import CoreData
 
 final class DetailViewModel {
     
@@ -13,16 +14,26 @@ final class DetailViewModel {
     
     let tvShowService: TvShowsService
     
+    // MARK: - Attributes
+    
+    var context: NSManagedObjectContext!
+    
     // MARK: - LifeCycle
     
-    init(tvShowService: TvShowsService) {
+    init(tvShowService: TvShowsService,
+         context: NSManagedObjectContext) {
         self.tvShowService = tvShowService
+        self.context = context
     }
     
     // MARK: - Methods
     
     func getTvShowDetail(with tvId: Int) -> Single<DetailsTvShowResponseModel> {
         return tvShowService.getTvShowDetail(with: tvId)
+    }
+    
+    func getLocalTvShowDetail() {
+        
     }
     
     func getCast(with tvId: Int) -> Single<CastResponseModel> {

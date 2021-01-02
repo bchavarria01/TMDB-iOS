@@ -103,14 +103,14 @@ final class HomeViewController: UIViewController {
     
     func bindViewModel() {
         // OUTPUTS
-        viewModel.tvShowList
+        showLoading()
+        viewModel.localTvShowsList
             .do(onNext: { [weak self] elements in
                 guard let self = self else { return }
-                self.showLoading()
                 DispatchQueue.main.async {
-                    if elements.results?.count == 0 {
+                    if elements.count == 0 {
                         self.dismiss(animated: true, completion: {
-                            self.collectionView.setEmptyMessage("Test message")
+                            self.collectionView.setEmptyMessage("Sorry\n You should have an internet connection to get data")
                         })
                     } else {
                         self.dismiss(animated: true, completion: {
@@ -123,8 +123,8 @@ final class HomeViewController: UIViewController {
                 onNext: { [weak self] items in
                     guard let self = self else { return }
                     self.dismiss(animated: true, completion: {
-                        self.collectionDataSource.items = items.results ?? []
-                        self.collectionDelegate.items = items.results ?? []
+                        self.collectionDataSource.items = items
+                        self.collectionDelegate.items = items
                         self.collectionView.reloadData()
                     })
                 }, onError: { [weak self] error in
@@ -132,7 +132,7 @@ final class HomeViewController: UIViewController {
                     self.dismiss(animated: true, completion: {
                         let moyaError: MoyaError = error as! MoyaError
                         self.handleNetworkError(with: moyaError, completitionHandler: nil)
-                        self.collectionView.setEmptyMessage("Test message")
+                        self.collectionView.setEmptyMessage("Sorry\n You should have an internet connection to get data")
                     })
                 }
             ).disposed(by: disposeBag)
@@ -215,6 +215,7 @@ final class HomeViewController: UIViewController {
 extension HomeViewController: CustomRadioButtonControllerDelegate {
     func didSelectButton(sender: UIButton?) {
         let tvShowType = TvShowsFilterType(rawValue: sender?.tag ?? 0) ?? .popular
+        self.showLoading()
         viewModel.type.onNext(tvShowType)
     }
 }

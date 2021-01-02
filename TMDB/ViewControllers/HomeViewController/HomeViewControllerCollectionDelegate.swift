@@ -10,7 +10,7 @@ import UIKit
 
 final class HomeViewControllerCollectionDelegate: NSObject {
     var delegate: UIResponder?
-    var items: [ResultResponse] = []
+    var items: [TvShowsModel] = []
 }
 
 // MARK: - UICollectionViewDelegate

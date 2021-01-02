@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="215" height="130"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner" translatesAutoresizingMaskIntoConstraints="NO" id="2cb-Em-Pyj">
+                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2cb-Em-Pyj">
                         <rect key="frame" x="0.0" y="0.0" width="215" height="130"/>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vby-NH-BJo">
@@ -58,7 +58,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="banner" width="640" height="360"/>
         <namedColor name="Dark">
             <color red="0.10196078431372549" green="0.15686274509803921" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

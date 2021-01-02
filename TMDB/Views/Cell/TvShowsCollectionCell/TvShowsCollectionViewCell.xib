@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -88,7 +89,7 @@
                             <constraint firstAttribute="height" constant="160" id="acG-o5-4XW"/>
                         </constraints>
                     </view>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Interstellar" translatesAutoresizingMaskIntoConstraints="NO" id="9BP-Gl-22X">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9BP-Gl-22X">
                         <rect key="frame" x="0.0" y="0.0" width="175" height="230"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="230" id="J3E-iA-xgH"/>
@@ -118,7 +119,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="Interstellar" width="756" height="1080"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <namedColor name="AlmostBlack">
             <color red="0.039215686274509803" green="0.082352941176470587" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
