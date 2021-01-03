@@ -185,6 +185,7 @@ final class DetailViewController: UIViewController {
     var tvId: Int?
     var numberOfSeasons: Int?
     let disposeBag = DisposeBag()
+    weak var delegate: DetailViewControllerDelegate?
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
           return .lightContent
@@ -195,7 +196,6 @@ final class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = R.Colors.almostBlack.color
-        self.navigationController?.navigationBar.isHidden = true
         
         self.view.setNeedsLayout()
         self.view.layoutIfNeeded()
@@ -226,17 +226,12 @@ final class DetailViewController: UIViewController {
     }
     
     @objc private func handleViewAllSeasonsSelection(_ sender: UIButton) {
-        let controller = SeasonsViewController()
-        controller.viewModel = SeasonsViewModel(tvShowService: TvShowsService())
-        controller.tvId = self.tvId
-        controller.numberOfSeasons = self.numberOfSeasons
-        controller.modalPresentationStyle = .popover
-        self.navigationController?.present(controller, animated: true, completion: nil)
+        delegate?.detialViewControllerDidSelectViewAllSeasons(wit: self.tvId ?? 0, and: self.numberOfSeasons ?? 0)
     }
     
     func bindViewModel() {
         showLoading()
-        viewModel.getTvShowDetail(with: self.tvId ?? 0)
+        viewModel.getLocalTvShowDetail(with: self.tvId ?? 0)
             .subscribe(
                 onSuccess: { [weak self] response in
                     guard let self = self else { return }
@@ -245,19 +240,18 @@ final class DetailViewController: UIViewController {
                     
                     self.dismiss(animated: true, completion: {
                         self.showLoading()
-                        self.viewModel.getCast(with: self.tvId ?? 0)
+                        self.viewModel.getLocalCast(with: self.tvId ?? 0)
                             .subscribe(
                                 onSuccess: { [weak self] response in
                                     guard let self = self else { return }
                                     self.dismiss(animated: true, completion: {
-                                        self.collectionDataSource.items = response.cast ?? []
+                                        self.collectionDataSource.items = response
                                         self.collectionView.reloadData()
                                     })
                                 }, onError: { [weak self] error in
                                     guard let self = self else { return }
                                     self.dismiss(animated: true, completion: {
-                                        let moyaError = error as! MoyaError
-                                        self.handleNetworkError(with: moyaError, completitionHandler: nil)
+                                        self.showAlert(title: "Error", message: error.localizedDescription, handler: nil)
                                     })
                                 }
                             ).disposed(by: self.disposeBag)
@@ -266,33 +260,36 @@ final class DetailViewController: UIViewController {
                 }, onError: { [weak self] error in
                     guard let self = self else { return }
                     self.dismiss(animated: true, completion: {
-                        let moyaError = error as! MoyaError
-                        self.handleNetworkError(with: moyaError, completitionHandler: nil)
+                        self.showAlert(title: "Error", message: error.localizedDescription, handler: nil)
                     })
                 }
             ).disposed(by: disposeBag)
     }
     
-    func setupTvShowContent(with tvShowInfo: DetailsTvShowResponseModel) {
+    func setupTvShowContent(with tvShowInfo: TvShowsDetailModel) {
         let options = K.NukeDefault.options
-        let url = URL(string: "\(DefaultPreferences.current.loadImageBaseString ?? "")\(tvShowInfo.posterPath ?? "")")!
-        Nuke.loadImage(with: url, options: options, into: tvShowImage)
+        if tvShowInfo.posterPath != "" {
+            let url = URL(string: "\(DefaultPreferences.current.loadImageBaseString ?? "")\(tvShowInfo.posterPath ?? "")")!
+            Nuke.loadImage(with: url, options: options, into: tvShowImage)
+        } else {
+            tvShowImage.image = UIImage(data: tvShowInfo.detailImageData ?? Data())
+        }
         tvShowName.text = tvShowInfo.name
         tvShowDescription.text = tvShowInfo.overview
-        var creators: [String] = []
-        tvShowInfo.createdBy?.forEach({ creator in
-            creators.append(creator.name ?? "")
-        })
-        let creatorsString = creators.joined(separator: ", ")
-        tvShowCreatedBy.text = "\(L10n.createdBy)\(creatorsString)"
+        tvShowCreatedBy.text = tvShowInfo.createdBy
         
-        rateLabel.text = String(tvShowInfo.voteAverage ?? 0)
+        rateLabel.text = String(format: "%.1f", tvShowInfo.voteAverage ?? 0)
         
-        let url2 = URL(string: "\(DefaultPreferences.current.loadImageBaseString ?? "")\(tvShowInfo.seasons?.last?.posterPath ?? "")")!
-        Nuke.loadImage(with: url2, options: options, into: lastSeasonImage)
+        if tvShowInfo.lastSeasonImagePath != "" {
+            let options = K.NukeDefault.options
+            let url2 = URL(string: "\(DefaultPreferences.current.loadImageBaseString ?? "")\(tvShowInfo.lastSeasonImagePath ?? "")")!
+            Nuke.loadImage(with: url2, options: options, into: lastSeasonImage)
+        } else {
+            lastSeasonImage.image = UIImage(data: tvShowInfo.lastSeasonImageData ?? Data())
+        }
         
-        lastSeasonName.text = tvShowInfo.seasons?.last?.name ?? ""
-        lastSeasonReleaseDate.text = tvShowInfo.seasons?.last?.airDate ?? ""
+        lastSeasonName.text = tvShowInfo.lastSeasonName
+        lastSeasonReleaseDate.text = tvShowInfo.lastSeasonReleaseDate
     }
     
     private func setupMainBackView() {

@@ -73,6 +73,16 @@
                ReferencedContainer = "container:TMDB.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0DE6C22125A17BF60027749B"
+               BuildableName = "TMDBUIElementsTests.xctest"
+               BlueprintName = "TMDBUIElementsTests"
+               ReferencedContainer = "container:TMDB.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 import UIWindowTransitions
 
 final class ApplicationCoordinator: Coordinator {
@@ -16,11 +17,14 @@ final class ApplicationCoordinator: Coordinator {
     var presenter: UINavigationController
     var childCoordinators: [Coordinator] = []
     weak var parentCoordinator: Coordinator?
+    var context: NSManagedObjectContext!
     
     // MARK: - LifeCycle
     
-    init(window: UIWindow) {
+    init(window: UIWindow,
+         context: NSManagedObjectContext) {
         self.window = window
+        self.context = context
         presenter = UINavigationController()
         presenter.navigationBar.isHidden = true
         window.rootViewController = presenter
@@ -29,18 +33,43 @@ final class ApplicationCoordinator: Coordinator {
     // MARK: Start
     
     func start() {
-        let authenticationCoordinator = AuthenticationCoordinator(
-            presenter: presenter,
-            parentCoordinator: self
-        )
-        authenticationCoordinator.start()
-        window.makeKeyAndVisible()
+        var localSession: [Session] = []
+        let request = Session.fetchRequest() as NSFetchRequest<Session>
+        do {
+             localSession = try context.fetch(request)
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
+
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "yyyy-MM-dd HH:mm:ss"
+
+        if localSession.count > 0 {
+            var storedDate: Date?
+            if let date = dateFormatterGet.date(from: localSession[0].expDate?.replacingOccurrences(of: " UTC", with: "") ?? "") {
+                storedDate = date
+            } else {
+               print("There was an error decoding the string")
+            }
+            
+            let startDate = Date()
+            let currentDate = startDate.addingTimeInterval(6*60*60)
+            
+            if storedDate ?? Date() > currentDate {
+                setupHomeCoordinator()
+            } else {
+                setupAuthCoordinator()
+            }
+        } else {
+            setupAuthCoordinator()
+        }
         
         #if DEBUG
             DeviceLogger.debug("Navigation start")
         #endif
-        
-        addChildCoordinator(authenticationCoordinator)
     }
     
     func end(with step: AppStep) {
@@ -57,7 +86,8 @@ final class ApplicationCoordinator: Coordinator {
         let nextPresenter = UINavigationController()
         let homeCoordinator = HomeCoordinator(
             presenter: nextPresenter,
-            parentCoordinator: self
+            parentCoordinator: self,
+            context: context
         )
         homeCoordinator.start()
         
@@ -74,7 +104,8 @@ final class ApplicationCoordinator: Coordinator {
         let nextPresenter = UINavigationController()
         let authenticationCoordinator = AuthenticationCoordinator(
             presenter: nextPresenter,
-            parentCoordinator: self
+            parentCoordinator: self,
+            context: context
         )
         
         authenticationCoordinator.start()

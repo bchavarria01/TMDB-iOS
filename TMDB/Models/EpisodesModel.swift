@@ -9,5 +9,11 @@ import Foundation
 
 struct EpisodesModel {
     let seasonName: String?
-    let episodes: [Episode]?
+    let episodes: [CustomEpisode]?
+}
+
+struct CustomEpisode {
+    var episodeName: String?
+    var episodePath: String?
+    var episodeImage: Data?
 }

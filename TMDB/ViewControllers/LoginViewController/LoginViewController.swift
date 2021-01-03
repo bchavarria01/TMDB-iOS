@@ -119,8 +119,7 @@ final class LoginViewController: UIViewController {
             }, onError: { [weak self] error in
                 guard let self = self else { return }
                 self.dismiss(animated: true, completion: {
-                    let moyaError: MoyaError? = error as? MoyaError
-                    self.handleNetworkError(with: moyaError, completitionHandler: nil)
+                    self.showAlert(title: "Error", message: error.localizedDescription, handler: nil)
                 })
             }
         ).disposed(by: disposeBag)
@@ -135,14 +134,17 @@ final class LoginViewController: UIViewController {
                     guard let self = self else { return }
                     self.dismiss(animated: true, completion: {
                         sender.isEnabled = true
-                        self.delegate?.loginViewControllerDidLogInSuccessfully()
+                        if response.success ?? false {
+                            self.delegate?.loginViewControllerDidLogInSuccessfully()
+                        } else {
+                            self.showAlert(title: "Error", message: response.message ?? "", handler: nil)
+                        }
                     })
                 }, onError: { [weak self] error in
                     guard let self = self else { return }
                     self.dismiss(animated: true, completion: {
                         sender.isEnabled = true
-                        let moyaError: MoyaError? = error as? MoyaError
-                        self.handleNetworkError(with: moyaError, completitionHandler: nil)
+                        self.showAlert(title: "Error", message: error.localizedDescription, handler: nil)
                     })
                 }
             ).disposed(by: disposeBag)

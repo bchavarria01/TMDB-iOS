@@ -17,7 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         guard let window = self.window else { return false }
         
-        let applicationCoordinator = ApplicationCoordinator(window: window)
+        let context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        let applicationCoordinator = ApplicationCoordinator(window: window, context: context)
         
         self.window = window
         self.applicationCoordinator = applicationCoordinator

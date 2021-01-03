@@ -7,6 +7,7 @@
 
 import RxSwift
 import RxCocoa
+import CoreData
 
 final class LoginViewModel {
     
@@ -19,10 +20,16 @@ final class LoginViewModel {
     
     private let authService: AuthService
     
+    // MARK: - Attributes
+
+    var context: NSManagedObjectContext!
+    
     // MARK: - LifeCycle
     
-    init(authService: AuthService) {
+    init(authService: AuthService,
+         context: NSManagedObjectContext) {
         self.authService = authService
+        self.context = context
     }
     
     // MARK: - Methods
@@ -54,8 +61,47 @@ final class LoginViewModel {
         return authService.authenticateWithLogin(with: loginRequestModel)
             .map { (responseModel) -> DefaultResponseModel in
                 DefaultPreferences.current.requestToken = responseModel.requestToken
+                
+                // Delete every time user request a new token
+                self.deleteSession()
+                // Create a new session locally
+                self.createNewSession(with: responseModel)
+                
                 return responseModel
             }
+    }
+    
+    func createNewSession(with responseModel: DefaultResponseModel) {
+        let tokenModel = Session(context: self.context)
+        tokenModel.expDate = responseModel.expiresAt
+        tokenModel.token = responseModel.requestToken
+        
+        do {
+            try self.context.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func deleteSession() {
+        var localSessions: [Session] = []
+        let request = Session.fetchRequest() as NSFetchRequest<Session>
+        do {
+            localSessions = try self.context.fetch(request)
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        if localSessions.count > 0 {
+            let sessionToDelete = localSessions[0]
+            self.context.delete(sessionToDelete)
+    //
+            do {
+                try self.context.save()
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
     }
     
 }

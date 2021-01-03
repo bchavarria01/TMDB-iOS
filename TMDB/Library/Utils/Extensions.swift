@@ -65,45 +65,4 @@ extension UIViewController {
         alert.view.addSubview(loadingIndicator)
         self.present(alert, animated: true, completion: nil)
     }
-    
-    func handleNetworkError(with error: MoyaError?, completitionHandler: (() -> Void)?) {
-        let response: Response? = error?.response
-        let statusCode: HTTPStatusCode? = response?.status
-        let responseType: HTTPStatusCode.ResponseType? = response?.responseType
-        var errorMessage: String?
-        print(errorMessage ?? "")
-        switch responseType {
-        case .success:
-            if statusCode == .noContent {
-                errorMessage = L10n.notValidData
-            } else {
-                errorMessage = L10n.errorHasOcurred
-            }
-        case .clientError:
-            if statusCode == .unauthorized {
-                errorMessage = L10n.sessionHasExpired
-            } else {
-                errorMessage = L10n.errorHasOcurred
-            }
-        case .serverError:
-            errorMessage = L10n.errorHasOcurred
-        default:
-            print("No error in response")
-        }
-        
-        let screenSize: CGRect = UIScreen.main.bounds
-        _ = screenSize
-//        let controller = DefaultModalViewController()
-//        controller.descriptionLabel.text = errorMessage
-//        controller.completitionHandler = completitionHandler
-//        controller.type = .error
-//
-//        self.presentModal(
-//            controller,
-//            width: .custom(size: Float(screenSize.width - 32)),
-//            height: .custom(size: 210),
-//            backgroundOpacity: 0.4
-//        )
-        
-    }
 }

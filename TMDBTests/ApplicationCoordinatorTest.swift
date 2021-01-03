@@ -2,24 +2,21 @@
 //  ApplicationCoordinatorTest.swift
 //  TMDBTests
 //
-//  Created by Byron Chavarría on 30/12/20.
+//  Created by Byron Chavarría on 2/1/21.
 //
 
+import UIKit
 import XCTest
+import CoreData
+@testable import TMDB
 
 class ApplicationCoordinatorTest: XCTestCase {
 
-    func testEndApplicacionCoordinator() {
-        let window = UIWindow()
-        let appCoordinator = ApplicationCoordinator(window: window)
-        XCTAssertNoThrow(appCoordinator.end(with: .home))
-        XCTAssertNoThrow(appCoordinator.end(with: .auth))
-    }
-    
-    func testSetUpHomeCoordinator() {
-        let window = UIWindow()
-        let appCoordinator = ApplicationCoordinator(window: window)
-        XCTAssertNoThrow(appCoordinator.setupHomeCoordinator())
-    }
+//    func testApplicactionCoordinator() {
+//        let winwdow = UIWindow()
+//        let context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+//        let appCoordinator = ApplicationCoordinator(window: winwdow, context: context)
+//        XCTAssertNoThrow(appCoordinator.start())
+//    }
 
 }

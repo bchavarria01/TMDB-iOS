@@ -90,20 +90,52 @@
 		0DB52161259ECE970033F9FC /* SeasonsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB52160259ECE970033F9FC /* SeasonsViewModel.swift */; };
 		0DB52169259ED5380033F9FC /* EpisodesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB52168259ED5380033F9FC /* EpisodesModel.swift */; };
 		0DB521BD259FD1ED0033F9FC /* TvShowsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB521BC259FD1ED0033F9FC /* TvShowsModel.swift */; };
-		0DB521F1259FD9A50033F9FC /* TvShowsEpisodesPerSeason+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB521E9259FD9A40033F9FC /* TvShowsEpisodesPerSeason+CoreDataClass.swift */; };
-		0DB521F2259FD9A50033F9FC /* TvShowsEpisodesPerSeason+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB521EA259FD9A40033F9FC /* TvShowsEpisodesPerSeason+CoreDataProperties.swift */; };
-		0DB521F3259FD9A50033F9FC /* TvShowDetail+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB521EB259FD9A40033F9FC /* TvShowDetail+CoreDataClass.swift */; };
-		0DB521F4259FD9A50033F9FC /* TvShowDetail+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB521EC259FD9A40033F9FC /* TvShowDetail+CoreDataProperties.swift */; };
-		0DB521F5259FD9A50033F9FC /* TvShows+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB521ED259FD9A40033F9FC /* TvShows+CoreDataClass.swift */; };
-		0DB521F6259FD9A50033F9FC /* TvShows+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB521EE259FD9A40033F9FC /* TvShows+CoreDataProperties.swift */; };
-		0DB521F7259FD9A50033F9FC /* TvShowCast+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB521EF259FD9A50033F9FC /* TvShowCast+CoreDataClass.swift */; };
-		0DB521F8259FD9A50033F9FC /* TvShowCast+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB521F0259FD9A50033F9FC /* TvShowCast+CoreDataProperties.swift */; };
 		0DE0E930259A5E2500F9AEA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE0E92F259A5E2500F9AEA8 /* AppDelegate.swift */; };
 		0DE0E93A259A5E2500F9AEA8 /* TMDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0DE0E938259A5E2500F9AEA8 /* TMDB.xcdatamodeld */; };
 		0DE0E93C259A5E2600F9AEA8 /* Base.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DE0E93B259A5E2600F9AEA8 /* Base.xcassets */; };
 		0DE0E93F259A5E2600F9AEA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DE0E93D259A5E2600F9AEA8 /* LaunchScreen.storyboard */; };
 		0DE0E94A259A5E2600F9AEA8 /* TMDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE0E949259A5E2600F9AEA8 /* TMDBTests.swift */; };
-		0DE0E955259A5E2600F9AEA8 /* TMDBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE0E954259A5E2600F9AEA8 /* TMDBUITests.swift */; };
+		0DE6C27525A17CF30027749B /* TvShowDetail+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE6C26E25A17CF30027749B /* TvShowDetail+CoreDataClass.swift */; };
+		0DE6C27625A17CF30027749B /* TvShowDetail+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE6C26E25A17CF30027749B /* TvShowDetail+CoreDataClass.swift */; };
+		0DE6C27725A17CF30027749B /* TvShowDetail+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE6C26F25A17CF30027749B /* TvShowDetail+CoreDataProperties.swift */; };
+		0DE6C27825A17CF30027749B /* TvShowDetail+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE6C26F25A17CF30027749B /* TvShowDetail+CoreDataProperties.swift */; };
+		0DE6C27925A17CF30027749B /* Show+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE6C27025A17CF30027749B /* Show+CoreDataProperties.swift */; };
+		0DE6C27A25A17CF30027749B /* Show+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE6C27025A17CF30027749B /* Show+CoreDataProperties.swift */; };
+		0DE6C27B25A17CF30027749B /* TvShowEpisodesPerSeason+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE6C27125A17CF30027749B /* TvShowEpisodesPerSeason+CoreDataProperties.swift */; };
+		0DE6C27C25A17CF30027749B /* TvShowEpisodesPerSeason+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE6C27125A17CF30027749B /* TvShowEpisodesPerSeason+CoreDataProperties.swift */; };
+		0DE6C27D25A17CF30027749B /* TvShowCast+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE6C27225A17CF30027749B /* TvShowCast+CoreDataClass.swift */; };
+		0DE6C27E25A17CF30027749B /* TvShowCast+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE6C27225A17CF30027749B /* TvShowCast+CoreDataClass.swift */; };
+		0DE6C27F25A17CF30027749B /* TvShowCast+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE6C27325A17CF30027749B /* TvShowCast+CoreDataProperties.swift */; };
+		0DE6C28025A17CF30027749B /* TvShowCast+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE6C27325A17CF30027749B /* TvShowCast+CoreDataProperties.swift */; };
+		0DE6C28125A17CF30027749B /* Session+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE6C27425A17CF30027749B /* Session+CoreDataProperties.swift */; };
+		0DE6C28225A17CF30027749B /* Session+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE6C27425A17CF30027749B /* Session+CoreDataProperties.swift */; };
+		0DE6C28825A17D2D0027749B /* TvShowEpisodesPerSeason+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE6C28525A17D2D0027749B /* TvShowEpisodesPerSeason+CoreDataClass.swift */; };
+		0DE6C28925A17D2D0027749B /* TvShowEpisodesPerSeason+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE6C28525A17D2D0027749B /* TvShowEpisodesPerSeason+CoreDataClass.swift */; };
+		0DE6C28A25A17D2D0027749B /* Session+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE6C28625A17D2D0027749B /* Session+CoreDataClass.swift */; };
+		0DE6C28C25A17D2D0027749B /* Show+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE6C28725A17D2D0027749B /* Show+CoreDataClass.swift */; };
+		0DE6C28D25A17D2D0027749B /* Show+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE6C28725A17D2D0027749B /* Show+CoreDataClass.swift */; };
+		0DE6C2A225A17D690027749B /* TvCastModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE6C2A025A17D690027749B /* TvCastModel.swift */; };
+		0DE6C2A325A17D690027749B /* TvCastModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE6C2A025A17D690027749B /* TvCastModel.swift */; };
+		0DE6C2A425A17D690027749B /* TvShowsDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE6C2A125A17D690027749B /* TvShowsDetailModel.swift */; };
+		0DE6C2A525A17D690027749B /* TvShowsDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE6C2A125A17D690027749B /* TvShowsDetailModel.swift */; };
+		0DE6C2A925A17D8C0027749B /* DetailViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE6C2A825A17D8C0027749B /* DetailViewControllerDelegate.swift */; };
+		0DE6C2AA25A17D8C0027749B /* DetailViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE6C2A825A17D8C0027749B /* DetailViewControllerDelegate.swift */; };
+		0DE6C2B025A17D940027749B /* HomeViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE6C2AF25A17D940027749B /* HomeViewControllerDelegate.swift */; };
+		0DE6C2B125A17D940027749B /* HomeViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE6C2AF25A17D940027749B /* HomeViewControllerDelegate.swift */; };
+		0DE6C2CA25A181680027749B /* TvShowsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB521BC259FD1ED0033F9FC /* TvShowsModel.swift */; };
+		0DE6C2D025A181810027749B /* SeasonInfoResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB5215B259ECAE80033F9FC /* SeasonInfoResponseModel.swift */; };
+		0DE6C2D125A181810027749B /* EpisodesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB52168259ED5380033F9FC /* EpisodesModel.swift */; };
+		0DE6C2D225A181810027749B /* SeasonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2682F8259E680600DBCAA4 /* SeasonCollectionViewCell.swift */; };
+		0DE6C2D325A181810027749B /* SeasonCollectionViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 0D2682F9259E680600DBCAA4 /* SeasonCollectionViewCell.xib */; };
+		0DE6C2D425A181810027749B /* SeasonTableViewCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D268308259E6B2800DBCAA4 /* SeasonTableViewCollectionDataSource.swift */; };
+		0DE6C2D525A181810027749B /* SeasonTableViewCollectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D268310259E6BC500DBCAA4 /* SeasonTableViewCollectionDelegate.swift */; };
+		0DE6C2D625A181810027749B /* SeasonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D268302259E6A1E00DBCAA4 /* SeasonTableViewCell.swift */; };
+		0DE6C2D725A181810027749B /* TvShowsCollectionViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E7008259AA11D0063A1B1 /* TvShowsCollectionViewCell.xib */; };
+		0DE6C2D825A181810027749B /* SeasonsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB52160259ECE970033F9FC /* SeasonsViewModel.swift */; };
+		0DE6C2D925A181810027749B /* SeasonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D00B035259E6073006021D0 /* SeasonsViewController.swift */; };
+		0DE6C2DA25A181810027749B /* SeasonTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D268315259E6E7000DBCAA4 /* SeasonTableViewDataSource.swift */; };
+		0DE6C2DB25A181810027749B /* SeasonTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D26831A259E6FA700DBCAA4 /* SeasonTableViewDelegate.swift */; };
+		0DE6C2F025A1827E0027749B /* Session+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE6C28625A17D2D0027749B /* Session+CoreDataClass.swift */; };
 		0DE783F2259CE5AA009002BB /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE783F1259CE5AA009002BB /* NavigationView.swift */; };
 		0DE7840E259CED8A009002BB /* SourceValidations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE7840D259CED8A009002BB /* SourceValidations.swift */; };
 		0DE7840F259CED8A009002BB /* SourceValidations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE7840D259CED8A009002BB /* SourceValidations.swift */; };
@@ -160,18 +192,10 @@
 		0DFCC9B1259D1D6B000326A2 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFCC9AF259D1D6B000326A2 /* AuthService.swift */; };
 		242B753B2209D6650A792991 /* Pods_TMDBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E7F99823EF16A1B66EAF12 /* Pods_TMDBTests.framework */; };
 		B6AE1BA5E119503ED2C38BE4 /* Pods_TMDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7B70275B967131B790C7985 /* Pods_TMDB.framework */; };
-		E6749808B8D0C9F997C9BFD5 /* Pods_TMDB_TMDBUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF86AF29E998CAE3107CD35B /* Pods_TMDB_TMDBUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		0DE0E946259A5E2600F9AEA8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0DE0E924259A5E2500F9AEA8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0DE0E92B259A5E2500F9AEA8;
-			remoteInfo = TMDB;
-		};
-		0DE0E951259A5E2600F9AEA8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0DE0E924259A5E2500F9AEA8 /* Project object */;
 			proxyType = 1;
@@ -247,14 +271,6 @@
 		0DB52160259ECE970033F9FC /* SeasonsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonsViewModel.swift; sourceTree = "<group>"; };
 		0DB52168259ED5380033F9FC /* EpisodesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesModel.swift; sourceTree = "<group>"; };
 		0DB521BC259FD1ED0033F9FC /* TvShowsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowsModel.swift; sourceTree = "<group>"; };
-		0DB521E9259FD9A40033F9FC /* TvShowsEpisodesPerSeason+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TvShowsEpisodesPerSeason+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		0DB521EA259FD9A40033F9FC /* TvShowsEpisodesPerSeason+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TvShowsEpisodesPerSeason+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		0DB521EB259FD9A40033F9FC /* TvShowDetail+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TvShowDetail+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		0DB521EC259FD9A40033F9FC /* TvShowDetail+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TvShowDetail+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		0DB521ED259FD9A40033F9FC /* TvShows+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TvShows+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		0DB521EE259FD9A40033F9FC /* TvShows+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TvShows+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		0DB521EF259FD9A50033F9FC /* TvShowCast+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TvShowCast+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		0DB521F0259FD9A50033F9FC /* TvShowCast+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TvShowCast+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		0DE0E92C259A5E2500F9AEA8 /* TMDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DE0E92F259A5E2500F9AEA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DE0E939259A5E2500F9AEA8 /* TMDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TMDB.xcdatamodel; sourceTree = "<group>"; };
@@ -264,9 +280,20 @@
 		0DE0E945259A5E2600F9AEA8 /* TMDBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMDBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DE0E949259A5E2600F9AEA8 /* TMDBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBTests.swift; sourceTree = "<group>"; };
 		0DE0E94B259A5E2600F9AEA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0DE0E950259A5E2600F9AEA8 /* TMDBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMDBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0DE0E954259A5E2600F9AEA8 /* TMDBUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBUITests.swift; sourceTree = "<group>"; };
-		0DE0E956259A5E2600F9AEA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0DE6C26E25A17CF30027749B /* TvShowDetail+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TvShowDetail+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		0DE6C26F25A17CF30027749B /* TvShowDetail+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TvShowDetail+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		0DE6C27025A17CF30027749B /* Show+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Show+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		0DE6C27125A17CF30027749B /* TvShowEpisodesPerSeason+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TvShowEpisodesPerSeason+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		0DE6C27225A17CF30027749B /* TvShowCast+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TvShowCast+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		0DE6C27325A17CF30027749B /* TvShowCast+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TvShowCast+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		0DE6C27425A17CF30027749B /* Session+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Session+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		0DE6C28525A17D2D0027749B /* TvShowEpisodesPerSeason+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TvShowEpisodesPerSeason+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		0DE6C28625A17D2D0027749B /* Session+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Session+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		0DE6C28725A17D2D0027749B /* Show+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Show+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		0DE6C2A025A17D690027749B /* TvCastModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TvCastModel.swift; sourceTree = "<group>"; };
+		0DE6C2A125A17D690027749B /* TvShowsDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TvShowsDetailModel.swift; sourceTree = "<group>"; };
+		0DE6C2A825A17D8C0027749B /* DetailViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewControllerDelegate.swift; sourceTree = "<group>"; };
+		0DE6C2AF25A17D940027749B /* HomeViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewControllerDelegate.swift; sourceTree = "<group>"; };
 		0DE783F1259CE5AA009002BB /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 		0DE7840D259CED8A009002BB /* SourceValidations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceValidations.swift; sourceTree = "<group>"; };
 		0DE78416259CEDB7009002BB /* SourceValidationsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceValidationsTest.swift; sourceTree = "<group>"; };
@@ -305,14 +332,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				242B753B2209D6650A792991 /* Pods_TMDBTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0DE0E94D259A5E2600F9AEA8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E6749808B8D0C9F997C9BFD5 /* Pods_TMDB_TMDBUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +461,7 @@
 		0D1E6FF5259A9B170063A1B1 /* HomeViewController */ = {
 			isa = PBXGroup;
 			children = (
+				0DE6C2AF25A17D940027749B /* HomeViewControllerDelegate.swift */,
 				0D92885C259D322E00D91D35 /* HomeViewModel.swift */,
 				0D1E6FF6259A9B290063A1B1 /* HomeViewController.swift */,
 				0D1E7011259AAFDA0063A1B1 /* HomeViewControllerCollectionDelegate.swift */,
@@ -500,6 +520,7 @@
 		0D1E7024259AE1C80063A1B1 /* DetailViewController */ = {
 			isa = PBXGroup;
 			children = (
+				0DE6C2A825A17D8C0027749B /* DetailViewControllerDelegate.swift */,
 				0D7D8927259D71C00078020C /* DetailViewModel.swift */,
 				0D1E7025259AE1DA0063A1B1 /* DetailViewController.swift */,
 				0D72FB44259BD09400D2580F /* DetailViewControllerCollectionDataSource.swift */,
@@ -583,14 +604,16 @@
 		0DB5216D259FB1FD0033F9FC /* CoreDataModels */ = {
 			isa = PBXGroup;
 			children = (
-				0DB521E9259FD9A40033F9FC /* TvShowsEpisodesPerSeason+CoreDataClass.swift */,
-				0DB521EA259FD9A40033F9FC /* TvShowsEpisodesPerSeason+CoreDataProperties.swift */,
-				0DB521EB259FD9A40033F9FC /* TvShowDetail+CoreDataClass.swift */,
-				0DB521EC259FD9A40033F9FC /* TvShowDetail+CoreDataProperties.swift */,
-				0DB521ED259FD9A40033F9FC /* TvShows+CoreDataClass.swift */,
-				0DB521EE259FD9A40033F9FC /* TvShows+CoreDataProperties.swift */,
-				0DB521EF259FD9A50033F9FC /* TvShowCast+CoreDataClass.swift */,
-				0DB521F0259FD9A50033F9FC /* TvShowCast+CoreDataProperties.swift */,
+				0DE6C28625A17D2D0027749B /* Session+CoreDataClass.swift */,
+				0DE6C28725A17D2D0027749B /* Show+CoreDataClass.swift */,
+				0DE6C28525A17D2D0027749B /* TvShowEpisodesPerSeason+CoreDataClass.swift */,
+				0DE6C26E25A17CF30027749B /* TvShowDetail+CoreDataClass.swift */,
+				0DE6C26F25A17CF30027749B /* TvShowDetail+CoreDataProperties.swift */,
+				0DE6C27025A17CF30027749B /* Show+CoreDataProperties.swift */,
+				0DE6C27125A17CF30027749B /* TvShowEpisodesPerSeason+CoreDataProperties.swift */,
+				0DE6C27225A17CF30027749B /* TvShowCast+CoreDataClass.swift */,
+				0DE6C27325A17CF30027749B /* TvShowCast+CoreDataProperties.swift */,
+				0DE6C27425A17CF30027749B /* Session+CoreDataProperties.swift */,
 			);
 			path = CoreDataModels;
 			sourceTree = "<group>";
@@ -601,7 +624,6 @@
 				0D1E6ECF259A70D00063A1B1 /* swiftgen.yml */,
 				0DE0E92E259A5E2500F9AEA8 /* TMDB */,
 				0DE0E948259A5E2600F9AEA8 /* TMDBTests */,
-				0DE0E953259A5E2600F9AEA8 /* TMDBUITests */,
 				0DE0E92D259A5E2500F9AEA8 /* Products */,
 				64FAEAEDF6B955BA098FF5B0 /* Pods */,
 				6792E76DFBA8E6E7AC41248C /* Frameworks */,
@@ -613,7 +635,6 @@
 			children = (
 				0DE0E92C259A5E2500F9AEA8 /* TMDB.app */,
 				0DE0E945259A5E2600F9AEA8 /* TMDBTests.xctest */,
-				0DE0E950259A5E2600F9AEA8 /* TMDBUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -655,15 +676,6 @@
 			path = TMDBTests;
 			sourceTree = "<group>";
 		};
-		0DE0E953259A5E2600F9AEA8 /* TMDBUITests */ = {
-			isa = PBXGroup;
-			children = (
-				0DE0E954259A5E2600F9AEA8 /* TMDBUITests.swift */,
-				0DE0E956259A5E2600F9AEA8 /* Info.plist */,
-			);
-			path = TMDBUITests;
-			sourceTree = "<group>";
-		};
 		0DE783F0259CE59B009002BB /* NavigationView */ = {
 			isa = PBXGroup;
 			children = (
@@ -684,6 +696,8 @@
 		0DFCC954259D1267000326A2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0DE6C2A025A17D690027749B /* TvCastModel.swift */,
+				0DE6C2A125A17D690027749B /* TvShowsDetailModel.swift */,
 				0DFCC960259D1688000326A2 /* Request */,
 				0DFCC961259D1697000326A2 /* Response */,
 				0DB52168259ED5380033F9FC /* EpisodesModel.swift */,
@@ -794,26 +808,6 @@
 			productReference = 0DE0E945259A5E2600F9AEA8 /* TMDBTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		0DE0E94F259A5E2600F9AEA8 /* TMDBUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0DE0E95F259A5E2600F9AEA8 /* Build configuration list for PBXNativeTarget "TMDBUITests" */;
-			buildPhases = (
-				39730B7E1CE64D8B7140ED29 /* [CP] Check Pods Manifest.lock */,
-				0DE0E94C259A5E2600F9AEA8 /* Sources */,
-				0DE0E94D259A5E2600F9AEA8 /* Frameworks */,
-				0DE0E94E259A5E2600F9AEA8 /* Resources */,
-				BB81D2F4D3B31181CC7961A2 /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0DE0E952259A5E2600F9AEA8 /* PBXTargetDependency */,
-			);
-			name = TMDBUITests;
-			productName = TMDBUITests;
-			productReference = 0DE0E950259A5E2600F9AEA8 /* TMDBUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -827,10 +821,6 @@
 						CreatedOnToolsVersion = 12.3;
 					};
 					0DE0E944259A5E2600F9AEA8 = {
-						CreatedOnToolsVersion = 12.3;
-						TestTargetID = 0DE0E92B259A5E2500F9AEA8;
-					};
-					0DE0E94F259A5E2600F9AEA8 = {
 						CreatedOnToolsVersion = 12.3;
 						TestTargetID = 0DE0E92B259A5E2500F9AEA8;
 					};
@@ -851,7 +841,6 @@
 			targets = (
 				0DE0E92B259A5E2500F9AEA8 /* TMDB */,
 				0DE0E944259A5E2600F9AEA8 /* TMDBTests */,
-				0DE0E94F259A5E2600F9AEA8 /* TMDBUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -879,38 +868,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0DE0E94E259A5E2600F9AEA8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		39730B7E1CE64D8B7140ED29 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TMDB-TMDBUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		A3DD0CA99EE0FFDCF374DB9D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -931,23 +891,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BB81D2F4D3B31181CC7961A2 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TMDB-TMDBUITests/Pods-TMDB-TMDBUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TMDB-TMDBUITests/Pods-TMDB-TMDBUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TMDB-TMDBUITests/Pods-TMDB-TMDBUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CC45AAB38F41086EEF8D71BF /* [CP] Embed Pods Frameworks */ = {
@@ -1006,9 +949,12 @@
 				0D268316259E6E7000DBCAA4 /* SeasonTableViewDataSource.swift in Sources */,
 				0D1E6F5B259A73440063A1B1 /* ValidatableModel.swift in Sources */,
 				0D1E6F60259A73440063A1B1 /* Coordinator.swift in Sources */,
+				0DE6C27F25A17CF30027749B /* TvShowCast+CoreDataProperties.swift in Sources */,
+				0DE6C2A425A17D690027749B /* TvShowsDetailModel.swift in Sources */,
 				0D1E6EDA259A715C0063A1B1 /* R.swift in Sources */,
 				0D1E6F43259A73440063A1B1 /* UIResponder+TapResponder.swift in Sources */,
 				0D7D891E259D448F0078020C /* CustomRadioButtonController.swift in Sources */,
+				0DE6C2B025A17D940027749B /* HomeViewControllerDelegate.swift in Sources */,
 				0D1E6F35259A73430063A1B1 /* NSMutableAttributedString+helpers.swift in Sources */,
 				0D1E7012259AAFDA0063A1B1 /* HomeViewControllerCollectionDelegate.swift in Sources */,
 				0D1E6FFF259A9B870063A1B1 /* LoginViewControllerDelegate.swift in Sources */,
@@ -1018,35 +964,38 @@
 				0D1E6FDD259A821E0063A1B1 /* HomeCoordinator.swift in Sources */,
 				0DE0E93A259A5E2500F9AEA8 /* TMDB.xcdatamodeld in Sources */,
 				0D928854259D242B00D91D35 /* LoginRequestException.swift in Sources */,
-				0DB521F6259FD9A50033F9FC /* TvShows+CoreDataProperties.swift in Sources */,
 				0D1E6F33259A73430063A1B1 /* UIViewController+confirmationAlert.swift in Sources */,
 				0D1E7026259AE1DA0063A1B1 /* DetailViewController.swift in Sources */,
 				0DFCC983259D17E9000326A2 /* DefaultListResponseModel.swift in Sources */,
 				0DFCC989259D18E9000326A2 /* TvShowsProvider.swift in Sources */,
+				0DE6C27525A17CF30027749B /* TvShowDetail+CoreDataClass.swift in Sources */,
 				0D1E6F6E259A73440063A1B1 /* Extensions.swift in Sources */,
+				0DE6C27B25A17CF30027749B /* TvShowEpisodesPerSeason+CoreDataProperties.swift in Sources */,
 				0D92884E259D21F300D91D35 /* LoginViewModel.swift in Sources */,
 				0D928849259D1F0700D91D35 /* TvShowsFilterType.swift in Sources */,
-				0DB521F1259FD9A50033F9FC /* TvShowsEpisodesPerSeason+CoreDataClass.swift in Sources */,
 				0D1E6F53259A73440063A1B1 /* HTTPStatusCode.swift in Sources */,
+				0DE6C2A925A17D8C0027749B /* DetailViewControllerDelegate.swift in Sources */,
 				0D1E6F3F259A73440063A1B1 /* Presentr+default.swift in Sources */,
-				0DB521F5259FD9A50033F9FC /* TvShows+CoreDataClass.swift in Sources */,
+				0DE6C27925A17CF30027749B /* Show+CoreDataProperties.swift in Sources */,
 				0D7D893A259D8CD20078020C /* CastResponseModel.swift in Sources */,
 				0D1E6FBB259A79CC0063A1B1 /* K.swift in Sources */,
 				0DFCC97D259D17B3000326A2 /* DefaultResponseModel.swift in Sources */,
+				0DE6C2A225A17D690027749B /* TvCastModel.swift in Sources */,
 				0D928844259D1E8500D91D35 /* TvShowsService.swift in Sources */,
 				0D7D8928259D71C00078020C /* DetailViewModel.swift in Sources */,
-				0DB521F4259FD9A50033F9FC /* TvShowDetail+CoreDataProperties.swift in Sources */,
 				0DB52161259ECE970033F9FC /* SeasonsViewModel.swift in Sources */,
 				0D1E6F58259A73440063A1B1 /* ValidationException.swift in Sources */,
+				0DE6C28C25A17D2D0027749B /* Show+CoreDataClass.swift in Sources */,
 				0D268309259E6B2800DBCAA4 /* SeasonTableViewCollectionDataSource.swift in Sources */,
 				0D7D8919259D43DA0078020C /* CustomRadioButton.swift in Sources */,
+				0DE6C27D25A17CF30027749B /* TvShowCast+CoreDataClass.swift in Sources */,
 				0D1E6F3D259A73440063A1B1 /* UIViewController+keyboardHandling.swift in Sources */,
+				0DE6C28A25A17D2D0027749B /* Session+CoreDataClass.swift in Sources */,
 				0D1E6FC7259A7D5A0063A1B1 /* LoginViewController.swift in Sources */,
-				0DB521F8259FD9A50033F9FC /* TvShowCast+CoreDataProperties.swift in Sources */,
 				0DFCC963259D16A8000326A2 /* LoginRequestModel.swift in Sources */,
+				0DE6C28125A17CF30027749B /* Session+CoreDataProperties.swift in Sources */,
 				0D1E6FD0259A7DFC0063A1B1 /* ApplicationCoordinator.swift in Sources */,
 				0DE0E930259A5E2500F9AEA8 /* AppDelegate.swift in Sources */,
-				0DB521F2259FD9A50033F9FC /* TvShowsEpisodesPerSeason+CoreDataProperties.swift in Sources */,
 				0D00B036259E6073006021D0 /* SeasonsViewController.swift in Sources */,
 				0DB5215C259ECAE80033F9FC /* SeasonInfoResponseModel.swift in Sources */,
 				0D1E6FD8259A7E260063A1B1 /* AuthenticationCoordinator.swift in Sources */,
@@ -1054,7 +1003,6 @@
 				0D268303259E6A1E00DBCAA4 /* SeasonTableViewCell.swift in Sources */,
 				0D1E6F6D259A73440063A1B1 /* DiviceLogger.swift in Sources */,
 				0DE783F2259CE5AA009002BB /* NavigationView.swift in Sources */,
-				0DB521F7259FD9A50033F9FC /* TvShowCast+CoreDataClass.swift in Sources */,
 				0D2682FA259E680600DBCAA4 /* SeasonCollectionViewCell.swift in Sources */,
 				0DE7840E259CED8A009002BB /* SourceValidations.swift in Sources */,
 				0D1E701D259ACF7E0063A1B1 /* FilterButtonsView.swift in Sources */,
@@ -1062,8 +1010,8 @@
 				0D1E6F5C259A73440063A1B1 /* ViewModel.swift in Sources */,
 				0D1E6F59259A73440063A1B1 /* LocalizableErrorBased.swift in Sources */,
 				0DB52169259ED5380033F9FC /* EpisodesModel.swift in Sources */,
+				0DE6C27725A17CF30027749B /* TvShowDetail+CoreDataProperties.swift in Sources */,
 				0D1E6F6F259A73440063A1B1 /* DefaultPreferences.swift in Sources */,
-				0DB521F3259FD9A50033F9FC /* TvShowDetail+CoreDataClass.swift in Sources */,
 				0D1E6F50259A73440063A1B1 /* LogEvent.swift in Sources */,
 				0D26831B259E6FA700DBCAA4 /* SeasonTableViewDelegate.swift in Sources */,
 				0D1E6F62259A73440063A1B1 /* SecureRequestPlugin.swift in Sources */,
@@ -1071,6 +1019,7 @@
 				0D1E7017259AAFE90063A1B1 /* HomeViewControllerCollectionDataSource.swift in Sources */,
 				0D1E6ED9259A715C0063A1B1 /* L10n.swift in Sources */,
 				0DFCC958259D1295000326A2 /* AuthenticationProvider.swift in Sources */,
+				0DE6C28825A17D2D0027749B /* TvShowEpisodesPerSeason+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1078,6 +1027,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DE6C2D025A181810027749B /* SeasonInfoResponseModel.swift in Sources */,
+				0DE6C2D125A181810027749B /* EpisodesModel.swift in Sources */,
+				0DE6C2D225A181810027749B /* SeasonCollectionViewCell.swift in Sources */,
+				0DE6C2D325A181810027749B /* SeasonCollectionViewCell.xib in Sources */,
+				0DE6C2D425A181810027749B /* SeasonTableViewCollectionDataSource.swift in Sources */,
+				0DE6C2D525A181810027749B /* SeasonTableViewCollectionDelegate.swift in Sources */,
+				0DE6C2D625A181810027749B /* SeasonTableViewCell.swift in Sources */,
+				0DE6C2D725A181810027749B /* TvShowsCollectionViewCell.xib in Sources */,
+				0DE6C2D825A181810027749B /* SeasonsViewModel.swift in Sources */,
+				0DE6C2D925A181810027749B /* SeasonsViewController.swift in Sources */,
+				0DE6C2DA25A181810027749B /* SeasonTableViewDataSource.swift in Sources */,
+				0DE6C2DB25A181810027749B /* SeasonTableViewDelegate.swift in Sources */,
 				0D7D8968259D97400078020C /* TvShowsCollectionViewCell.swift in Sources */,
 				0D7D8941259D92130078020C /* CustomRadioButton.swift in Sources */,
 				0D7D897C259D9BDF0078020C /* UIElementsTest.swift in Sources */,
@@ -1088,9 +1049,12 @@
 				0D7D8946259D92130078020C /* LocalizableErrorBased.swift in Sources */,
 				0D7D8947259D92130078020C /* ValidatableModel.swift in Sources */,
 				0D7D8948259D92130078020C /* ViewModel.swift in Sources */,
+				0DE6C28025A17CF30027749B /* TvShowCast+CoreDataProperties.swift in Sources */,
+				0DE6C2A525A17D690027749B /* TvShowsDetailModel.swift in Sources */,
 				0D7D8949259D92130078020C /* DefaultPreferences.swift in Sources */,
 				0D7D894A259D92130078020C /* LoginRequestModel.swift in Sources */,
 				0D7D894B259D92130078020C /* DetailsTvShowResponseModel.swift in Sources */,
+				0DE6C2B125A17D940027749B /* HomeViewControllerDelegate.swift in Sources */,
 				0D7D894C259D92130078020C /* CastResponseModel.swift in Sources */,
 				0D7D894D259D92130078020C /* TvShowsService.swift in Sources */,
 				0D7D894E259D92130078020C /* DetailViewModel.swift in Sources */,
@@ -1104,23 +1068,31 @@
 				0DFCC8C7259CF949000326A2 /* R.swift in Sources */,
 				0DFCC8C8259CF949000326A2 /* Localizable.strings in Sources */,
 				0DFCC8C9259CF949000326A2 /* LaunchScreen.storyboard in Sources */,
+				0DE6C27625A17CF30027749B /* TvShowDetail+CoreDataClass.swift in Sources */,
 				0DFCC8BA259CF92D000326A2 /* UIViewController+showAlert.swift in Sources */,
+				0DE6C27C25A17CF30027749B /* TvShowEpisodesPerSeason+CoreDataProperties.swift in Sources */,
 				0DFCC984259D17E9000326A2 /* DefaultListResponseModel.swift in Sources */,
 				0DFCC8BB259CF92D000326A2 /* UIViewController+confirmationAlert.swift in Sources */,
 				0DFCC8BC259CF92D000326A2 /* NSMutableAttributedString+helpers.swift in Sources */,
+				0DE6C2AA25A17D8C0027749B /* DetailViewControllerDelegate.swift in Sources */,
 				0DFCC8DB259CFCD8000326A2 /* LoginViewControllerTest.swift in Sources */,
+				0DE6C27A25A17CF30027749B /* Show+CoreDataProperties.swift in Sources */,
 				0DFCC8BE259CF92D000326A2 /* UIViewController+keyboardHandling.swift in Sources */,
 				0DFCC8BF259CF92D000326A2 /* Presentr+default.swift in Sources */,
 				0DFCC8C0259CF92D000326A2 /* UIResponder+TapResponder.swift in Sources */,
+				0DE6C2A325A17D690027749B /* TvCastModel.swift in Sources */,
 				0DFCC8AA259CF906000326A2 /* FilterButtonsView.swift in Sources */,
 				0DFCC8AB259CF906000326A2 /* NavigationView.swift in Sources */,
 				0DFCC8E5259D0241000326A2 /* DetailViewControllerTest.swift in Sources */,
 				0DFCC8AC259CF906000326A2 /* CastCollectionCell.swift in Sources */,
+				0DE6C28D25A17D2D0027749B /* Show+CoreDataClass.swift in Sources */,
 				0DFCC8AF259CF906000326A2 /* DetailViewController.swift in Sources */,
 				0DFCC8B0259CF906000326A2 /* DetailViewControllerCollectionDataSource.swift in Sources */,
+				0DE6C27E25A17CF30027749B /* TvShowCast+CoreDataClass.swift in Sources */,
 				0DFCC8B1259CF906000326A2 /* DetailViewControllerCollectionDelegate.swift in Sources */,
 				0DFCC8B2259CF906000326A2 /* HomeViewController.swift in Sources */,
 				0DFCC8B3259CF906000326A2 /* HomeViewControllerCollectionDelegate.swift in Sources */,
+				0DE6C28225A17CF30027749B /* Session+CoreDataProperties.swift in Sources */,
 				0DFCC8B4259CF906000326A2 /* HomeViewControllerCollectionDataSource.swift in Sources */,
 				0DFCC8B5259CF906000326A2 /* LoginViewController.swift in Sources */,
 				0DFCC8B6259CF906000326A2 /* LoginViewControllerDelegate.swift in Sources */,
@@ -1130,13 +1102,16 @@
 				0DFCC8A1259CF8BD000326A2 /* Coordinator.swift in Sources */,
 				0DFCC89B259CF8A1000326A2 /* ApplicationCoordinator.swift in Sources */,
 				0DFCC89C259CF8A1000326A2 /* AuthenticationCoordinator.swift in Sources */,
+				0DE6C2CA25A181680027749B /* TvShowsModel.swift in Sources */,
 				0D92884F259D21F300D91D35 /* LoginViewModel.swift in Sources */,
 				0DFCC89D259CF8A1000326A2 /* HomeCoordinator.swift in Sources */,
 				0DFCC897259CF78B000326A2 /* LogEvent.swift in Sources */,
 				0DFCC893259CF767000326A2 /* DiviceLogger.swift in Sources */,
+				0DE6C2F025A1827E0027749B /* Session+CoreDataClass.swift in Sources */,
 				0DFCC8D6259CFA0F000326A2 /* HomeCoordinatorTest.swift in Sources */,
 				0D928855259D242B00D91D35 /* LoginRequestException.swift in Sources */,
 				0DFCC88F259CF6B1000326A2 /* SecureRequestPlugin.swift in Sources */,
+				0DE6C27825A17CF30027749B /* TvShowDetail+CoreDataProperties.swift in Sources */,
 				0DFCC886259CF170000326A2 /* K.swift in Sources */,
 				0D7D8953259D94AC0078020C /* ApplicationCoordinatorTest.swift in Sources */,
 				0DE0E94A259A5E2600F9AEA8 /* TMDBTests.swift in Sources */,
@@ -1145,14 +1120,7 @@
 				0DE78417259CEDB7009002BB /* SourceValidationsTest.swift in Sources */,
 				0DE7840F259CED8A009002BB /* SourceValidations.swift in Sources */,
 				0DFCC9B1259D1D6B000326A2 /* AuthService.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0DE0E94C259A5E2600F9AEA8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0DE0E955259A5E2600F9AEA8 /* TMDBUITests.swift in Sources */,
+				0DE6C28925A17D2D0027749B /* TvShowEpisodesPerSeason+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1163,11 +1131,6 @@
 			isa = PBXTargetDependency;
 			target = 0DE0E92B259A5E2500F9AEA8 /* TMDB */;
 			targetProxy = 0DE0E946259A5E2600F9AEA8 /* PBXContainerItemProxy */;
-		};
-		0DE0E952259A5E2600F9AEA8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0DE0E92B259A5E2500F9AEA8 /* TMDB */;
-			targetProxy = 0DE0E951259A5E2600F9AEA8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1387,48 +1350,6 @@
 			};
 			name = Release;
 		};
-		0DE0E960259A5E2600F9AEA8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0814EE674447445181A5EFF1 /* Pods-TMDB-TMDBUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WTGZA5G9KG;
-				INFOPLIST_FILE = TMDBUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.applaudo.TMDBUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = TMDB;
-			};
-			name = Debug;
-		};
-		0DE0E961259A5E2600F9AEA8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2EB7968E1B056433794121B0 /* Pods-TMDB-TMDBUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WTGZA5G9KG;
-				INFOPLIST_FILE = TMDBUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.applaudo.TMDBUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = TMDB;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1455,15 +1376,6 @@
 			buildConfigurations = (
 				0DE0E95D259A5E2600F9AEA8 /* Debug */,
 				0DE0E95E259A5E2600F9AEA8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0DE0E95F259A5E2600F9AEA8 /* Build configuration list for PBXNativeTarget "TMDBUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0DE0E960259A5E2600F9AEA8 /* Debug */,
-				0DE0E961259A5E2600F9AEA8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

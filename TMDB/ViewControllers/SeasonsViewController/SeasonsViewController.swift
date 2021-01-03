@@ -96,8 +96,7 @@ final class SeasonsViewController: UIViewController {
                 }, onError: { [weak self] error in
                     guard let self = self else { return }
                     self.dismiss(animated: true, completion: {
-                        let moyaError: MoyaError? = error as? MoyaError
-                        self.handleNetworkError(with: moyaError, completitionHandler: nil)
+                        self.showAlert(title: "Error", message: error.localizedDescription, handler: nil)
                     })
                 }
             ).disposed(by: disposeBag)

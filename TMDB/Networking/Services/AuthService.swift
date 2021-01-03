@@ -24,7 +24,6 @@ final class AuthService {
     
     func authenticateWithLogin(with request: LoginRequestModel) -> Single<DefaultResponseModel> {
         return provider.rx.request(.authenticateWithLogin(request: request))
-            .filterSuccessfulStatusCodes()
             .map(DefaultResponseModel.self)
             .asObservable()
             .asSingle()

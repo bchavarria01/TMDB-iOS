@@ -6,12 +6,15 @@
 //
 
 import XCTest
+import CoreData
+@testable import TMDB
 
 class DetailViewControllerTest: XCTestCase {
-
+    
     func testDetailViewController() {
+        let context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let detailViewController = DetailViewController()
-        let viewModel = DetailViewModel(tvShowService: TvShowsService())
+        let viewModel = DetailViewModel(tvShowService: TvShowsService(), context: context)
         detailViewController.viewModel = viewModel
         detailViewController.tvId = 107124
         detailViewController.bindViewModel()
@@ -19,8 +22,9 @@ class DetailViewControllerTest: XCTestCase {
     }
     
     func testInvalidDataDetailViewController() {
+        let context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let detailViewController = DetailViewController()
-        let viewModel = DetailViewModel(tvShowService: TvShowsService())
+        let viewModel = DetailViewModel(tvShowService: TvShowsService(), context: context)
         detailViewController.viewModel = viewModel
         detailViewController.tvId = 0
         detailViewController.bindViewModel()

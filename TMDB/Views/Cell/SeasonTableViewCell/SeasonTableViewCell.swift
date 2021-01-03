@@ -78,7 +78,7 @@ class SeasonTableViewCell: UITableViewCell {
         collectionView.register(textFieldCell, forCellWithReuseIdentifier: "SeasonCollectionViewCell")
     }
     
-    func setupEpisodes(with listOfEpisodes: [Episode]) {
+    func setupEpisodes(with listOfEpisodes: [CustomEpisode]) {
         collectionDataSource.items = listOfEpisodes
         collectionView.reloadData()
     }

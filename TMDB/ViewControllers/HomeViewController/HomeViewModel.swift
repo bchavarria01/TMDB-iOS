@@ -43,8 +43,8 @@ final class HomeViewModel {
             return tvShowService.getTvShows(with: page ?? 1, and: type).map {
                 var tvShowModelList: [TvShowsModel] = []
                 $0.results?.forEach({ tvShow in
-                    var localTvShowList: [TvShows] = []
-                    let request = TvShows.fetchRequest() as NSFetchRequest<TvShows>
+                    var localTvShowList: [Show] = []
+                    let request = Show.fetchRequest() as NSFetchRequest<Show>
                     let predicate = NSPredicate(format: "tvShowId == '\(tvShow.id ?? 0)'")
                     request.predicate = predicate
                     do {
@@ -76,7 +76,7 @@ final class HomeViewModel {
                         // If not them create
                         
                         // Create data model
-                        let tvShowDataModel = TvShows(context: context)
+                        let tvShowDataModel = Show(context: context)
                         tvShowDataModel.tvShowId = tvShow.id as NSNumber?
                         tvShowDataModel.tvShowName = tvShow.name
                         tvShowDataModel.tvShowDescription = tvShow.overview
@@ -102,13 +102,6 @@ final class HomeViewModel {
                     tvShowModel.type = type.rawValue
                     tvShowModel.posterPath = tvShow.posterPath
                     
-                    let url = URL(string: "\(DefaultPreferences.current.loadImageBaseString ?? "")\(tvShow.posterPath ?? "")")!
-                    do {
-                        let imageData = try Data(contentsOf: url)
-                        tvShowModel.imageData = imageData
-                    } catch {
-                        print(error.localizedDescription)
-                    }
                     tvShowModelList.append(tvShowModel)
                     
                     // Saving data
@@ -126,8 +119,8 @@ final class HomeViewModel {
             type.startWith(.popular),
             page.startWith(1)
         ).flatMapLatest{ type, page -> Observable<[TvShowsModel]> in
-            var localTvShowList: [TvShows] = []
-            let request = TvShows.fetchRequest() as NSFetchRequest<TvShows>
+            var localTvShowList: [Show] = []
+            let request = Show.fetchRequest() as NSFetchRequest<Show>
             let predicate = NSPredicate(format: "type == '\(type.rawValue)'")
             request.predicate = predicate
             do {
@@ -151,4 +144,24 @@ final class HomeViewModel {
             return Observable.from(optional: tvShowList)
         }
     }
+    
+    func deleteSession() {
+        var localSessions: [Session] = []
+        let request = Session.fetchRequest() as NSFetchRequest<Session>
+        do {
+            localSessions = try self.context.fetch(request)
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        let sessionToDelete = localSessions[0]
+        self.context.delete(sessionToDelete)
+        
+        do {
+            try self.context.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+
 }

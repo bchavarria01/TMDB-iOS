@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 import LocalAuthentication
 import UIWindowTransitions
 
@@ -16,13 +17,16 @@ final class AuthenticationCoordinator: Coordinator {
     let presenter: UINavigationController
     var childCoordinators: [Coordinator] = []
     weak var parentCoordinator: Coordinator?
+    var context: NSManagedObjectContext!
     
     // MARK: - LifeCycle
     
     init(presenter: UINavigationController,
-         parentCoordinator: Coordinator) {
+         parentCoordinator: Coordinator,
+         context: NSManagedObjectContext) {
         self.presenter = presenter
         self.parentCoordinator = parentCoordinator
+        self.context = context
     }
     
     // MARK: - Start
@@ -35,7 +39,7 @@ final class AuthenticationCoordinator: Coordinator {
     func presentLoginViewController() {
         let loginViewController = LoginViewController()
         loginViewController.delegate = self
-        let viewModel = LoginViewModel(authService: AuthService())
+        let viewModel = LoginViewModel(authService: AuthService(), context: context)
         loginViewController.viewModel = viewModel
         presenter.pushViewController(loginViewController, animated: true)
     }

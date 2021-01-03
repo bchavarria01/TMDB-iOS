@@ -9,7 +9,7 @@ import UIKit
 import Nuke
 
 final class SeasonTableViewCollectionDataSource: NSObject {
-    var items: [Episode] = []
+    var items: [CustomEpisode] = []
 }
 
 extension SeasonTableViewCollectionDataSource: UICollectionViewDataSource {
@@ -20,10 +20,14 @@ extension SeasonTableViewCollectionDataSource: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: SeasonCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "SeasonCollectionViewCell", for: indexPath) as! SeasonCollectionViewCell
         let episode = items[indexPath.row]
-        let options = K.NukeDefault.options
-        let url = URL(string: "\(DefaultPreferences.current.loadImageBaseString ?? "")\(episode.stillPath ?? "")")!
-        Nuke.loadImage(with: url, options: options, into: cell.episodeImage)
-        cell.episodeName.text = episode.name
+        if episode.episodePath != "" {
+            let options = K.NukeDefault.options
+            let url = URL(string: "\(DefaultPreferences.current.loadImageBaseString ?? "")\(episode.episodePath ?? "")")!
+            Nuke.loadImage(with: url, options: options, into: cell.episodeImage)
+        } else {
+            cell.episodeImage.image = UIImage(data: episode.episodeImage ?? Data())
+        }
+        cell.episodeName.text = episode.episodeName
         return cell
     }
 }

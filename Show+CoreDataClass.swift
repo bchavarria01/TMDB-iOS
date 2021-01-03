@@ -1,5 +1,5 @@
 //
-//  TvShowCast+CoreDataClass.swift
+//  Show+CoreDataClass.swift
 //  TMDB
 //
 //  Created by Byron Chavarría on 2/1/21.
@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-@objc(TvShowCast)
-public class TvShowCast: NSManagedObject {
+@objc(Show)
+public class Show: NSManagedObject {
 
 }

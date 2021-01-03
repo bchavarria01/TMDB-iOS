@@ -2,7 +2,7 @@
 //  TvShowDetail+CoreDataClass.swift
 //  TMDB
 //
-//  Created by Byron Chavarría on 1/1/21.
+//  Created by Byron Chavarría on 2/1/21.
 //
 //
 
