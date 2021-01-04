@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import Moya
+import Network
 
 final class HomeViewController: UIViewController {
     
@@ -49,6 +50,7 @@ final class HomeViewController: UIViewController {
         collectionView.backgroundColor = .clear
         collectionView.showsVerticalScrollIndicator = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.alwaysBounceVertical = true
         return collectionView
     }()
     
@@ -74,9 +76,13 @@ final class HomeViewController: UIViewController {
     let disposeBag = DisposeBag()
     var radioButtonController: CustomRadioButtonController?
     weak var delegate: HomeViewControllerDelegate?
+    var isFromLoginOrStart: Bool = false
+    var currentPage: Int = 1
+    var currentFilterOption: TvShowsFilterType = .popular
+    var newFilterOption: TvShowsFilterType = .popular
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-          return .lightContent
+        return .lightContent
     }
     
     // MARK: - LifeCycle
@@ -84,38 +90,66 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = R.Colors.dark.color
+        showLoading()
         setupLayout()
         setupCollectionView()
         setupActions()
-        bindViewModel()
         
         radioButtonController = CustomRadioButtonController(
             buttons:
                 filterButtonsView.popularButton,
-                filterButtonsView.airingTodayButton,
-                filterButtonsView.onTvButton,
-                filterButtonsView.topRateButton
+            filterButtonsView.airingTodayButton,
+            filterButtonsView.onTvButton,
+            filterButtonsView.topRateButton
         )
         radioButtonController!.delegate = self
         radioButtonController!.shouldLetDeSelect = true
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if isFromLoginOrStart {
+            isFromLoginOrStart = false
+            let status = Reachability().connectionStatus()
+            bindViewModel(with: status)
+        }
+    }
+    
     // MARK: - Methods
     
-    func bindViewModel() {
+    override func didSelectNextPage() {
+        self.currentPage += 1
+        self.showLoading()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+            self.viewModel.page.onNext(self.currentPage)
+        })
+    }
+    
+    func bindViewModel(with status: ReachabilityStatus) {
         // OUTPUTS
-        showLoading()
-        viewModel.tvShowList
+        var viewModelList: Observable<[TvShowsModel]>
+        switch status {
+        case .unknown, .offline:
+            viewModelList = viewModel.localTvShowsList
+        case .online(.wwan):
+            viewModelList = viewModel.tvShowList
+        case .online(.wiFi):
+            viewModelList = viewModel.tvShowList
+        }
+        
+        viewModelList
             .do(onNext: { [weak self] elements in
                 guard let self = self else { return }
                 DispatchQueue.main.async {
                     if elements.count == 0 {
                         self.dismiss(animated: true, completion: {
-                            self.collectionView.setEmptyMessage("Sorry\n You should have an internet connection to get data")
+                            self.collectionView.setEmptyMessage(L10n.noInternetConnection)
+                            self.collectionView.reloadData()
                         })
                     } else {
                         self.dismiss(animated: true, completion: {
                             self.collectionView.restore()
+                            self.collectionView.reloadData()
                         })
                     }
                 }
@@ -124,22 +158,30 @@ final class HomeViewController: UIViewController {
                 onNext: { [weak self] items in
                     guard let self = self else { return }
                     self.dismiss(animated: true, completion: {
-                        self.collectionDataSource.items = items
-                        self.collectionDelegate.items = items
+                        if self.currentFilterOption == self.newFilterOption {
+                            self.collectionDataSource.items += items
+                            self.collectionDelegate.items += items
+                        } else {
+                            self.collectionDataSource.items = items
+                            self.collectionDelegate.items = items
+                            self.currentFilterOption = self.newFilterOption
+                        }
                         self.collectionView.reloadData()
                     })
                 }, onError: { [weak self] error in
                     guard let self = self else { return }
                     self.dismiss(animated: true, completion: {
-                        self.showAlert(title: "Error", message: error.localizedDescription, handler: nil)
-                        self.collectionView.setEmptyMessage("Sorry\n You should have an internet connection to get data")
+                        self.handleError(error)
+                        self.collectionView.setEmptyMessage(L10n.noInternetConnection)
+                        self.collectionView.reloadData()
                     })
                 }
             ).disposed(by: disposeBag)
+        
     }
     
     @objc func handleMenuSelection() {
-        self.showAlert(title: "example", message: "message")
+        delegate?.homeViewControllerDidSelectMenu()
     }
     
     private func setupActions() {
@@ -157,8 +199,8 @@ final class HomeViewController: UIViewController {
     func setupCollectionView() {
         collectionView.delegate = collectionDelegate
         collectionView.dataSource = collectionDataSource
-        let textFieldCell = UINib(nibName: "TvShowsCollectionViewCell", bundle: nil)
-        collectionView.register(textFieldCell, forCellWithReuseIdentifier: "TvShowsCollectionViewCell")
+//        let textFieldCell = UINib(nibName: "TvShowsCollectionViewCell", bundle: nil)
+        collectionView.register(cellType: TvShowsCollectionViewCell.self)
     }
     
     private func setupLayout() {
@@ -211,8 +253,8 @@ final class HomeViewController: UIViewController {
 extension HomeViewController: CustomRadioButtonControllerDelegate {
     func didSelectButton(sender: UIButton?) {
         let tvShowType = TvShowsFilterType(rawValue: sender?.tag ?? 0) ?? .popular
+        newFilterOption = tvShowType
         self.showLoading()
         viewModel.type.onNext(tvShowType)
     }
 }
-

@@ -26,4 +26,10 @@ extension HomeViewControllerCollectionDelegate: UICollectionViewDelegateFlowLayo
         let tvId = items[indexPath.row].id
         delegate?.didSelectTvShow(with: tvId ?? 0)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row == items.count - 1 {
+            delegate?.didSelectNextPage()
+        }
+    }
 }

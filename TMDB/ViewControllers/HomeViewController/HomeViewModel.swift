@@ -43,8 +43,8 @@ final class HomeViewModel {
             return tvShowService.getTvShows(with: page ?? 1, and: type).map {
                 var tvShowModelList: [TvShowsModel] = []
                 $0.results?.forEach({ tvShow in
-                    var localTvShowList: [Show] = []
-                    let request = Show.fetchRequest() as NSFetchRequest<Show>
+                    var localTvShowList: [TvShowList] = []
+                    let request = TvShowList.fetchRequest() as NSFetchRequest<TvShowList>
                     let predicate = NSPredicate(format: "tvShowId == '\(tvShow.id ?? 0)'")
                     request.predicate = predicate
                     do {
@@ -76,7 +76,7 @@ final class HomeViewModel {
                         // If not them create
                         
                         // Create data model
-                        let tvShowDataModel = Show(context: context)
+                        let tvShowDataModel = TvShowList(context: context)
                         tvShowDataModel.tvShowId = tvShow.id as NSNumber?
                         tvShowDataModel.tvShowName = tvShow.name
                         tvShowDataModel.tvShowDescription = tvShow.overview
@@ -119,8 +119,8 @@ final class HomeViewModel {
             type.startWith(.popular),
             page.startWith(1)
         ).flatMapLatest{ type, page -> Observable<[TvShowsModel]> in
-            var localTvShowList: [Show] = []
-            let request = Show.fetchRequest() as NSFetchRequest<Show>
+            var localTvShowList: [TvShowList] = []
+            let request = TvShowList.fetchRequest() as NSFetchRequest<TvShowList>
             let predicate = NSPredicate(format: "type == '\(type.rawValue)'")
             request.predicate = predicate
             do {
@@ -154,13 +154,15 @@ final class HomeViewModel {
             print(error.localizedDescription)
         }
         
-        let sessionToDelete = localSessions[0]
-        self.context.delete(sessionToDelete)
-        
-        do {
-            try self.context.save()
-        } catch {
-            print(error.localizedDescription)
+        if localSessions.count > 0 {
+            let sessionToDelete = localSessions[0]
+            self.context.delete(sessionToDelete)
+            
+            do {
+                try self.context.save()
+            } catch {
+                print(error.localizedDescription)
+            }
         }
     }
 

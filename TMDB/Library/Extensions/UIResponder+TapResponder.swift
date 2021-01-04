@@ -12,4 +12,8 @@ extension UIResponder {
     @objc func didSelectTvShow(with tvId: Int) {
         next?.didSelectTvShow(with: tvId)
     }
+    
+    @objc func didSelectNextPage() {
+        next?.didSelectNextPage()
+    }
 }

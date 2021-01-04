@@ -16,10 +16,12 @@ class SeasonsViewControllerTest: XCTestCase {
         let controller = SeasonsViewController()
         let viewModel = SeasonsViewModel(tvShowService: TvShowsService(), context: context)
         controller.viewModel = viewModel
-        XCTAssertNoThrow(controller.viewDidLoad())
-        DispatchQueue.main.asyncAfter(deadline: .now() + 7, execute: {
-            XCTAssertNoThrow(controller.bindViewModel())
+        let expectation = self.expectation(description: "")
+        controller.viewDidLoad()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
+            expectation.fulfill()
         })
+        waitForExpectations(timeout: 6, handler: nil)
         
     }
     

@@ -15,8 +15,9 @@ final class FilterButtonsView: UIView {
         let button = UIButton(type: .system) as UIButton
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(L10n.popularOption, for: .normal)
-        button.cornerRadius(with: [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner], cornerRadii: 5)
-        button.tag = 0
+        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(.white, for: .selected)
+        button.setBackgroundColor(.gray, for: .selected)
         return button
     }()
     
@@ -24,7 +25,9 @@ final class FilterButtonsView: UIView {
         let button = UIButton(type: .system) as UIButton
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(L10n.topRatedOption, for: .normal)
-        button.cornerRadius(with: [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner], cornerRadii: 5)
+        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(.white, for: .selected)
+        button.setBackgroundColor(.gray, for: .selected)
         button.tag = 1
         return button
     }()
@@ -33,7 +36,9 @@ final class FilterButtonsView: UIView {
         let button = UIButton(type: .system) as UIButton
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(L10n.onTvOption, for: .normal)
-        button.cornerRadius(with: [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner], cornerRadii: 5)
+        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(.white, for: .selected)
+        button.setBackgroundColor(.gray, for: .selected)
         button.tag = 2
         return button
     }()
@@ -42,7 +47,9 @@ final class FilterButtonsView: UIView {
         let button = UIButton(type: .system) as UIButton
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(L10n.airingOption, for: .normal)
-        button.cornerRadius(with: [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner], cornerRadii: 5)
+        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(.white, for: .selected)
+        button.setBackgroundColor(.gray, for: .selected)
         button.tag = 3
         return button
     }()

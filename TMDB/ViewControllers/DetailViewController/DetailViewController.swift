@@ -68,7 +68,7 @@ final class DetailViewController: UIViewController {
     lazy var tvShowName: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        let attributedText = NSMutableAttributedString.attributedString("Rick and Morty", font: .systemFont(ofSize: 18), color: .white)
+        let attributedText = NSMutableAttributedString.attributedString("-", font: .systemFont(ofSize: 18), color: .white)
         label.attributedText = attributedText
         return label
     }()
@@ -86,7 +86,7 @@ final class DetailViewController: UIViewController {
     lazy var tvShowDescription: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        let attributedText = NSMutableAttributedString.attributedString(L10n.exampleText, font: .systemFont(ofSize: 12), color: .white)
+        let attributedText = NSMutableAttributedString.attributedString("-", font: .systemFont(ofSize: 12), color: .white)
         label.attributedText = attributedText
         label.numberOfLines = 0
         return label
@@ -164,6 +164,18 @@ final class DetailViewController: UIViewController {
         return collectionView
     }()
     
+    lazy var backButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle(L10n.backAction, for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        let image = UIImage(systemName: "chevron.backward")
+        image?.withTintColor(.white, renderingMode: .alwaysTemplate)
+        button.setImage(image, for: .normal)
+        button.tintColor = .white
+        return button
+    }()
+    
     // MARK: - DataSource
     
     lazy var collectionDataSource: DetailViewControllerCollectionDataSource = {
@@ -206,16 +218,22 @@ final class DetailViewController: UIViewController {
         
         mainBackVIew.cornerRadius(with: [.layerMaxXMinYCorner, .layerMinXMinYCorner], cornerRadii: 10)
         setupCollectionView()
-        bindViewModel()
+        showLoading()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let status = Reachability().connectionStatus()
+        bindViewModel(with: status)
+    }
+    
+    // MARK: - Methods
     
     func setupCollectionView() {
         collectionView.dataSource = collectionDataSource
         collectionView.delegate = collectionDelegate
-        collectionView.register(CastCollectionCell.self, forCellWithReuseIdentifier: "castCollectionCell")
+        collectionView.register(cellType: CastCollectionCell.self)
     }
-    
-    // MARK: - Methods
     
     func setupActions() {
         viewAllSeasonButton.addTarget(
@@ -223,14 +241,70 @@ final class DetailViewController: UIViewController {
             action: #selector(self.handleViewAllSeasonsSelection(_:)),
             for: .touchUpInside
         )
+        
+        backButton.addTarget(
+            self,
+            action: #selector(self.handleBackAction(_:)),
+            for: .touchUpInside
+        )
+    }
+    
+    @objc private func handleBackAction(_ sender: UIButton) {
+        delegate?.detailViewControllerDidSelectBack()
     }
     
     @objc private func handleViewAllSeasonsSelection(_ sender: UIButton) {
         delegate?.detialViewControllerDidSelectViewAllSeasons(wit: self.tvId ?? 0, and: self.numberOfSeasons ?? 0)
     }
     
-    func bindViewModel() {
-        showLoading()
+    func bindViewModel(with status: ReachabilityStatus) {
+        switch status {
+        case .unknown, .offline:
+            getLocalTvShowDetail()
+        case .online(.wwan):
+            getTvShowDetail()
+        case .online(.wiFi):
+            getTvShowDetail()
+        }
+    }
+    
+    func getTvShowDetail() {
+        viewModel.getTvShowDetail(with: self.tvId ?? 0)
+            .subscribe(
+                onSuccess: { [weak self] response in
+                    guard let self = self else { return }
+                    self.numberOfSeasons = response.numberOfSeasons
+                    self.setupTvShowContent(with: response)
+                    
+                    self.dismiss(animated: true, completion: {
+                        self.showLoading()
+                        self.viewModel.getCast(with: self.tvId ?? 0)
+                            .subscribe(
+                                onSuccess: { [weak self] response in
+                                    guard let self = self else { return }
+                                    self.dismiss(animated: true, completion: {
+                                        self.collectionDataSource.items = response
+                                        self.collectionView.reloadData()
+                                    })
+                                }, onError: { [weak self] error in
+                                    guard let self = self else { return }
+                                    self.dismiss(animated: true, completion: {
+                                        self.handleError(error)
+                                    })
+                                }
+                            ).disposed(by: self.disposeBag)
+                    })
+                    
+                }, onError: { [weak self] error in
+                    guard let self = self else { return }
+                    self.dismiss(animated: true, completion: {
+                        self.handleError(error)
+                    })
+                }
+            ).disposed(by: disposeBag)
+    }
+    
+    func getLocalTvShowDetail() {
         viewModel.getLocalTvShowDetail(with: self.tvId ?? 0)
             .subscribe(
                 onSuccess: { [weak self] response in
@@ -251,7 +325,7 @@ final class DetailViewController: UIViewController {
                                 }, onError: { [weak self] error in
                                     guard let self = self else { return }
                                     self.dismiss(animated: true, completion: {
-                                        self.showAlert(title: "Error", message: error.localizedDescription, handler: nil)
+                                        self.handleError(error)
                                     })
                                 }
                             ).disposed(by: self.disposeBag)
@@ -260,7 +334,7 @@ final class DetailViewController: UIViewController {
                 }, onError: { [weak self] error in
                     guard let self = self else { return }
                     self.dismiss(animated: true, completion: {
-                        self.showAlert(title: "Error", message: error.localizedDescription, handler: nil)
+                        self.handleError(error)
                     })
                 }
             ).disposed(by: disposeBag)
@@ -317,6 +391,7 @@ final class DetailViewController: UIViewController {
         scrollView.addSubview(contentView)
         
         contentView.addSubview(tvShowImage)
+        contentView.addSubview(backButton)
         contentView.addSubview(mainBackVIew)
         
         NSLayoutConstraint.activate([
@@ -336,6 +411,9 @@ final class DetailViewController: UIViewController {
             tvShowImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             tvShowImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             tvShowImage.heightAnchor.constraint(equalToConstant: 211),
+            
+            backButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            backButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
             
             mainBackVIew.topAnchor.constraint(equalTo: tvShowImage.bottomAnchor, constant: -32),
             mainBackVIew.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),

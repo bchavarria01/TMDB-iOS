@@ -26,7 +26,7 @@
 "viewAllSeasonActiom" = "View All Seasons";
 "cast" = "Cast";
 "createdBy" = "Created by ";
-"exampleText" = "Rick is a mentally-unbalanced but scientifically-gifted old man who has recently reconnected with his family. He spends most of his time involving his young grandson Morty in dangerous, outlandish adventures throughout space and alternate universes. Compounded with Morty's already unstable family life, these events cause Morty much distress at home and school.";
+"backAction" = "Back";
 
 // MARK: - Menu options
 
@@ -42,9 +42,4 @@
 
 // MARK: - Network errors
 
-"defaultMoyaErrorMessage" = "Status code didn't fall withing the given range";
-"defaultErrorMessage" = "Ha ocurrido un error, por favor intente nuevamente más tarde";
-
-"notValidData" = "Estos no parecen ser datos válidos.";
-"sessionHasExpired" = "La sesión ha expirado.";
-"errorHasOcurred" = "Ha ocurrido un error inesperado intenta nuevamente.";
+"noInternetConnection" = "Sorry\n You should have an internet connection to view this content";

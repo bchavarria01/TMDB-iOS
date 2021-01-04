@@ -17,17 +17,25 @@ class DetailViewControllerTest: XCTestCase {
         let viewModel = DetailViewModel(tvShowService: TvShowsService(), context: context)
         detailViewController.viewModel = viewModel
         detailViewController.tvId = 107124
-        detailViewController.bindViewModel()
-        XCTAssertNoThrow(detailViewController.viewDidLoad())
+        let expectation = self.expectation(description: "")
+        detailViewController.viewDidLoad()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
+            expectation.fulfill()
+        })
+        waitForExpectations(timeout: 6, handler: nil)
     }
     
-    func testInvalidDataDetailViewController() {
+    func testDataDetailViewController() {
         let context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let detailViewController = DetailViewController()
         let viewModel = DetailViewModel(tvShowService: TvShowsService(), context: context)
         detailViewController.viewModel = viewModel
-        detailViewController.tvId = 0
-        detailViewController.bindViewModel()
-        XCTAssertNoThrow(detailViewController.viewDidLoad())
+        detailViewController.tvId = 107124
+        let expectation = self.expectation(description: "")
+        detailViewController.viewDidAppear(true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
+            expectation.fulfill()
+        })
+        waitForExpectations(timeout: 10, handler: nil)
     }
 }

@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import Reusable
 
-class TvShowsCollectionViewCell: UICollectionViewCell {
+class TvShowsCollectionViewCell: UICollectionViewCell, NibReusable {
     
     // MARK: - IBOutlets
     

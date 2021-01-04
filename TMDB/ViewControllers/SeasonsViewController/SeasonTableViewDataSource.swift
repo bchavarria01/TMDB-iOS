@@ -21,6 +21,7 @@ extension SeasonTableViewDataSource: UITableViewDataSource {
         cell.backgroundColor = R.Colors.almostBlack.color
         cell.seasonName.text = items[indexPath.row].seasonName
         cell.setupEpisodes(with: items[indexPath.row].episodes ?? [])
+        cell.selectionStyle = .none
         return cell
     }
 }

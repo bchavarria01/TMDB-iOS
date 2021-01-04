@@ -1,8 +1,8 @@
 //
 //  TvShowDetail+CoreDataProperties.swift
-//  TMDB
+//  
 //
-//  Created by Byron Chavarría on 2/1/21.
+//  Created by Byron Chavarría on 3/1/21.
 //
 //
 
@@ -26,9 +26,5 @@ extension TvShowDetail {
     @NSManaged public var tvShowDetailName: String?
     @NSManaged public var tvShowDetailRate: Float
     @NSManaged public var tvShowId: NSNumber?
-
-}
-
-extension TvShowDetail : Identifiable {
 
 }

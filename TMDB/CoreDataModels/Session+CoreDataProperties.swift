@@ -1,8 +1,8 @@
 //
 //  Session+CoreDataProperties.swift
-//  TMDB
+//  
 //
-//  Created by Byron Chavarría on 2/1/21.
+//  Created by Byron Chavarría on 3/1/21.
 //
 //
 
@@ -18,9 +18,5 @@ extension Session {
 
     @NSManaged public var expDate: String?
     @NSManaged public var token: String?
-
-}
-
-extension Session : Identifiable {
 
 }

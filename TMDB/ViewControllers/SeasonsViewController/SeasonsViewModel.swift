@@ -47,8 +47,8 @@ final class SeasonsViewModel {
                 var customEpisodeList: [CustomEpisode] = []
                 
                 seasonInfo.episodes?.forEach { episode in
-                    var localSeasonInfo: [TvShowEpisodesPerSeason] = []
-                    let request = TvShowEpisodesPerSeason.fetchRequest() as NSFetchRequest<TvShowEpisodesPerSeason>
+                    var localSeasonInfo: [TvShowEpisodePerSeason] = []
+                    let request = TvShowEpisodePerSeason.fetchRequest() as NSFetchRequest<TvShowEpisodePerSeason>
                     let predicate = NSPredicate(format: "episodeId == '\(episode.id ?? 0)'")
                     request.predicate = predicate
                     do {
@@ -71,7 +71,7 @@ final class SeasonsViewModel {
                             print(error.localizedDescription)
                         }
                     } else {
-                        let seasonToCreate = TvShowEpisodesPerSeason(context: context)
+                        let seasonToCreate = TvShowEpisodePerSeason(context: context)
                         seasonToCreate.episodeId = Int32(episode.id ?? 0)
                         seasonToCreate.seasonName = "Season \(seasonId ?? 0)"
                         seasonToCreate.tvShowId = tvId as NSNumber?
@@ -111,8 +111,8 @@ final class SeasonsViewModel {
                 
                 var customEpisodeList: [CustomEpisode] = []
                 
-                var localSeasonInfo: [TvShowEpisodesPerSeason] = []
-                let request = TvShowEpisodesPerSeason.fetchRequest() as NSFetchRequest<TvShowEpisodesPerSeason>
+                var localSeasonInfo: [TvShowEpisodePerSeason] = []
+                let request = TvShowEpisodePerSeason.fetchRequest() as NSFetchRequest<TvShowEpisodePerSeason>
                 let predicate = NSPredicate(format: "tvShowId == '\(tvId)' AND seasonName == 'Season \(seasonId ?? 0)'")
                 request.predicate = predicate
                 do {

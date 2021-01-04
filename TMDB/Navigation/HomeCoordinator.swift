@@ -32,6 +32,7 @@ final class HomeCoordinator: Coordinator {
     func start() {
         let controller = HomeViewController()
         let viewModel = HomeViewModel(tvShowService: TvShowsService(), context: context)
+        controller.isFromLoginOrStart = true
         controller.viewModel = viewModel
         controller.delegate = self
         presenter.navigationBar.isHidden = true
@@ -39,12 +40,32 @@ final class HomeCoordinator: Coordinator {
     }
     
     @objc func endCoordinator() {
+        let viewModel = HomeViewModel(tvShowService: TvShowsService(), context: context)
+        viewModel.deleteSession()
         parentCoordinator?.end(with: .auth)
     }
 }
 
 extension HomeCoordinator: HomeViewControllerDelegate {
     func homeViewControllerDidSelectMenu() {
+        // 1
+        let optionMenu = UIAlertController(title: nil, message: L10n.optionsQustion, preferredStyle: .actionSheet)
+        
+        
+        // 2
+        let logOutAvtion = UIAlertAction(title: L10n.logOut, style: .destructive) { (action) in
+            self.endCoordinator()
+        }
+        
+        // 3
+        let cancelAction = UIAlertAction(title: L10n.cancelAction, style: .cancel)
+        
+        // 4
+        optionMenu.addAction(logOutAvtion)
+        optionMenu.addAction(cancelAction)
+        
+        // 5
+        presenter.present(optionMenu, animated: true, completion: nil)
         
     }
     
@@ -59,6 +80,11 @@ extension HomeCoordinator: HomeViewControllerDelegate {
 }
 
 extension HomeCoordinator: DetailViewControllerDelegate {
+    
+    func detailViewControllerDidSelectBack() {
+        presenter.popViewController(animated: true)
+    }
+    
     func detialViewControllerDidSelectViewAllSeasons(wit tvId: Int, and numberOfSeasons: Int) {
         let controller = SeasonsViewController()
         controller.viewModel = SeasonsViewModel(tvShowService: TvShowsService(), context: context)

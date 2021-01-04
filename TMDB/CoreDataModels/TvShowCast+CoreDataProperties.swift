@@ -1,8 +1,8 @@
 //
 //  TvShowCast+CoreDataProperties.swift
-//  TMDB
+//  
 //
-//  Created by Byron Chavarría on 2/1/21.
+//  Created by Byron Chavarría on 3/1/21.
 //
 //
 
@@ -19,9 +19,5 @@ extension TvShowCast {
     @NSManaged public var castImage: Data?
     @NSManaged public var castName: String?
     @NSManaged public var tvShowId: NSNumber?
-
-}
-
-extension TvShowCast : Identifiable {
 
 }

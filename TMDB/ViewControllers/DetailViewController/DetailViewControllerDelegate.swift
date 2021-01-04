@@ -9,4 +9,5 @@ import Foundation
 
 protocol DetailViewControllerDelegate: class {
     func detialViewControllerDidSelectViewAllSeasons(wit tvId: Int, and numberOfSeasons: Int)
+    func detailViewControllerDidSelectBack()
 }

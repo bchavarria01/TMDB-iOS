@@ -12,11 +12,27 @@ import CoreData
 
 class ApplicationCoordinatorTest: XCTestCase {
 
-//    func testApplicactionCoordinator() {
-//        let winwdow = UIWindow()
-//        let context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-//        let appCoordinator = ApplicationCoordinator(window: winwdow, context: context)
-//        XCTAssertNoThrow(appCoordinator.start())
-//    }
+    func testApplicactionCoordinator() {
+        let winwdow = UIWindow()
+        let context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let appCoordinator = ApplicationCoordinator(window: winwdow, context: context)
+        XCTAssertNoThrow(appCoordinator.setupHomeCoordinator())
+    }
+    
+    func testEndCoordinatorWithAuth() {
+        let winwdow = UIWindow()
+        let context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let appCoordinator = ApplicationCoordinator(window: winwdow, context: context)
+        appCoordinator.setupHomeCoordinator()
+        XCTAssertNoThrow(appCoordinator.end(with: .auth))
+    }
+    
+    func testEndCoordinatorWithHome() {
+        let winwdow = UIWindow()
+        let context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let appCoordinator = ApplicationCoordinator(window: winwdow, context: context)
+        appCoordinator.setupAuthCoordinator()
+        XCTAssertNoThrow(appCoordinator.end(with: .home))
+    }
 
 }

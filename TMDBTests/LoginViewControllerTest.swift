@@ -18,23 +18,36 @@ class LoginViewControllerTest: XCTestCase {
         let loginController = LoginViewController()
         let viewModel = LoginViewModel(authService: AuthService(), context: context)
         loginController.viewModel = viewModel
-        viewModel.username.accept(validUsername)
-        viewModel.password.accept(validPassword)
+        loginController.bindViewModel()
+        loginController.usernameTextField.text = validUsername
+        loginController.passwordField.text = validPassword
         let button = UIButton()
-        XCTAssertNoThrow(loginController.handleLogInSelection(button))
+        let expectation = self.expectation(description: "")
+        loginController.handleLogInSelection(button)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
+            expectation.fulfill()
+        })
+        waitForExpectations(timeout: 6, handler: nil)
+        
     }
     
     func testInvalidLogin() {
         let context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let validUsername = ""
-        let validPassword = ""
+        let validPassword = "Pa"
         let loginController = LoginViewController()
         let viewModel = LoginViewModel(authService: AuthService(), context: context)
         loginController.viewModel = viewModel
-        viewModel.username.accept(validUsername)
-        viewModel.password.accept(validPassword)
+        loginController.bindViewModel()
+        loginController.usernameTextField.text = validUsername
+        loginController.passwordField.text = validPassword
         let button = UIButton()
-        XCTAssertNoThrow(loginController.handleLogInSelection(button))
+        let expectation = self.expectation(description: "")
+        loginController.handleLogInSelection(button)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
+            expectation.fulfill()
+        })
+        waitForExpectations(timeout: 6, handler: nil)
     }
     
     func testKeyboardWillChange() {

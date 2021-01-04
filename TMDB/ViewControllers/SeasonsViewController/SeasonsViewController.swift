@@ -34,6 +34,7 @@ final class SeasonsViewController: UIViewController {
         tableView.showsVerticalScrollIndicator = false
         tableView.backgroundColor = R.Colors.almostBlack.color
         tableView.isUserInteractionEnabled = true
+        tableView.separatorStyle = .none
         return tableView
     }()
     
@@ -66,37 +67,50 @@ final class SeasonsViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = R.Colors.almostBlack.color
         setupLayout()
-        bindViewModel()
         setupTableView()
+        
+        let status = Reachability().connectionStatus()
+        bindViewModel(with: status)
     }
     
     // MARK: - Methods
     
-    func bindViewModel() {
-        viewModel.seasonsList
+    func bindViewModel(with status: ReachabilityStatus) {
+        
+        var viewModelList: Observable<EpisodesModel?>
+        switch status {
+        case .unknown, .offline:
+            viewModelList = viewModel.localseasonsList
+        case .online(.wwan):
+            viewModelList = viewModel.seasonsList
+        case .online(.wiFi):
+            viewModelList = viewModel.seasonsList
+        }
+        
+        viewModelList
             .do(onNext: { [weak self] elements in
                 guard let self = self else { return }
                 _ = self
-                if elements != nil {
-                    print("Working")
-                } else {
-                    print("Not Working")
+                if elements == nil {
+                    self.tableView.setEmptyMessage("Seasons info not found")
                 }
             }).subscribe(
                 onNext: { [weak self] data in
                     guard let self = self else { return }
-                        self.episodeList.append(data!)
-                        if self.numberOfSeasons ?? 0 > self.currentSeason {
-                            self.currentSeason += 1
-                            self.viewModel.seasonId.onNext(self.currentSeason)
-                        } else {
-                            self.tableViewDataSource.items = self.episodeList
-                            self.tableView.reloadData()
-                        }
+                    self.episodeList.append(data!)
+                    if self.numberOfSeasons ?? 0 > self.currentSeason {
+                        self.currentSeason += 1
+                        self.viewModel.seasonId.onNext(self.currentSeason)
+                    } else {
+                        self.tableViewDataSource.items = self.episodeList
+                        self.tableView.restore()
+                        self.tableView.reloadData()
+                    }
                 }, onError: { [weak self] error in
                     guard let self = self else { return }
                     self.dismiss(animated: true, completion: {
-                        self.showAlert(title: "Error", message: error.localizedDescription, handler: nil)
+                        self.tableView.setEmptyMessage("Seasons info not found")
+                        self.handleError(error)
                     })
                 }
             ).disposed(by: disposeBag)
@@ -104,6 +118,7 @@ final class SeasonsViewController: UIViewController {
     }
     
     private func setupTableView() {
+        tableView.showLoagin(with: "Loading seasons info")
         tableView.delegate = tableViewDelegate
         tableView.dataSource = tableViewDataSource
         tableView.register(SeasonTableViewCell.self, forCellReuseIdentifier: "SeasonTableViewCell")

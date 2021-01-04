@@ -4,15 +4,6 @@
         <attribute name="expDate" optional="YES" attributeType="String"/>
         <attribute name="token" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="Show" representedClassName="Show" syncable="YES">
-        <attribute name="tvShowDescription" optional="YES" attributeType="String"/>
-        <attribute name="tvShowId" attributeType="Integer 32" usesScalarValueType="NO"/>
-        <attribute name="tvShowImage" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
-        <attribute name="tvShowName" optional="YES" attributeType="String"/>
-        <attribute name="tvShowRate" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="tvShowReleaseDate" optional="YES" attributeType="String"/>
-        <attribute name="type" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-    </entity>
     <entity name="TvShowCast" representedClassName="TvShowCast" syncable="YES">
         <attribute name="castImage" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
         <attribute name="castName" optional="YES" attributeType="String"/>
@@ -30,18 +21,27 @@
         <attribute name="tvShowDetailRate" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="tvShowId" attributeType="Integer 32" usesScalarValueType="NO"/>
     </entity>
-    <entity name="TvShowEpisodesPerSeason" representedClassName="TvShowEpisodesPerSeason" syncable="YES">
+    <entity name="TvShowEpisodePerSeason" representedClassName="TvShowEpisodePerSeason" syncable="YES">
         <attribute name="episodeId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="episodeImage" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
         <attribute name="episodeName" optional="YES" attributeType="String"/>
         <attribute name="seasonName" optional="YES" attributeType="String"/>
         <attribute name="tvShowId" attributeType="Integer 32" usesScalarValueType="NO"/>
     </entity>
+    <entity name="TvShowList" representedClassName="TvShowList" syncable="YES">
+        <attribute name="tvShowDescription" optional="YES" attributeType="String"/>
+        <attribute name="tvShowId" attributeType="Integer 32" usesScalarValueType="NO"/>
+        <attribute name="tvShowImage" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="tvShowName" optional="YES" attributeType="String"/>
+        <attribute name="tvShowRate" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="tvShowReleaseDate" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
     <elements>
         <element name="Session" positionX="-27" positionY="81" width="128" height="59"/>
-        <element name="Show" positionX="-184.9159545898438" positionY="-72.03524780273438" width="128" height="134"/>
         <element name="TvShowCast" positionX="91.03863525390625" positionY="-47.73342895507812" width="128" height="88"/>
         <element name="TvShowDetail" positionX="-143.8035888671875" positionY="78.66061401367188" width="128" height="179"/>
-        <element name="TvShowEpisodesPerSeason" positionX="136.4754638671875" positionY="104.5745544433594" width="128" height="104"/>
+        <element name="TvShowEpisodePerSeason" positionX="136.4754638671875" positionY="104.5745544433594" width="128" height="104"/>
+        <element name="TvShowList" positionX="-184.9159545898438" positionY="-72.03524780273438" width="128" height="134"/>
     </elements>
 </model>

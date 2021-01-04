@@ -1,8 +1,8 @@
 //
-//  Show+CoreDataProperties.swift
-//  TMDB
+//  TvShowList+CoreDataProperties.swift
+//  
 //
-//  Created by Byron Chavarría on 2/1/21.
+//  Created by Byron Chavarría on 3/1/21.
 //
 //
 
@@ -10,10 +10,10 @@ import Foundation
 import CoreData
 
 
-extension Show {
+extension TvShowList {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Show> {
-        return NSFetchRequest<Show>(entityName: "Show")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<TvShowList> {
+        return NSFetchRequest<TvShowList>(entityName: "TvShowList")
     }
 
     @NSManaged public var tvShowDescription: String?
@@ -23,9 +23,5 @@ extension Show {
     @NSManaged public var tvShowRate: Float
     @NSManaged public var tvShowReleaseDate: String?
     @NSManaged public var type: Int32
-
-}
-
-extension Show : Identifiable {
 
 }

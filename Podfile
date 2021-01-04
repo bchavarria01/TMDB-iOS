@@ -7,20 +7,17 @@ target 'TMDB' do
 
   # Pods for TMDB
   
-  pod 'Presentr'
-  pod 'SwiftGen', '~> 6.0'
   pod 'RxCocoa'
-  pod 'Moya/RxSwift', '14.0'
   pod 'RxSwift'
-  pod 'UIWindowTransitions'
+  pod 'Presentr'
+  pod 'Reusable'
   pod 'Nuke', '~> 9.0'
+  pod 'SwiftGen', '~> 6.0'
+  pod 'UIWindowTransitions'
+  pod 'Moya/RxSwift', '14.0'
 
   target 'TMDBTests' do
     inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'TMDBUITests' do
     # Pods for testing
   end
 

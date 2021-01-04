@@ -7,6 +7,11 @@ PODS:
     - RxSwift (~> 5.0)
   - Nuke (9.1.1)
   - Presentr (1.9)
+  - Reusable (4.1.1):
+    - Reusable/Storyboard (= 4.1.1)
+    - Reusable/View (= 4.1.1)
+  - Reusable/Storyboard (4.1.1)
+  - Reusable/View (4.1.1)
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -20,6 +25,7 @@ DEPENDENCIES:
   - Moya/RxSwift (= 14.0)
   - Nuke (~> 9.0)
   - Presentr
+  - Reusable
   - RxCocoa
   - RxSwift
   - SwiftGen (~> 6.0)
@@ -31,6 +37,7 @@ SPEC REPOS:
     - Moya
     - Nuke
     - Presentr
+    - Reusable
     - RxCocoa
     - RxRelay
     - RxSwift
@@ -42,12 +49,13 @@ SPEC CHECKSUMS:
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   Nuke: af4301b154d3afd8a3b045a5194a9a773a00b7a8
   Presentr: 7078d7eb5d1661ebeaae60c9e42a1e534de1b993
+  Reusable: 53a9acf5c536f229b31b5865782414b508252ddb
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   SwiftGen: 3d5024a47ea79e408cded20763d7a17d18a4548c
   UIWindowTransitions: cb662e2ae9e2d1060fcdbe3eb3de9232bedb7612
 
-PODFILE CHECKSUM: daa42ceaf9b8df39d7f875a310a09d7c402b97f5
+PODFILE CHECKSUM: 2633fceef7e855c10b11452c53ea19d5e47b14c2
 
 COCOAPODS: 1.9.3

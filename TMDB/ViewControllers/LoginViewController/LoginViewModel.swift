@@ -60,12 +60,13 @@ final class LoginViewModel {
         
         return authService.authenticateWithLogin(with: loginRequestModel)
             .map { (responseModel) -> DefaultResponseModel in
-                DefaultPreferences.current.requestToken = responseModel.requestToken
-                
-                // Delete every time user request a new token
-                self.deleteSession()
-                // Create a new session locally
-                self.createNewSession(with: responseModel)
+                if responseModel.requestToken != nil {
+                    DefaultPreferences.current.requestToken = responseModel.requestToken
+                    // Delete every time user request a new token
+                    self.deleteSession()
+                    // Create a new session locally
+                    self.createNewSession(with: responseModel)
+                }
                 
                 return responseModel
             }
@@ -95,7 +96,7 @@ final class LoginViewModel {
         if localSessions.count > 0 {
             let sessionToDelete = localSessions[0]
             self.context.delete(sessionToDelete)
-    //
+            
             do {
                 try self.context.save()
             } catch {

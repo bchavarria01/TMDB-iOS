@@ -36,9 +36,14 @@ final class LoginViewController: UIViewController {
     lazy var usernameTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.placeholder = L10n.usernamePlaceholder
         textField.backgroundColor = .white
         textField.layer.cornerRadius = 5
+        textField.textColor = .gray
+        textField.attributedPlaceholder = NSAttributedString(
+            string: L10n.usernamePlaceholder,
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray]
+        )
+        textField.tag = 0
         return textField
     }()
     
@@ -49,14 +54,21 @@ final class LoginViewController: UIViewController {
         textField.placeholder = L10n.passwordPlaceholder
         textField.backgroundColor = .white
         textField.layer.cornerRadius = 5
+        textField.textColor = .gray
+        textField.attributedPlaceholder = NSAttributedString(
+            string: L10n.passwordPlaceholder,
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray]
+        )
+        textField.tag = 1
         return textField
     }()
     
     lazy var logInButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = R.Colors.green.color
+        button.isEnabled = false
         button.layer.cornerRadius = 5
+        button.backgroundColor = R.Colors.green.color
         button.setTitle(L10n.loginAction, for: .normal)
         return button
     }()
@@ -106,6 +118,18 @@ final class LoginViewController: UIViewController {
             action: #selector(self.handleLogInSelection(_:)),
             for: .touchUpInside
         )
+        
+        usernameTextField.addTarget(
+            self,
+            action: #selector(self.textFieldDidChange(_:)),
+            for: .editingChanged
+        )
+        
+        passwordField.addTarget(
+            self,
+            action: #selector(self.textFieldDidChange(_:)),
+            for: .editingChanged
+        )
     }
     
     func getToken() {
@@ -119,7 +143,7 @@ final class LoginViewController: UIViewController {
             }, onError: { [weak self] error in
                 guard let self = self else { return }
                 self.dismiss(animated: true, completion: {
-                    self.showAlert(title: "Error", message: error.localizedDescription, handler: nil)
+                    self.handleError(error)
                 })
             }
         ).disposed(by: disposeBag)
@@ -137,14 +161,14 @@ final class LoginViewController: UIViewController {
                         if response.success ?? false {
                             self.delegate?.loginViewControllerDidLogInSuccessfully()
                         } else {
-                            self.showAlert(title: "Error", message: response.message ?? "", handler: nil)
+                            self.handleOperationResult(type: .exception(description: response.message ?? ""))
                         }
                     })
                 }, onError: { [weak self] error in
                     guard let self = self else { return }
                     self.dismiss(animated: true, completion: {
                         sender.isEnabled = true
-                        self.showAlert(title: "Error", message: error.localizedDescription, handler: nil)
+                        self.handleError(error)
                     })
                 }
             ).disposed(by: disposeBag)
@@ -166,6 +190,22 @@ final class LoginViewController: UIViewController {
             scrollView.contentInset = .zero
         } else if notification.name == UIResponder.keyboardWillShowNotification {
             scrollView.contentInset.bottom = frame.height
+        }
+    }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        var usernameHasValue: Bool = false
+        var passwordHasValue: Bool = false
+        if textField.tag == 0 {
+            usernameHasValue = textField.text != ""
+        } else if textField.tag == 1 {
+            passwordHasValue = textField.text != ""
+        }
+        
+        if usernameHasValue && passwordHasValue {
+            logInButton.isEnabled = true
+        } else {
+            logInButton.isEnabled = true
         }
     }
     
@@ -222,4 +262,3 @@ final class LoginViewController: UIViewController {
     }
     
 }
-

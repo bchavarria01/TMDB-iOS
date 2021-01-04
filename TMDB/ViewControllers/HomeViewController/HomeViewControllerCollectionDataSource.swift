@@ -7,6 +7,7 @@
 
 import UIKit
 import Nuke
+import Reusable
 
 final class HomeViewControllerCollectionDataSource: NSObject {
     var delegate: UIResponder?
@@ -19,7 +20,7 @@ extension HomeViewControllerCollectionDataSource: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: TvShowsCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TvShowsCollectionViewCell", for: indexPath) as! TvShowsCollectionViewCell
+        let cell: TvShowsCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
         cell.tvShowFavoriteButton.tintColor = R.Colors.green.color
         let tvShowInfo = items[indexPath.row]
         cell.tvShowDescription.text = tvShowInfo.overview
