@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Reusable
 
 class CastCollectionCell: UICollectionViewCell {
     
