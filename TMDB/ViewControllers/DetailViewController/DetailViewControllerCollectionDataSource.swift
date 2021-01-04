@@ -7,7 +7,6 @@
 
 import UIKit
 import Nuke
-import Reusable
 
 final class DetailViewControllerCollectionDataSource: NSObject {
     var delegate: UIResponder?
@@ -20,7 +19,7 @@ extension DetailViewControllerCollectionDataSource: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: CastCollectionCell = collectionView.dequeueReusableCell(for: indexPath)
+        let cell: CastCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "castCollectionCell", for: indexPath) as! CastCollectionCell
         let cast = items[indexPath.row]
         if cast.imagePath != "" {
             let options = K.NukeDefault.options

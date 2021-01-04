@@ -232,7 +232,7 @@ final class DetailViewController: UIViewController {
     func setupCollectionView() {
         collectionView.dataSource = collectionDataSource
         collectionView.delegate = collectionDelegate
-        collectionView.register(cellType: CastCollectionCell.self)
+        collectionView.register(CastCollectionCell.self, forCellWithReuseIdentifier: "castCollectionCell")
     }
     
     func setupActions() {

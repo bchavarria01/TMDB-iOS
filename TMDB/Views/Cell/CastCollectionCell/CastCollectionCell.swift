@@ -8,7 +8,7 @@
 import UIKit
 import Reusable
 
-class CastCollectionCell: UICollectionViewCell, NibReusable {
+class CastCollectionCell: UICollectionViewCell {
     
     // MARK: - Components
     
