@@ -24,4 +24,4 @@ jobs:
       run: pod install --repo-update
     
     - name: Build
-      run: xcodebuild -workspace TMDB.xcworkspace -scheme "TMDB" clean build test | xcpretty
+      run: xcodebuild clean build -workspace TMDB.xcworkspace -scheme "TMDB"
