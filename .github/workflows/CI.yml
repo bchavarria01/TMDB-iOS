@@ -24,4 +24,7 @@ jobs:
       run: pod install --repo-update
     
     - name: Build
-      run: xcodebuild clean build -workspace TMDB.xcworkspace -scheme "TMDB" -allowProvisioningUpdates
+      run: xcodebuild -workspace TMDB.xcworkspace \
+            -scheme TMDB
+            -destination platform=iOS\ Simulator,OS=13.3,name=iPhone\ 11 \
+            clean build test | xcpretty
