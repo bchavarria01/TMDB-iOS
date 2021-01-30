@@ -24,4 +24,4 @@ jobs:
       run: pod install --repo-update
     
     - name: Build
-      run: xcodebuild clean build -workspace TMDB.xcworkspace -scheme "TMDB"
+      run: xcodebuild clean build -workspace TMDB.xcworkspace -scheme "TMDB" -allowProvisioningUpdates
