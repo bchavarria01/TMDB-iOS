@@ -24,17 +24,26 @@ final class HomeViewModel {
     // MARK: - Attributes
     
     var context: NSManagedObjectContext!
+    var isTest: Bool
     
     // MARK: - Services
     
     private let tvShowService: TvShowsService
+    private let authService: AuthService
+    private let accountService: AccountService
     
     // MARK: - LifeCycle
     
     init(tvShowService: TvShowsService,
-         context: NSManagedObjectContext) {
+         authService: AuthService,
+         accountService: AccountService,
+         context: NSManagedObjectContext,
+         isTest: Bool) {
         self.tvShowService = tvShowService
+        self.authService = authService
+        self.accountService = accountService
         self.context = context
+        self.isTest = isTest
         
         tvShowList = Observable.combineLatest(
             type.startWith(.popular),
@@ -48,7 +57,7 @@ final class HomeViewModel {
                     let predicate = NSPredicate(format: "tvShowId == '\(tvShow.id ?? 0)'")
                     request.predicate = predicate
                     do {
-                         localTvShowList = try context.fetch(request)
+                        localTvShowList = isTest ? [] : try context.fetch(request)
                     } catch {
                         print(error.localizedDescription)
                     }
@@ -124,7 +133,7 @@ final class HomeViewModel {
             let predicate = NSPredicate(format: "type == '\(type.rawValue)'")
             request.predicate = predicate
             do {
-                 localTvShowList = try context.fetch(request)
+                localTvShowList = isTest ? [] : try context.fetch(request)
             } catch {
                 print(error.localizedDescription)
             }
@@ -145,11 +154,127 @@ final class HomeViewModel {
         }
     }
     
+    func createNewSession() -> Single<DefaultModel> {
+        var localSessions: [Session] = []
+        var localUserInfo: [UserInfo] = []
+        
+        let request = Session.fetchRequest() as NSFetchRequest<Session>
+        let request2 = UserInfo.fetchRequest() as NSFetchRequest<UserInfo>
+        do {
+            localSessions = isTest ? [] : try self.context.fetch(request)
+            localUserInfo = isTest ? [] : try self.context.fetch(request2)
+        } catch {
+            print(error.localizedDescription)
+        }
+
+        if localUserInfo.count > 0 {
+            // If exists, return them
+            let session = localSessions[0]
+            let responseModel = DefaultModel()
+            responseModel.expiresAt = session.expDate
+            responseModel.requestToken = session.token
+            responseModel.sessionId = session.sessionId
+            return Observable.from([responseModel]).asSingle()
+        } else {
+            var token = ""
+            if localSessions.count > 0 {
+                token = localSessions[0].token ?? ""
+            }
+            return authService.createNewSession(with: token).map { response in
+                var localSessions: [Session] = []
+                let request = Session.fetchRequest() as NSFetchRequest<Session>
+                do {
+                    localSessions = self.isTest ? [] : try self.context.fetch(request)
+                } catch {
+                    print(error.localizedDescription)
+                }
+                if localSessions.count > 0 {
+                    let tokenModel = localSessions[0]
+                    tokenModel.sessionId = response.sessionId
+                    
+                    do {
+                        try self.context.save()
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                }
+                
+                let responseModel = DefaultModel()
+                responseModel.expiresAt = response.expiresAt
+                responseModel.requestToken = response.requestToken
+                responseModel.sessionId = response.sessionId
+                return responseModel
+            }
+        }
+    }
+    
+    func getAccountInfo() -> Single<AccountModel> {
+        var localSessions: [Session] = []
+        var localUserInfo: [UserInfo] = []
+        let request = Session.fetchRequest() as NSFetchRequest<Session>
+        let request2 = UserInfo.fetchRequest() as NSFetchRequest<UserInfo>
+        do {
+            localSessions = try isTest ? [] : self.context.fetch(request)
+            localUserInfo = try isTest ? [] : self.context.fetch(request2)
+        } catch {
+            print(error.localizedDescription)
+        }
+        if localUserInfo.count > 0 {
+            // If exists, return them
+            let userInfo = localUserInfo[0]
+            let responseModel = AccountModel()
+            responseModel.imageData = userInfo.imageData
+            responseModel.imagePath = userInfo.imagePath
+            responseModel.userId = userInfo.userId
+            responseModel.username = userInfo.username
+            return Observable.from([responseModel]).asSingle()
+            
+        } else {
+            // If not them ask for
+            var session: Session = Session()
+            if localSessions.count > 0 {
+                session = localSessions[0]
+            }
+            return accountService.getAccountInfo(with: session.sessionId ?? "").map {
+                let userinfoModel = UserInfo(context: self.context)
+                let responseModel = AccountModel()
+                
+                let url = URL(string: "\(DefaultPreferences.current.loadImageBaseString ?? "")\($0.avatar?.tmdb?.avatarPath ?? "")")!
+                do {
+                    let imageData = try Data(contentsOf: url)
+                    userinfoModel.imageData = imageData
+                    responseModel.imageData = imageData
+                } catch {
+                    print(error.localizedDescription)
+                }
+                
+                userinfoModel.imagePath = $0.avatar?.tmdb?.avatarPath
+                userinfoModel.userId = String($0.id ?? 0)
+                userinfoModel.username = $0.username
+                
+                responseModel.imagePath = $0.avatar?.tmdb?.avatarPath
+                responseModel.userId = String($0.id ?? 0)
+                responseModel.username = $0.username
+                
+                do {
+                    try self.context.save()
+                } catch {
+                    print(error.localizedDescription)
+                }
+                
+                return responseModel
+            }
+        }
+    }
+    
     func deleteSession() {
         var localSessions: [Session] = []
+        var localUserInfo: [UserInfo] = []
         let request = Session.fetchRequest() as NSFetchRequest<Session>
+        let request2 = UserInfo.fetchRequest() as NSFetchRequest<UserInfo>
         do {
-            localSessions = try self.context.fetch(request)
+            localSessions = isTest ? [] : try self.context.fetch(request)
+            localUserInfo = isTest ? [] : try self.context.fetch(request2)
         } catch {
             print(error.localizedDescription)
         }
@@ -164,6 +289,16 @@ final class HomeViewModel {
                 print(error.localizedDescription)
             }
         }
+        if localUserInfo.count > 0 {
+            let userToDelete = localUserInfo[0]
+            self.context.delete(userToDelete)
+            
+            do {
+                try self.context.save()
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
     }
-
+    
 }

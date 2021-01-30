@@ -18,13 +18,16 @@ final class ApplicationCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     weak var parentCoordinator: Coordinator?
     var context: NSManagedObjectContext!
+    var isTest: Bool
     
     // MARK: - LifeCycle
     
     init(window: UIWindow,
-         context: NSManagedObjectContext) {
+         context: NSManagedObjectContext,
+         isTest: Bool) {
         self.window = window
         self.context = context
+        self.isTest = isTest
         presenter = UINavigationController()
         presenter.navigationBar.isHidden = true
         window.rootViewController = presenter
@@ -87,7 +90,8 @@ final class ApplicationCoordinator: Coordinator {
         let homeCoordinator = HomeCoordinator(
             presenter: nextPresenter,
             parentCoordinator: self,
-            context: context
+            context: context,
+            isTest: isTest
         )
         homeCoordinator.start()
         
@@ -107,6 +111,9 @@ final class ApplicationCoordinator: Coordinator {
             parentCoordinator: self,
             context: context
         )
+        
+        let viewModel = HomeViewModel(tvShowService: TvShowsService(), authService: AuthService(), accountService: AccountService(), context: context, isTest: false)
+        viewModel.deleteSession()
         
         authenticationCoordinator.start()
         

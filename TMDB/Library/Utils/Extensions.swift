@@ -37,6 +37,36 @@ extension UIImageView {
 
 extension UICollectionView {
     
+    func showLoagin(with message: String) {
+        
+        let spinner = UIActivityIndicatorView(style: .large)
+        
+        let view = UIView()
+        
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        spinner.startAnimating()
+        
+        let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height))
+        messageLabel.translatesAutoresizingMaskIntoConstraints = false
+        messageLabel.text = message
+        messageLabel.textColor = .gray
+        messageLabel.numberOfLines = 0;
+        messageLabel.textAlignment = .center;
+        messageLabel.font = .systemFont(ofSize: 32)
+        messageLabel.sizeToFit()
+        
+        view.addSubview(spinner)
+        view.addSubview(messageLabel)
+        
+        spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+
+        messageLabel.topAnchor.constraint(equalTo: spinner.bottomAnchor, constant: 8).isActive = true
+        messageLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        self.backgroundView = view;
+    }
+    
     func setEmptyMessage(_ message: String) {
         let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height))
         messageLabel.text = message
@@ -55,8 +85,8 @@ extension UICollectionView {
 }
 
 extension UIViewController {
-    func showLoading() {
-        let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
+    func showLoading(with message: String = "Please wait...") {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         
         let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
         loadingIndicator.hidesWhenStopped = true

@@ -12,21 +12,62 @@ final class DetailViewModel {
     
     // MARK: - Services
     
-    let tvShowService: TvShowsService
+    private let tvShowService: TvShowsService
+    private let accountService: AccountService
     
     // MARK: - Attributes
     
     var context: NSManagedObjectContext!
+    var isTest: Bool
     
     // MARK: - LifeCycle
     
     init(tvShowService: TvShowsService,
-         context: NSManagedObjectContext) {
+         accountService: AccountService,
+         context: NSManagedObjectContext,
+         isTest: Bool) {
         self.tvShowService = tvShowService
+        self.accountService = accountService
         self.context = context
+        self.isTest = isTest
     }
     
     // MARK: - Methods
+    
+    func markAsFav(tvId: Int, with flag: Bool) -> Single<DefaultResponseModel> {
+        var localUserInfo: [UserInfo] = []
+        var localSessions: [Session] = []
+        let request = UserInfo.fetchRequest() as NSFetchRequest<UserInfo>
+        let request2 = Session.fetchRequest() as NSFetchRequest<Session>
+        do {
+            localUserInfo = isTest ? [] : try self.context.fetch(request)
+            localSessions = isTest ? [] : try self.context.fetch(request2)
+        } catch {
+            print(error.localizedDescription)
+        }
+        var userId: String?
+        var sessionId: String?
+        if localUserInfo.count > 0 {
+            userId = localUserInfo[0].userId ?? ""
+            sessionId = localSessions[0].sessionId ?? ""
+        }
+        return accountService.markAsFavorite(with: tvId, and: flag, userId: userId ?? "", and: sessionId ?? "")
+    }
+    
+    func getAccountStats(from tvId: Int) -> Single<AccountStatesResponseModel> {
+        var localSessions: [Session] = []
+        let request = Session.fetchRequest() as NSFetchRequest<Session>
+        do {
+            localSessions = isTest ? [] : try self.context.fetch(request)
+        } catch {
+            print(error.localizedDescription)
+        }
+        var sessionId: String?
+        if localSessions.count > 0 {
+            sessionId = localSessions[0].sessionId ?? ""
+        }
+        return tvShowService.getAccountStats(from: tvId, and: sessionId ?? "")
+    }
     
     func getTvShowDetail(with tvId: Int) -> Single<TvShowsDetailModel> {
         return tvShowService.getTvShowDetail(with: tvId).map { detail in
@@ -36,7 +77,7 @@ final class DetailViewModel {
             let predicate = NSPredicate(format: "tvShowId == '\(detail.id ?? 0)'")
             request.predicate = predicate
             do {
-                localDetail = try self.context.fetch(request)
+                localDetail = self.isTest ? [] : try self.context.fetch(request)
             } catch {
                 print(error.localizedDescription)
             }
@@ -142,7 +183,7 @@ final class DetailViewModel {
         let predicate = NSPredicate(format: "tvShowId == '\(tvId)'")
         request.predicate = predicate
         do {
-            detail = try self.context.fetch(request)
+            detail = self.isTest ? [] : try self.context.fetch(request)
         } catch {
             print(error.localizedDescription)
         }
@@ -175,7 +216,7 @@ final class DetailViewModel {
                 let predicate = NSPredicate(format: "castName == '\(cast.name ?? "")'")
                 request.predicate = predicate
                 do {
-                    localCast = try self.context.fetch(request)
+                    localCast = self.isTest ? [] : try self.context.fetch(request)
                 } catch {
                     print(error.localizedDescription)
                 }
@@ -228,7 +269,7 @@ final class DetailViewModel {
         let predicate = NSPredicate(format: "tvShowId == '\(tvId)'")
         request.predicate = predicate
         do {
-            localCast = try self.context.fetch(request)
+            localCast = self.isTest ? [] : try self.context.fetch(request)
         } catch {
             print(error.localizedDescription)
         }

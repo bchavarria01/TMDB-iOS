@@ -15,14 +15,14 @@ class ApplicationCoordinatorTest: XCTestCase {
     func testApplicactionCoordinator() {
         let winwdow = UIWindow()
         let context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let appCoordinator = ApplicationCoordinator(window: winwdow, context: context)
+        let appCoordinator = ApplicationCoordinator(window: winwdow, context: context, isTest: true)
         XCTAssertNoThrow(appCoordinator.setupHomeCoordinator())
     }
     
     func testEndCoordinatorWithAuth() {
         let winwdow = UIWindow()
         let context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let appCoordinator = ApplicationCoordinator(window: winwdow, context: context)
+        let appCoordinator = ApplicationCoordinator(window: winwdow, context: context, isTest: true)
         appCoordinator.setupHomeCoordinator()
         XCTAssertNoThrow(appCoordinator.end(with: .auth))
     }
@@ -30,7 +30,7 @@ class ApplicationCoordinatorTest: XCTestCase {
     func testEndCoordinatorWithHome() {
         let winwdow = UIWindow()
         let context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let appCoordinator = ApplicationCoordinator(window: winwdow, context: context)
+        let appCoordinator = ApplicationCoordinator(window: winwdow, context: context, isTest: true)
         appCoordinator.setupAuthCoordinator()
         XCTAssertNoThrow(appCoordinator.end(with: .home))
     }

@@ -10,6 +10,7 @@ import Foundation
 struct LoginRequestModel: LocalizableErrorBased {
     let username: String
     let password: String
+    let token: String
 }
 
 // MARK: - ValidatableModel

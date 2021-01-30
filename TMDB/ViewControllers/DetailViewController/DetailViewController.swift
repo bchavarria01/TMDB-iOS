@@ -76,9 +76,10 @@ final class DetailViewController: UIViewController {
     lazy var favButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("♡", for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 24)
-        button.setTitleColor(R.Colors.green.color, for: .normal)
+        let image = UIImage(systemName: "heart")
+        image?.withTintColor(R.Colors.green.color, renderingMode: .alwaysTemplate)
+        button.setImage(image, for: .normal)
+        button.tintColor = R.Colors.green.color
         return button
     }()
 
@@ -198,6 +199,7 @@ final class DetailViewController: UIViewController {
     var numberOfSeasons: Int?
     let disposeBag = DisposeBag()
     weak var delegate: DetailViewControllerDelegate?
+    var isFav = false
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
           return .lightContent
@@ -219,6 +221,7 @@ final class DetailViewController: UIViewController {
         mainBackVIew.cornerRadius(with: [.layerMaxXMinYCorner, .layerMinXMinYCorner], cornerRadii: 10)
         setupCollectionView()
         showLoading()
+        getAccountStats()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -245,6 +248,12 @@ final class DetailViewController: UIViewController {
         backButton.addTarget(
             self,
             action: #selector(self.handleBackAction(_:)),
+            for: .touchUpInside
+        )
+        
+        favButton.addTarget(
+            self,
+            action: #selector(self.markUnmarkAsFav),
             for: .touchUpInside
         )
     }
@@ -300,6 +309,42 @@ final class DetailViewController: UIViewController {
                     self.dismiss(animated: true, completion: {
                         self.handleError(error)
                     })
+                }
+            ).disposed(by: disposeBag)
+    }
+    
+    @objc func markUnmarkAsFav() {
+        viewModel.markAsFav(tvId: self.tvId ?? 0, with: !self.isFav)
+            .subscribe(
+                onSuccess: { [weak self] response in
+                    guard let self = self else { return }
+                    let image = self.isFav ? UIImage(systemName: "heart") : UIImage(systemName: "heart.fill")
+                    image?.withTintColor(R.Colors.green.color, renderingMode: .alwaysTemplate)
+                    self.favButton.setImage(image, for: .normal)
+                    self.favButton.tintColor = R.Colors.green.color
+                    self.isFav = !self.isFav
+                }, onError: { [weak self] error in
+                    guard let self = self else { return }
+                    self.handleError(error)
+                }
+            ).disposed(by: disposeBag)
+    }
+    
+    func getAccountStats() {
+        viewModel.getAccountStats(from: self.tvId ?? 0)
+            .subscribe(
+                onSuccess: { [weak self] response in
+                    guard let self = self else { return }
+                    if response.favorite {
+                        let image = UIImage(systemName: "heart.fill")
+                        image?.withTintColor(R.Colors.green.color, renderingMode: .alwaysTemplate)
+                        self.favButton.setImage(image, for: .normal)
+                        self.favButton.tintColor = R.Colors.green.color
+                        self.isFav = true
+                    }
+                }, onError: { [weak self] error in
+                    guard let self = self else { return }
+                    self.handleError(error)
                 }
             ).disposed(by: disposeBag)
     }

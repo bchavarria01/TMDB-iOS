@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+// MARK: - AccountStatesResponseModel
+struct AccountStatesResponseModel: Codable {
+    let id: Int
+    let favorite, rated, watchlist: Bool
+}
+

@@ -2,6 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20C69" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Session" representedClassName="Session" syncable="YES">
         <attribute name="expDate" optional="YES" attributeType="String"/>
+        <attribute name="sessionId" optional="YES" attributeType="String"/>
         <attribute name="token" optional="YES" attributeType="String"/>
     </entity>
     <entity name="TvShowCast" representedClassName="TvShowCast" syncable="YES">
@@ -37,11 +38,18 @@
         <attribute name="tvShowReleaseDate" optional="YES" attributeType="String"/>
         <attribute name="type" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
+    <entity name="UserInfo" representedClassName="UserInfo" syncable="YES">
+        <attribute name="imageData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="imagePath" optional="YES" attributeType="String"/>
+        <attribute name="userId" optional="YES" attributeType="String"/>
+        <attribute name="username" optional="YES" attributeType="String"/>
+    </entity>
     <elements>
-        <element name="Session" positionX="-27" positionY="81" width="128" height="59"/>
+        <element name="Session" positionX="-27" positionY="81" width="128" height="74"/>
         <element name="TvShowCast" positionX="91.03863525390625" positionY="-47.73342895507812" width="128" height="88"/>
         <element name="TvShowDetail" positionX="-143.8035888671875" positionY="78.66061401367188" width="128" height="179"/>
         <element name="TvShowEpisodePerSeason" positionX="136.4754638671875" positionY="104.5745544433594" width="128" height="104"/>
         <element name="TvShowList" positionX="-184.9159545898438" positionY="-72.03524780273438" width="128" height="134"/>
+        <element name="UserInfo" positionX="-27" positionY="81" width="128" height="89"/>
     </elements>
 </model>

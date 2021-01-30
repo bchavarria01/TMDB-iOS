@@ -22,12 +22,8 @@ class LoginViewControllerTest: XCTestCase {
         loginController.usernameTextField.text = validUsername
         loginController.passwordField.text = validPassword
         let button = UIButton()
-        let expectation = self.expectation(description: "")
         loginController.handleLogInSelection(button)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
-            expectation.fulfill()
-        })
-        waitForExpectations(timeout: 6, handler: nil)
+        XCTAssertNoThrow(loginController.handleLogInSelection(button))
         
     }
     
@@ -42,12 +38,7 @@ class LoginViewControllerTest: XCTestCase {
         loginController.usernameTextField.text = validUsername
         loginController.passwordField.text = validPassword
         let button = UIButton()
-        let expectation = self.expectation(description: "")
-        loginController.handleLogInSelection(button)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
-            expectation.fulfill()
-        })
-        waitForExpectations(timeout: 6, handler: nil)
+        XCTAssertNoThrow(loginController.handleLogInSelection(button))
     }
     
     func testKeyboardWillChange() {

@@ -19,6 +19,7 @@ enum K {
     enum ServicesPath {
         static let token = URL(string: "\(baseURL)/authentication/token/new")!
         static let validateWithLogin = URL(string: "\(baseURL)/authentication/token/validate_with_login")!
+        static let createSession = URL(string: "\(baseURL)/authentication/session/new")!
     }
     
     

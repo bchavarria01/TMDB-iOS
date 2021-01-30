@@ -36,7 +36,7 @@ final class LoginViewModel {
     
     func getToken() -> Single<DefaultResponseModel> {
         return authService.getToken().map { (responseModel) -> DefaultResponseModel in
-            DefaultPreferences.current.requestToken = responseModel.requestToken
+            DefaultPreferences.current.token = responseModel.requestToken
             return responseModel
         }
     }
@@ -52,7 +52,7 @@ final class LoginViewModel {
                 return Single.error(LoginRequestException.password)
         }
         
-        let loginRequestModel = LoginRequestModel(username: username, password: password)
+        let loginRequestModel = LoginRequestModel(username: username, password: password, token: DefaultPreferences.current.token ?? "")
         
         if let validationExeption = loginRequestModel.localizeError() {
             return Single.error(validationExeption)
@@ -61,7 +61,6 @@ final class LoginViewModel {
         return authService.authenticateWithLogin(with: loginRequestModel)
             .map { (responseModel) -> DefaultResponseModel in
                 if responseModel.requestToken != nil {
-                    DefaultPreferences.current.requestToken = responseModel.requestToken
                     // Delete every time user request a new token
                     self.deleteSession()
                     // Create a new session locally

@@ -14,7 +14,7 @@ class HomeViewControllerTest: XCTestCase {
     func testHomeViewController() {
         let context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let homeViewController = HomeViewController()
-        let viewModel = HomeViewModel(tvShowService: TvShowsService(), context: context)
+        let viewModel = HomeViewModel(tvShowService: TvShowsService(), authService: AuthService(), accountService: AccountService(), context: context, isTest: true)
         homeViewController.viewModel = viewModel
         XCTAssertNoThrow(homeViewController.viewDidLoad())
     }
@@ -22,7 +22,7 @@ class HomeViewControllerTest: XCTestCase {
     func testHandleMenuSelection() {
         let context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let homeViewController = HomeViewController()
-        let viewModel = HomeViewModel(tvShowService: TvShowsService(), context: context)
+        let viewModel = HomeViewModel(tvShowService: TvShowsService(), authService: AuthService(), accountService: AccountService(), context: context, isTest: true)
         homeViewController.viewModel = viewModel
         homeViewController.viewDidLoad()
         XCTAssertNoThrow(homeViewController.handleMenuSelection())
@@ -31,10 +31,18 @@ class HomeViewControllerTest: XCTestCase {
     func testDidSelectTvShow() {
         let context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let homeViewController = HomeViewController()
-        let viewModel = HomeViewModel(tvShowService: TvShowsService(), context: context)
+        let viewModel = HomeViewModel(tvShowService: TvShowsService(), authService: AuthService(), accountService: AccountService(), context: context, isTest: true)
         homeViewController.viewModel = viewModel
         homeViewController.viewDidLoad()
         XCTAssertNoThrow(homeViewController.showAlert(title: "", message: "", handler: nil))
+    }
+    
+    func testViewModel() {
+        let context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let viewModel = HomeViewModel(tvShowService: TvShowsService(), authService: AuthService(), accountService: AccountService(), context: context, isTest: true)
+        
+        viewModel.deleteSession()
+        _ = viewModel.createNewSession()
     }
 
 }

@@ -28,4 +28,12 @@ final class AuthService {
             .asObservable()
             .asSingle()
     }
+    
+    func createNewSession(with token: String) -> Single<DefaultResponseModel> {
+        return provider.rx.request(.createSession(token: token))
+            .filterSuccessfulStatusCodes()
+            .map(DefaultResponseModel.self)
+            .asObservable()
+            .asSingle()
+    }
 }

@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
-        let applicationCoordinator = ApplicationCoordinator(window: window, context: context)
+        let applicationCoordinator = ApplicationCoordinator(window: window, context: context, isTest: false)
         
         self.window = window
         self.applicationCoordinator = applicationCoordinator

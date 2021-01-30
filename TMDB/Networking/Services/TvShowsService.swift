@@ -64,4 +64,12 @@ final class TvShowsService {
             .map(SeasonInfoResponseModel.self)
             .asObservable()
     }
+    
+    func getAccountStats(from tvId: Int, and sessionId: String) -> Single<AccountStatesResponseModel> {
+        return provider.rx.request(.getAccountStatFrom(tvId: tvId, sessionId: sessionId))
+            .filterSuccessfulStatusCodes()
+            .map(AccountStatesResponseModel.self)
+            .asObservable()
+            .asSingle()
+    }
 }

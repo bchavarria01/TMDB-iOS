@@ -167,6 +167,7 @@ final class HomeViewController: UIViewController {
                             self.currentFilterOption = self.newFilterOption
                         }
                         self.collectionView.reloadData()
+                        self.createSesionsAndGetUserInfo()
                     })
                 }, onError: { [weak self] error in
                     guard let self = self else { return }
@@ -177,7 +178,33 @@ final class HomeViewController: UIViewController {
                     })
                 }
             ).disposed(by: disposeBag)
-        
+    }
+    
+    func createSesionsAndGetUserInfo() {
+        showLoading(with: "Getting user info")
+        viewModel.createNewSession().subscribe(
+            onSuccess: { [weak self] response in
+                guard let self = self else { return }
+                print(response)
+                self.viewModel.getAccountInfo().subscribe(
+                    onSuccess: { [weak self] response in
+                        guard let self = self else { return }
+                        print(response)
+                        self.dismiss(animated: true, completion: nil)
+                    }, onError: { [weak self] error in
+                        guard let self = self else { return }
+                        self.dismiss(animated: true, completion: {
+                            self.handleError(error)
+                        })
+                    }
+                ).disposed(by: self.disposeBag)
+            }, onError: { [weak self] error in
+                guard let self = self else { return }
+                self.dismiss(animated: true, completion: {
+                    self.handleError(error)
+                })
+            }
+        ).disposed(by: disposeBag)
     }
     
     @objc func handleMenuSelection() {
@@ -255,6 +282,8 @@ extension HomeViewController: CustomRadioButtonControllerDelegate {
         let tvShowType = TvShowsFilterType(rawValue: sender?.tag ?? 0) ?? .popular
         newFilterOption = tvShowType
         self.showLoading()
+        currentPage = 1
+        viewModel.page.onNext(1)
         viewModel.type.onNext(tvShowType)
     }
 }

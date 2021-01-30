@@ -13,6 +13,7 @@ struct DefaultResponseModel: Codable {
     let requestToken: String?
     let statusCode: Int?
     let message: String?
+    let sessionId: String?
     
     enum CodingKeys: String, CodingKey {
         case success
@@ -20,5 +21,6 @@ struct DefaultResponseModel: Codable {
         case requestToken = "request_token"
         case statusCode = "status_code"
         case message = "status_message"
+        case sessionId = "session_id"
     }
 }

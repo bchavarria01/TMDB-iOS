@@ -30,13 +30,16 @@ final class SeasonsViewModel {
     // MARK: - Attributes
     
     let context: NSManagedObjectContext!
+    var isTest: Bool
     
     // MARK: - LifeCycle
     
     init(tvShowService: TvShowsService,
-         context: NSManagedObjectContext) {
+         context: NSManagedObjectContext,
+         isTest: Bool) {
         self.tvShowService = tvShowService
         self.context = context
+        self.isTest = isTest
         
         seasonsList = Observable.combineLatest(
             tvId,
@@ -52,7 +55,7 @@ final class SeasonsViewModel {
                     let predicate = NSPredicate(format: "episodeId == '\(episode.id ?? 0)'")
                     request.predicate = predicate
                     do {
-                         localSeasonInfo = try context.fetch(request)
+                         localSeasonInfo = isTest ? [] : try context.fetch(request)
                     } catch {
                         print(error.localizedDescription)
                     }
@@ -116,7 +119,7 @@ final class SeasonsViewModel {
                 let predicate = NSPredicate(format: "tvShowId == '\(tvId)' AND seasonName == 'Season \(seasonId ?? 0)'")
                 request.predicate = predicate
                 do {
-                     localSeasonInfo = try context.fetch(request)
+                     localSeasonInfo = isTest ? [] : try context.fetch(request)
                 } catch {
                     print(error.localizedDescription)
                 }

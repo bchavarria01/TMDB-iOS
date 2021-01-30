@@ -68,7 +68,7 @@ final class LoginViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.isEnabled = false
         button.layer.cornerRadius = 5
-        button.backgroundColor = R.Colors.green.color
+        button.backgroundColor = R.Colors.gray.color
         button.setTitle(L10n.loginAction, for: .normal)
         return button
     }()
@@ -78,6 +78,9 @@ final class LoginViewController: UIViewController {
     weak var delegate: LoginViewControllerDelegate?
     var viewModel: LoginViewModel!
     let disposeBag = DisposeBag()
+    
+    var usernameHasValue: Bool = false
+    var passwordHasValue: Bool = false
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
           return .lightContent
@@ -137,9 +140,7 @@ final class LoginViewController: UIViewController {
         viewModel.getToken()
             .subscribe(onSuccess: { [weak self] response in
                 guard let self = self else { return }
-                self.dismiss(animated: true, completion: {
-                    DefaultPreferences.current.requestToken = response.requestToken
-                })
+                self.dismiss(animated: true, completion: nil)
             }, onError: { [weak self] error in
                 guard let self = self else { return }
                 self.dismiss(animated: true, completion: {
@@ -194,8 +195,6 @@ final class LoginViewController: UIViewController {
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
-        var usernameHasValue: Bool = false
-        var passwordHasValue: Bool = false
         if textField.tag == 0 {
             usernameHasValue = textField.text != ""
         } else if textField.tag == 1 {
@@ -203,9 +202,11 @@ final class LoginViewController: UIViewController {
         }
         
         if usernameHasValue && passwordHasValue {
+            logInButton.backgroundColor = R.Colors.green.color
             logInButton.isEnabled = true
         } else {
-            logInButton.isEnabled = true
+            logInButton.backgroundColor = R.Colors.gray.color
+            logInButton.isEnabled = false
         }
     }
     

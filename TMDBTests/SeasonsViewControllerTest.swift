@@ -14,15 +14,8 @@ class SeasonsViewControllerTest: XCTestCase {
     func testSeasonsViewController() {
         let context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let controller = SeasonsViewController()
-        let viewModel = SeasonsViewModel(tvShowService: TvShowsService(), context: context)
+        let viewModel = SeasonsViewModel(tvShowService: TvShowsService(), context: context, isTest: true)
         controller.viewModel = viewModel
-        let expectation = self.expectation(description: "")
-        controller.viewDidLoad()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
-            expectation.fulfill()
-        })
-        waitForExpectations(timeout: 6, handler: nil)
-        
+        XCTAssertNoThrow(controller.viewDidLoad())
     }
-    
 }

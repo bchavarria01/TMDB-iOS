@@ -17,7 +17,8 @@ class HomeCoordinatorTest: XCTestCase {
         let homeCoordinator = HomeCoordinator(
             presenter: nextPresenter,
             parentCoordinator: nil,
-            context: context
+            context: context,
+            isTest: true
         )
         let childsCount = homeCoordinator.childCoordinators.count
         XCTAssertEqual(0, childsCount)
@@ -29,7 +30,8 @@ class HomeCoordinatorTest: XCTestCase {
         let homeCoordinator = HomeCoordinator(
             presenter: nextPresenter,
             parentCoordinator: nil,
-            context: context
+            context: context,
+            isTest: true
         )
         XCTAssertNoThrow(homeCoordinator.start())
     }
@@ -40,7 +42,8 @@ class HomeCoordinatorTest: XCTestCase {
         let homeCoordinator = HomeCoordinator(
             presenter: nextPresenter,
             parentCoordinator: nil,
-            context: context
+            context: context,
+            isTest: true
         )
         XCTAssertNoThrow(homeCoordinator.endCoordinator())
     }

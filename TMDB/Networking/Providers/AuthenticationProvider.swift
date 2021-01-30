@@ -10,6 +10,7 @@ import Moya
 enum AuthenticationProvider {
     case getToken
     case authenticateWithLogin(request: LoginRequestModel)
+    case createSession(token: String)
 }
 
 // MARK: - TargetType
@@ -22,6 +23,9 @@ extension AuthenticationProvider: TargetType {
             
         case .authenticateWithLogin:
             return K.ServicesPath.validateWithLogin
+            
+        case .createSession:
+            return K.ServicesPath.createSession
         }
     }
 
@@ -35,7 +39,7 @@ extension AuthenticationProvider: TargetType {
     var method: Moya.Method {
         switch self {
         case .getToken:  return .get
-        case .authenticateWithLogin: return .post
+        case .authenticateWithLogin, .createSession: return .post
         }
     }
 
@@ -56,7 +60,11 @@ extension AuthenticationProvider: TargetType {
             encoding = URLEncoding.default
             parameters["username"] = request.username
             parameters["password"] = request.password
-            parameters["request_token"] = DefaultPreferences.current.requestToken
+            parameters["request_token"] = request.token
+            
+        case let .createSession(token):
+            encoding = URLEncoding.default
+            parameters["request_token"] = token
         }
         
         return .requestParameters(
@@ -67,10 +75,8 @@ extension AuthenticationProvider: TargetType {
 
     var headers: [String : String]? {
         switch self {
-        case .getToken, .authenticateWithLogin:
+        default:
             return K.MoyaDefaults.defaultHeaders
         }
     }
 }
-
-

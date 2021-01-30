@@ -15,6 +15,7 @@ enum TvShowsProvider {
     case getDetail(tvId: Int)
     case getCredits(tvId: Int)
     case getSeasonInfo(tvId: Int, seasonId: Int)
+    case getAccountStatFrom(tvId: Int, sessionId: String)
 }
 
 // MARK: - TargetType
@@ -42,6 +43,9 @@ extension TvShowsProvider: TargetType {
         
         case let .getSeasonInfo(tvId, seasonId):
             return URL(string: "\(K.baseURL)/tv/\(tvId)/season/\(seasonId)")!
+            
+        case let .getAccountStatFrom(tvId, sessionId):
+            return URL(string: "\(K.baseURL)/tv/\(tvId)/account_states?session_id=\(sessionId)")!
         }
     }
     
