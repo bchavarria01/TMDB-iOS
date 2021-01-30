@@ -22,6 +22,11 @@ jobs:
 
     - name: Install Dependencies
       run: pod install --repo-update
-    
-    - name: Build
-      run: xcodebuild clean build -allowProvisioningUpdates -workspace TMDB.xcworkspace -scheme "TMDB"
+    - name: Build and test
+      run: |
+          cd TMDB
+          xcodebuild clean test -workspace TMDB.xcworkspace -scheme "TMDB" -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+          bash <(curl -s https://codecov.io/bash)
+    #- name: Build
+    #  run: xcodebuild clean build -allowProvisioningUpdates -workspace TMDB.xcworkspace -scheme "TMDB"
+      
