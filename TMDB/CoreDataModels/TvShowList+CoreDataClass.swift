@@ -2,7 +2,7 @@
 //  TvShowList+CoreDataClass.swift
 //  
 //
-//  Created by Byron Chavarría on 3/1/21.
+//  Created by Byron Chavarría on 30/1/21.
 //
 //
 
