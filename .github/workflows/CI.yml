@@ -20,5 +20,5 @@ jobs:
     - name: XCode version
       run: /usr/bin/xcodebuild -version
     
-    - name: Build and Test
-      run: xcodebuild clean build test -wokspace TMDB.wokspace -scheme "TMBD"
+    - name: Build
+      run: xcodebuild clean build -workspace TMDB.xcworkspace -scheme "TMDB"
