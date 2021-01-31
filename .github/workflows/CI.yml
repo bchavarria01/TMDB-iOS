@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  install-dependencies:
+  install-dependencies-and-test:
 
     runs-on: macos-latest
 
@@ -22,21 +22,24 @@ jobs:
 
     - name: Install Dependencies
       run: pod install --repo-update
+    
+    - name: Run unit tests
+      run: xcodebuild test -scheme TMDB -project TMDB.xcodeproj -destination 'platform=iOS Simulator,OS=14.3,name=iPhone 12 Pro Max' | xcpretty && exit ${PIPESTATUS[0]}
 
 #     - name: Build
 #       run: xcodebuild clean build -allowProvisioningUpdates -workspace TMDB.xcworkspace -scheme "TMDB"
       
-  Test:
-     runs-on: macOs-latest
-     steps:
-     - uses: actions/checkout@v2
+#   Test:
+#      runs-on: macOs-latest
+#      steps:
+#      - uses: actions/checkout@v2
 
-     - name: Select XCode
-       run: sudo xcode-select -switch /Applications/Xcode.app
+#      - name: Select XCode
+#        run: sudo xcode-select -switch /Applications/Xcode.app
 
-     - name: XCode version
-       run: /usr/bin/xcodebuild -version
+#      - name: XCode version
+#        run: /usr/bin/xcodebuild -version
 
-     - name: Run unit tests
-       run: xcodebuild test -scheme TMDB -project TMDB.xcodeproj -destination 'platform=iOS Simulator,OS=14.3,name=iPhone 12 Pro Max' | xcpretty && exit ${PIPESTATUS[0]}
+#      - name: Run unit tests
+#        run: xcodebuild test -scheme TMDB -project TMDB.xcodeproj -destination 'platform=iOS Simulator,OS=14.3,name=iPhone 12 Pro Max' | xcpretty && exit ${PIPESTATUS[0]}
       
