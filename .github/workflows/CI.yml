@@ -20,6 +20,9 @@ jobs:
 
     - name: XCode version
       run: /usr/bin/xcodebuild -version
+    
+    - name: Install Dependencies
+      run: pod install --repo-update
       
     - name: Run unit tests
       run: xcodebuild test -scheme TMDB -project TMDB.xcodeproj -destination 'platform=iOS Simulator,OS=14.3,name=iPhone 12 Pro Max' | xcpretty && exit ${PIPESTATUS[0]}
