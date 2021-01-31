@@ -38,5 +38,5 @@ jobs:
        run: /usr/bin/xcodebuild -version
 
      - name: Run unit tests
-       run: xcodebuild test -scheme TMDB -project TMDB.xcodeproj -destination 'platform:iOS Simulator, id:B7212137-8D9C-4EE0-924C-2AC82BEED2E4, OS:14.3, name:iPhone 12 Pro Max' | xcpretty && exit ${PIPESTATUS[0]}
+       run: xcodebuild test -scheme TMDB -project TMDB.xcodeproj -destination 'platform:iOS Simulator,id:B7212137-8D9C-4EE0-924C-2AC82BEED2E4,OS:14.3,name:iPhone 12 Pro Max' | xcpretty && exit ${PIPESTATUS[0]}
       
