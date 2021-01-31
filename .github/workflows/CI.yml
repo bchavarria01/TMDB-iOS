@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build-and-test:
+  install-dependencies:
 
     runs-on: macos-latest
 
@@ -22,11 +22,21 @@ jobs:
 
     - name: Install Dependencies
       run: pod install --repo-update
-    - name: Build and test
-      run: |
-          cd TMDB
-          xcodebuild clean test -workspace TMDB.xcworkspace -scheme "TMDB" -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
-          bash <(curl -s https://codecov.io/bash)
-    #- name: Build
-    #  run: xcodebuild clean build -allowProvisioningUpdates -workspace TMDB.xcworkspace -scheme "TMDB"
+
+#     - name: Build
+#       run: xcodebuild clean build -allowProvisioningUpdates -workspace TMDB.xcworkspace -scheme "TMDB"
+      
+  Test:
+     runs-on: macOs-latest
+     steps:
+     - uses: actions/checkout@v2
+
+     - name: Select XCode
+       run: sudo xcode-select -switch /Applications/Xcode.app
+
+     - name: XCode version
+       run: /usr/bin/xcodebuild -version
+
+     - name: Run unit tests
+       run: xcodebuild test -scheme TMDB -project TMDB.xcodeproj - destination 'platform=iOS Simulator,name=iPhone 11,OS=13.3' | xcpretty && exit ${PIPESTATUS[0]}
       
